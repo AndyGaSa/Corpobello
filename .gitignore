@@ -359,3 +359,6 @@ auth-data.js
 
 /.expo
 .expo/
+
+#next config
+next.config.js
