@@ -1,5 +1,5 @@
 {
-  "name": "icomunicate-pau-gallardo",
+  "name": "corpobello",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,8 +10,11 @@
     "test": "jest --watchAll --collect-coverage"
   },
   "dependencies": {
+    "debug": "^4.3.2",
+    "dotenv": "^10.0.0",
     "jest": "^27.1.0",
     "mongoose": "^6.0.2",
+    "morgan": "^1.10.0",
     "next": "11.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
