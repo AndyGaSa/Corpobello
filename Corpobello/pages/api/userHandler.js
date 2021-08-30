@@ -1,4 +1,4 @@
-import connectDB from '../../middlewares/mongodb';
+import connectDB from '../../middlewares/mongoose.config';
 import {
   createNewUser, getOneUser, updateUser,
 } from '../../lib/controllers/userController';
