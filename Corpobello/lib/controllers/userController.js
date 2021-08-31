@@ -26,12 +26,20 @@ export async function createNewUser(req, res) {
   }
 }
 
-export async function getOneUser(req, res) {
-  const { userId } = req.body;
+export async function login(req, res) {
+  const { email } = req.body;
   try {
-    const foundUser = await User.findById(userId);
-    res.send(foundUser);
-    res.status(200);
+    const foundUser = await User.findOne({ email });
+    console.log(foundUser);
+    bcrypt.compare(req.body.password, foundUser.password, (err, result) => {
+      if (!err && result) {
+        res.send(foundUser);
+        res.status(200);
+      } else {
+        res.json({ message: 'Ups, something went wrong!' });
+        res.status(401);
+      }
+    });
   } catch (error) {
     handleError(error, res);
   }
