@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt';
+import { sign } from 'jsonwebtoken';
 import User from '../../models/userModel';
 import handleError from '../../utils/handleError';
 
@@ -12,11 +13,11 @@ export async function createNewUser(req, res) {
     } else {
       bcrypt.hash(req.body.password, 12, async (err, hash) => {
         if (err) {
-          console.error(err);
+          handleError(err);
           return;
         }
         req.body.password = await hash;
-        newUser = await User.create(req.body);
+        newUser = User.create(req.body);
         res.status(200);
         res.send(newUser);
       });
@@ -30,10 +31,14 @@ export async function login(req, res) {
   const { email } = req.body;
   try {
     const foundUser = await User.findOne({ email });
-    console.log(foundUser);
-    bcrypt.compare(req.body.password, foundUser.password, (err, result) => {
+    const { _id } = foundUser;
+    bcrypt.compare(req.body.password, foundUser.password, async (err, result) => {
       if (!err && result) {
-        res.send(foundUser);
+        const data = { sub: _id, email };
+        const jwt = await sign(data,
+          process.env.jwt_secret,
+          { expiresIn: '1h' });
+        res.json({ authToken: jwt });
         res.status(200);
       } else {
         res.json({ message: 'Ups, something went wrong!' });
