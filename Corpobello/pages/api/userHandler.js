@@ -1,14 +1,10 @@
-import connectDB from '../../middlewares/mongoose.config';
+import connectDB from '../../config/mongoose.config';
 import {
-  createNewUser, getOneUser, updateUser,
+  getOneUser, updateUser,
 } from '../../lib/controllers/userController';
 
 const userHandler = async (req, res) => {
   switch (req.method) {
-    case 'POST':
-      await createNewUser(req, res);
-      break;
-
     case 'GET':
       await getOneUser(req, res);
       break;

@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt';
 import User from '../../models/userModel';
 import handleError from '../../utils/handleError';
 
@@ -9,10 +10,17 @@ export async function createNewUser(req, res) {
     if (foundUser) {
       newUser = 'Ya existe un usuario con ese email';
     } else {
-      newUser = await User.create(req.body);
+      bcrypt.hash(req.body.password, 12, async (err, hash) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        req.body.password = await hash;
+        newUser = await User.create(req.body);
+        res.status(200);
+        res.send(newUser);
+      });
     }
-    res.send(newUser);
-    res.status(200);
   } catch (error) {
     handleError(error, res);
   }
