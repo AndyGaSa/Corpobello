@@ -1,4 +1,4 @@
-import connectDB from '../../middlewares/mongoose.config';
+import connectDB from '../../config/mongoose.config';
 import {
   createNewReserve, getReserves, deleteReserve, updateReserve,
 } from '../../lib/controllers/reserveController';
