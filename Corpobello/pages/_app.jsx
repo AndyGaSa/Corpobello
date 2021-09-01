@@ -1,11 +1,14 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import '../styles/globals.css';
+import Header from '../components/Header/Header';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Component {...pageProps} />
+    <>
+      <Header />
+      <Component {...pageProps} />
+    </>
   );
 }
 
