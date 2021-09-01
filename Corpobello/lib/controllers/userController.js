@@ -18,9 +18,9 @@ export async function createNewUser(req, res) {
         }
         req.body.password = await hash;
         newUser = User.create(req.body);
-        res.status(200);
-        res.send(newUser);
       });
+      res.status(200);
+      res.send(newUser);
     }
   } catch (error) {
     handleError(error, res);

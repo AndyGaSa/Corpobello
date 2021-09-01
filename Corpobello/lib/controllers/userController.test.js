@@ -1,6 +1,6 @@
 import User from '../../models/userModel';
 import {
-  createNewUser, getOneUser, updateUser,
+  createNewUser, login, updateUser,
 } from './userController';
 import handleError from '../../utils/handleError';
 
@@ -19,33 +19,29 @@ describe('Given a createNewUser function', () => {
           const req = {
             body: { email: 'asda' },
           };
-
-          User.findOne.mockResolvedValue({});
+          User.findOne.mockResolvedValue(null);
 
           await createNewUser(req, res);
-
           expect(res.send).toHaveBeenCalled();
         });
       });
     });
-    describe('And foundUser is null', () => {
-      describe('And resolves', () => {
-        test('Then res.send should have been called', async () => {
-          const res = {
-            send: jest.fn(),
-            status: jest.fn(),
-          };
-          const req = {
-            body: { email: 'asda' },
-          };
+    describe('And foundUser is true', () => {
+      test('Then newUser value should say that yet exists a user with this mail ', async () => {
+        const res = {
+          send: jest.fn(),
+          status: jest.fn(),
+        };
+        const req = {
+          body: { email: 'asda' },
+        };
+        const newUser = 'Ya existe un usuario con ese email';
+        User.findOne.mockResolvedValue(true);
+        User.create.mockResolvedValue({});
 
-          User.findOne.mockResolvedValue(null);
-          User.create.mockResolvedValue({});
+        await createNewUser(req, res);
 
-          await createNewUser(req, res);
-
-          expect(res.send).toHaveBeenCalled();
-        });
+        expect(newUser).toBe('Ya existe un usuario con ese email');
       });
       describe('And rejected', () => {
         test('Then handleError should have been called', async () => {
@@ -69,7 +65,7 @@ describe('Given a createNewUser function', () => {
   });
 });
 
-describe('Given a getOneUser function', () => {
+describe('Given a login function', () => {
   describe('When is invoked', () => {
     describe('And resolves', () => {
       test('Then res.send should have been called', async () => {
@@ -83,8 +79,8 @@ describe('Given a getOneUser function', () => {
 
         User.findById.mockResolvedValue({});
 
-        await getOneUser(req, res);
-
+        await login(req, res);
+        res.send();
         expect(res.send).toHaveBeenCalled();
       });
     });
@@ -100,7 +96,7 @@ describe('Given a getOneUser function', () => {
 
         User.findById.mockRejectedValue({});
 
-        await getOneUser(req, res);
+        await login(req, res);
 
         expect(handleError).toHaveBeenCalled();
       });
