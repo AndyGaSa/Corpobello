@@ -1,31 +1,41 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import { useRouter } from 'next/router';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import bigLogoCb from '../../images/bigLogoCb.svg';
-import './Header.css';
 
 export default function Header() {
+  let { pathname } = useRouter();
+  pathname = pathname.substring(1);
+  const [allValues, setAllValues] = useState({});
+  useEffect(() => {
+    if (pathname.length === 0) {
+      setAllValues({ home: 'actualPage' });
+    } else {
+      setAllValues({ [pathname]: 'actualPage' });
+    }
+  }, [pathname]);
   return (
     <header>
-      <Image src={bigLogoCb} alt="Picture of the author" />
+      <Image src={bigLogoCb} alt="Logo" />
       <Link href="/">
-        <a>INICIO</a>
+        <a className={allValues.home}>INICIO</a>
       </Link>
       <Link href="/services">
-        <a>SERVICIOS</a>
+        <a className={allValues.services}>SERVICIOS</a>
       </Link>
       <Link href="/reserves">
-        <a>RESERVA</a>
+        <a className={allValues.reserves}>RESERVA</a>
       </Link>
       <Link href="/events">
-        <a>EVENTOS</a>
+        <a className={allValues.events}>EVENTOS</a>
       </Link>
       <Link href="/contact">
-        <a>CONTACTO</a>
+        <a className={allValues.contact}>CONTACTO</a>
       </Link>
       <Link href="/login">
-        <a>INCIAR SESION</a>
+        <a className={allValues.login}>INCIAR SESION</a>
       </Link>
     </header>
   );
