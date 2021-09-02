@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-// import Image from 'next/image';
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (
@@ -11,7 +11,24 @@ export default function Home() {
         <link rel="icon" href="https://i.ibb.co/3Ryht66/Corpobello-Logo-Corto.png" />
       </Head>
       <main>
-        <h1>Estas en home</h1>
+        <section className={styles.landingBg}>
+          <div className={styles.landingSection}>
+            <h3>EN CORPOBELLO</h3>
+            <h2>
+              TÚ ERES
+              <br />
+              LA ESTRELLA
+            </h2>
+            <p>
+              Alimentando dentro de sí mismas el deseo de preservar la belleza
+              eterna de la piel de las mujeres vietnamitas,
+              no solo se ganan la confianza de los clientes gracias a un equipo profesional,
+              sino que también brindan soluciones y tecnologías líderes transferidas
+              desde países extranjeros hasta los estándares internacionales
+            </p>
+            <button type="button">RESERVA YA</button>
+          </div>
+        </section>
       </main>
     </>
   );
