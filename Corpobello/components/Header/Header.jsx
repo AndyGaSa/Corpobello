@@ -35,7 +35,7 @@ export default function Header() {
         <a className={allValues.contact}>CONTACTO</a>
       </Link>
       <Link href="/login">
-        <a className={allValues.login}>INCIAR SESION</a>
+        <a className={allValues.login}>INICIAR SESIÓN</a>
       </Link>
     </header>
   );
