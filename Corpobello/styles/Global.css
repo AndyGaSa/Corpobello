@@ -37,10 +37,10 @@ body::-webkit-scrollbar {
 }
  
 body::-webkit-scrollbar-track {
-  background-color: rgba(123, 122, 121, 1);
+  background-color: rgba(32, 41, 30 , 1);
 }
  
 body::-webkit-scrollbar-thumb {
   border-radius: 100px;
-  background-image: linear-gradient(180deg, #445840 0%, #0A0E0D 99%);
+  background-image: linear-gradient(180deg, rgba(123, 122, 121, 0.8) 0%, #445840 99%);
 }
