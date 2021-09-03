@@ -43,6 +43,7 @@
 }
 .arrowbounce {
   padding-top: 80px;
+  transition: width 2s, height 4s;
   width: 40px;
   color: #FFFFFF;
   left: 10%;

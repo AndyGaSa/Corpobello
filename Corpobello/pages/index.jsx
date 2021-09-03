@@ -33,13 +33,13 @@ export default function Home() {
             </p>
             <button type="button">RESERVA YA</button>
             <div className={styles.arrowbounce}>
-              <Link href="/reserves">
+              <Link href="#services">
                 <Image src={downArrow} className={styles.arrowDown} alt="Arrow Down" />
               </Link>
             </div>
           </div>
         </section>
-        <section className={styles.ourServices}>
+        <section className={styles.ourServices} id="services">
           <h3>CORPOBELLO</h3>
           <h2>NUESTROS SERVICIOS</h2>
           <hr />
