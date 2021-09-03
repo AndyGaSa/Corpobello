@@ -39,6 +39,21 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <section>
+          <h3>CORPOBELLO</h3>
+          <h2>NUESTROS SERVICIOS</h2>
+          <hr />
+          <ul>
+            <li>
+              <Image src={downArrow} alt="Arrow Down" />
+              <div>
+                <h3>PELUQUERIA</h3>
+                <h4>CUIDAMOS TU PELO</h4>
+                <p />
+              </div>
+            </li>
+          </ul>
+        </section>
       </main>
     </>
   );
