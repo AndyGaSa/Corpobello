@@ -13,8 +13,12 @@
   height: 100vh;
   letter-spacing: 0.2em;
 }
+.landingSection > a { 
+  color: white;
+  text-decoration: none;
+}
 .landingSection > h3 {
-  margin-top: 50px;
+  margin-top: 220px;
   font-size: 22px;
   margin-bottom: 20px;
 }
@@ -31,9 +35,30 @@
   height: 55px;
   left: 610.25px;
   top: 609.53px;
-  background: rgba(196, 196, 196, 0.8);
+  background: rgba(196, 196, 196, 0.35);
   border: 3px solid #FFFFFF;
   border-radius: 1000px;
   color: #FFFFFF;
   font-size: 24px;
+}
+.arrowbounce {
+  padding-top: 80px;
+  width: 40px;
+  color: #FFFFFF;
+  left: 10%;
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
 }
