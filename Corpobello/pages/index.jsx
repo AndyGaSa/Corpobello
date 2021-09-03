@@ -1,5 +1,10 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/anchor-has-content */
 import React from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/image';
+import downArrow from '../images/downArrow.svg';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -27,6 +32,11 @@ export default function Home() {
               desde países extranjeros hasta los estándares internacionales
             </p>
             <button type="button">RESERVA YA</button>
+            <div className={styles.arrowbounce}>
+              <Link href="/reserves">
+                <Image src={downArrow} className={styles.arrowDown} alt="Arrow Down" />
+              </Link>
+            </div>
           </div>
         </section>
       </main>
