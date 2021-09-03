@@ -39,17 +39,48 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section>
+        <section className={styles.ourServices}>
           <h3>CORPOBELLO</h3>
           <h2>NUESTROS SERVICIOS</h2>
           <hr />
-          <ul>
-            <li>
-              <Image src={downArrow} alt="Arrow Down" />
+          <ul className={styles.servicesCards}>
+            <li className={styles.serviceCardOne}>
+              <div>
+                <h3>MASAJES</h3>
+                <h4>CUIDAMOS TU PELO</h4>
+                <p>
+                  Blanquea, desvanece la oscuridad, previene hongos / pecas y rejuvenece
+                  la piel con propiedades de vitamina C pura
+                </p>
+                <Link href="/services">
+                  <button type="button"> CUENTAME MAS</button>
+                </Link>
+              </div>
+            </li>
+            <li className={styles.serviceCardTwo}>
               <div>
                 <h3>PELUQUERIA</h3>
                 <h4>CUIDAMOS TU PELO</h4>
-                <p />
+                <p>
+                  Blanquea, desvanece la oscuridad, previene hongos / pecas y rejuvenece
+                  la piel con propiedades de vitamina C pura
+                </p>
+                <Link href="/services">
+                  <button type="button"> CUENTAME MAS</button>
+                </Link>
+              </div>
+            </li>
+            <li className={styles.serviceCardThree}>
+              <div>
+                <h3>SPA</h3>
+                <h4>CUIDAMOS TU PELO</h4>
+                <p>
+                  Blanquea, desvanece la oscuridad, previene hongos / pecas y rejuvenece
+                  la piel con propiedades de vitamina C pura
+                </p>
+                <Link href="/services">
+                  <button type="button"> CUENTAME MAS</button>
+                </Link>
               </div>
             </li>
           </ul>
