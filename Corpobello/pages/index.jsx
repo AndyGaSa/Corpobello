@@ -32,7 +32,9 @@ export default function Home() {
               sino que también brindan soluciones y tecnologías líderes transferidas
               desde países extranjeros hasta los estándares internacionales
             </p>
-            <button type="button">RESERVA YA</button>
+            <Link href="/reserves">
+              <button type="button">RESERVA YA</button>
+            </Link>
             <div className={styles.arrowbounce}>
               <Link href="#services">
                 <Image src={downArrow} className={styles.arrowDown} alt="Arrow Down" />
