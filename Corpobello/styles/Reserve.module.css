@@ -1,0 +1,16 @@
+.Reserves{
+    width: 100%;
+    height: 100vh;
+    background-color: #F5B3B7;
+    display: flex;
+}
+.ReservesForm{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+.ReservesCalendar{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
