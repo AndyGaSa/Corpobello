@@ -71,7 +71,8 @@
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
+  max-height: 400vh;
   letter-spacing: 0.2em;
 }
 .ourServices > h3 {
