@@ -1,6 +1,6 @@
 .landingBg{
   background-image: url("https://cdn.pixabay.com/photo/2018/11/11/09/30/dark-green-plant-3808354_1280.jpg");
-  background-size: 100% 100%;
+  background-size: 100vw 100vh;
 }
 .landingSection{
   background-color: rgba(4, 1, 1, 0.32);
@@ -18,16 +18,16 @@
   text-decoration: none;
 }
 .landingSection > h3 {
-  margin-top: 220px;
-  font-size: 22px;
-  margin-bottom: 20px;
+  margin-top: 11.458vw;
+  font-size: 1.146vw;
+  margin-bottom: 1.042vw;
 }
 .landingSection > h2 {
-  font-size: 78px;
+  font-size: 4.063vw;
 }
 .landingSection > p {
-  font-size: 22px;
-  margin: 50px 420px;
+  font-size: 1.46vw;
+  margin: 2.604vw 21.875vw;
 }
 .landingSection > button {
   margin-top: 20px;
@@ -81,7 +81,6 @@
   font-size: 22px;
 }
 .ourServices > h2 {
-  font-size: 20px;
   font-size: 58px;
   margin-bottom: 20px;
 }
@@ -91,10 +90,14 @@
   height: 12px;
   border: 0px;
   background-color: #F5B3B7;
+  padding: 5px;
 }
 .servicesCards{
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   list-style: none;
+  max-width: 90vw;
 }
 .servicesCards > li {
   width: 390px;
@@ -104,6 +107,7 @@
   justify-content: center;
   align-items: center;
   padding-top: 100px;
+  max-width: 90vw;
 }
 .servicesCards > li > div {
   padding-top: 30px;
@@ -146,4 +150,38 @@
   background-image: url(https://i.ibb.co/1dhgDh4/foto-Spa-Naranjas.jpg);
   background-position: center 100%;
   background-size: cover;
+}
+@media (max-width: 900px) {
+  .landingBg{
+    background-size: cover;
+  }
+  .landingSection > h3 {
+    margin-top: 18.458vh;
+    font-size: 3.146vw;
+    margin-bottom: 4.042vh;
+  }
+  .landingSection > h2 {
+    font-size: 7.063vw;
+  }
+  .landingSection > p {
+    font-size: 2.46vw;
+    margin: 5.604vw 4.875vw;
+  }
+}
+@media (max-width: 480px) {
+  .landingSection > h3 {
+    margin-top: 12.458vh;
+    font-size: 4.146vw;
+    margin-bottom: 3.042vh;
+  }
+  .landingSection > h2 {
+    font-size: 9.063vw;
+  }
+  .landingSection > p {
+    font-size: 3.4vw;
+    margin: 5.604vw 3.3vw;
+  }
+  .ourServices > h2 {
+    font-size: 38px;
+  }
 }
