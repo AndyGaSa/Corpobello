@@ -6,7 +6,7 @@
   }
   a{
     font-family: 'Montserrat','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.15vw;
+    font-size: 1.25vw;
     text-decoration: none;
     font-weight: 500;
     color: white;
@@ -33,7 +33,6 @@
   background: #FFFFFF;
   border-radius: 100px;
   padding: 10px 25px;
-
 }
 body::-webkit-scrollbar {
   width: 0.5vw;
@@ -127,7 +126,8 @@ body::-webkit-scrollbar-thumb {
 .mobile-menu__item {
   font-size: 26px;
   background-color: rgba(123, 122, 121, 0.4);
-  height: 80vh;
+  height: 15vh;
+  width: 100vw;
 }
 .mobile-menu__link {
   top: -0;
@@ -163,11 +163,48 @@ body::-webkit-scrollbar-thumb {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
-@media (max-width: 1050px) {
+@media (max-width: 1950px) {
+  a{
+      font-size: 1.5vw;
+    }
+  }
+@media (max-width: 1350px) {
 header > .bigHeader{
     display: none;
   }
+  .actualPage{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    font-size: 4vh; 
+    color: #BF4B4B;
+    margin-top: 2vh;
+    width: 70%;
+    background-color: white;
+    padding: 10px 0px;
+  }
+  .notActual{
+    margin-top: 2vh;
+    padding: 10px 0px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    font-size: 4vh; 
+
+  }
 .mobile-menu {
   display: flex;
+  justify-content: space-around;
+  padding: 0px 25px
+}
+.mobile-menu__item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 }
+

@@ -46,12 +46,36 @@ export default function Header() {
         <label htmlFor="checkbox" className="mobile-menu__btn"><div className="mobile-menu__icon" /></label>
         <div className="mobile-menu__container">
           <div className="mobile-menu__list">
-            <Link href="#" className="mobile-menu__item"><a className="mobile-menu__link">INICIO</a></Link>
-            <Link href="#" className="mobile-menu__item"><a className="mobile-menu__link">SERVICIOS</a></Link>
-            <Link href="#" className="mobile-menu__item"><a className="mobile-menu__link">RESERVA</a></Link>
-            <Link href="#" className="mobile-menu__item"><a className="mobile-menu__link">EVENTOS</a></Link>
-            <Link href="#" className="mobile-menu__item"><a className="mobile-menu__link">CONTACTO</a></Link>
-            <Link href="#" className="mobile-menu__item"><a className="mobile-menu__link">INICIAR SESIÓN</a></Link>
+            <Link href="/">
+              <div className="mobile-menu__item">
+                <a className={allValues.home ? allValues.home : 'notActual'}>INICIO</a>
+              </div>
+            </Link>
+            <Link href="/services">
+              <div className="mobile-menu__item">
+                <a className={allValues.services ? allValues.services : 'notActual'}>SERVICIOS</a>
+              </div>
+            </Link>
+            <Link href="/reserves">
+              <div className="mobile-menu__item">
+                <a className={allValues.reserves ? allValues.reserves : 'notActual'}>RESERVA</a>
+              </div>
+            </Link>
+            <Link href="/events">
+              <div className="mobile-menu__item">
+                <a className={allValues.events ? allValues.events : 'notActual'}>EVENTOS</a>
+              </div>
+            </Link>
+            <Link href="/contact">
+              <div className="mobile-menu__item">
+                <a className={allValues.contact ? allValues.contact : 'notActual'}>CONTACTO</a>
+              </div>
+            </Link>
+            <Link href="/login">
+              <div className="mobile-menu__item">
+                <a className={allValues.login ? allValues.login : 'notActual'}>INICIAR SESIÓN</a>
+              </div>
+            </Link>
           </div>
         </div>
       </nav>
