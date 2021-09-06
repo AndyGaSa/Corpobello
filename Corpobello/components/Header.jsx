@@ -12,9 +12,9 @@ export default function Header() {
   const [allValues, setAllValues] = useState({});
   useEffect(() => {
     if (pathname.length === 0) {
-      setAllValues({ home: 'actualPage' });
+      setAllValues({ home: 'actualPage anchor' });
     } else {
-      setAllValues({ [pathname]: 'actualPage' });
+      setAllValues({ [pathname]: 'actualPage anchor' });
     }
   }, [pathname]);
   return (
@@ -22,22 +22,22 @@ export default function Header() {
       <nav className="bigHeader">
         <Image src={bigLogoCb} className="logo" alt="Logo" />
         <Link href="/">
-          <a className={allValues.home}>INICIO</a>
+          <a className={`anchor ${allValues.home}`}>INICIO</a>
         </Link>
         <Link href="/services">
-          <a className={allValues.services}>SERVICIOS</a>
+          <a className={`anchor ${allValues.services}`}>SERVICIOS</a>
         </Link>
         <Link href="/reserves">
-          <a className={allValues.reserves}>RESERVA</a>
+          <a className={`anchor ${allValues.reserves}`}>RESERVA</a>
         </Link>
         <Link href="/events">
-          <a className={allValues.events}>EVENTOS</a>
+          <a className={`anchor ${allValues.events}`}>EVENTOS</a>
         </Link>
         <Link href="/contact">
-          <a className={allValues.contact}>CONTACTO</a>
+          <a className={`anchor ${allValues.contact}`}>CONTACTO</a>
         </Link>
         <Link href="/login">
-          <a className={allValues.login}>INICIAR SESIÓN</a>
+          <a className={`anchor ${allValues.login}`}>INICIAR SESIÓN</a>
         </Link>
       </nav>
       <nav className="mobile-menu">
@@ -48,32 +48,32 @@ export default function Header() {
           <div className="mobile-menu__list">
             <Link href="/">
               <div className="mobile-menu__item">
-                <a className={allValues.home ? allValues.home : 'notActual'}>INICIO</a>
+                <a className={allValues.home ? allValues.home : 'notActual anchor'}>INICIO</a>
               </div>
             </Link>
             <Link href="/services">
               <div className="mobile-menu__item">
-                <a className={allValues.services ? allValues.services : 'notActual'}>SERVICIOS</a>
+                <a className={allValues.services ? allValues.services : 'notActual anchor'}>SERVICIOS</a>
               </div>
             </Link>
             <Link href="/reserves">
               <div className="mobile-menu__item">
-                <a className={allValues.reserves ? allValues.reserves : 'notActual'}>RESERVA</a>
+                <a className={allValues.reserves ? allValues.reserves : 'notActual anchor'}>RESERVA</a>
               </div>
             </Link>
             <Link href="/events">
               <div className="mobile-menu__item">
-                <a className={allValues.events ? allValues.events : 'notActual'}>EVENTOS</a>
+                <a className={allValues.events ? allValues.events : 'notActual anchor'}>EVENTOS</a>
               </div>
             </Link>
             <Link href="/contact">
               <div className="mobile-menu__item">
-                <a className={allValues.contact ? allValues.contact : 'notActual'}>CONTACTO</a>
+                <a className={allValues.contact ? allValues.contact : 'notActual anchor'}>CONTACTO</a>
               </div>
             </Link>
             <Link href="/login">
               <div className="mobile-menu__item">
-                <a className={allValues.login ? allValues.login : 'notActual'}>INICIAR SESIÓN</a>
+                <a className={allValues.login ? allValues.login : 'notActual anchor'}>INICIAR SESIÓN</a>
               </div>
             </Link>
           </div>
