@@ -4,7 +4,7 @@
 }
 .landingSection{
   background-color: rgba(4, 1, 1, 0.32);
-  color: white;
+  color: white ;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,17 +17,19 @@
   color: white;
   text-decoration: none;
 }
-.landingSection > h3 {
+.h3 {
   margin-top: 11.458vw;
-  font-size: 1.146vw;
+  color: #FFFFFF;
+  font-size: 1.8vw;
   margin-bottom: 1.042vw;
 }
-.landingSection > h2 {
+.h2 {
+  color: #FFFFFF;
   font-size: 4.063vw;
 }
 .landingSection > p {
   font-size: 1.46vw;
-  margin: 2.604vw 21.875vw;
+  margin: 1.604vw 21.875vw;
 }
 .landingSection > button {
   margin-top: 20px;
@@ -42,6 +44,7 @@
   border-radius: 1000px;
   color: #FFFFFF;
   font-size: 24px;
+  margin-bottom: 45px;
   transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
 }
 .landingSection > button:hover{
@@ -51,7 +54,6 @@
 	background-position: -100% 100%;
 }
 .arrowbounce {
-  padding-top: 80px;
   transition: width 2s, height 4s;
   width: 40px;
   color: #FFFFFF;
