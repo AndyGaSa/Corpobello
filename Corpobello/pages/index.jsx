@@ -19,8 +19,8 @@ export default function Home() {
       <main>
         <section className={styles.landingBg}>
           <div className={styles.landingSection}>
-            <h3>EN CORPOBELLO</h3>
-            <h2>
+            <h3 className={styles.h3}>EN CORPOBELLO</h3>
+            <h2 className={styles.h2}>
               TÚ ERES
               <br />
               LA ESTRELLA
