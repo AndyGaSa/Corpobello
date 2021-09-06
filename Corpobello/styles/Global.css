@@ -4,13 +4,16 @@
     padding: 0;
     box-sizing: border-box;
   }
-  a{
+  .anchor{
     font-family: 'Montserrat','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.25vw;
     text-decoration: none;
     font-weight: 500;
     color: white;
     padding: 0.521vw 1.302vw;
+  }
+  .anchor:hover{
+    color: tomato;
   }
   *{
     font-family: 'Montserrat','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -29,6 +32,7 @@
     width: 100px !important;
 }
 .actualPage{
+  text-decoration: none;
   color: #BF4B4B;
   background: #FFFFFF;
   border-radius: 100px;
@@ -165,6 +169,31 @@ body::-webkit-scrollbar-thumb {
 .mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon::before {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+.ant-form-item-control-input-content > .ant-select > .ant-select-selector:nth-child(1n){
+  border-radius: 10px !important;
+  padding: 35px !important;
+  position: relative;
+}
+.ant-select-selection-placeholder{
+  color: #7B7A79;
+  top: 25%;
+  left: 0%;
+  position: absolute;
+  font-size: 1.5vw;
+  margin-left: 25px;
+}
+.ant-form-item-control-input-content{
+  display: flex;
+  justify-content: center;
+}
+.ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item{
+  color: black ;
+  top: 25%;
+  left: 0%;
+  position: absolute !important;
+  font-size: 1.5vw;
+  margin-left: 25px;
 }
 @media (max-width: 1950px) {
   a{
