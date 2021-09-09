@@ -8,9 +8,18 @@ const reserve = new Schema({
     required: true,
   },
   date: {
-    type: String,
-    required: true,
-    default: new Date().toJSON().slice(0, 10).replace(/-/g, '/'),
+    day: {
+      type: String,
+      required: true,
+    },
+    hour: {
+      type: String,
+      required: true,
+    },
+    time: {
+      type: Number,
+      required: true,
+    },
   },
   tel: {
     type: Number,
