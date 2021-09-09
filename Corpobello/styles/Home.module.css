@@ -256,6 +256,7 @@
 }
 .ourEmployees > h3 {
   margin-top: 60px;
+  font-weight: bold;
   color: white;
   margin-bottom: 20px;
   font-size: 28px;
@@ -266,6 +267,9 @@
   max-width: 96vw;
 }
 @media (max-width: 900px) {
+  .ourEmployeesBg{
+    background: #FDE2E2;
+  }
   .video{
     width: 90vw;
     height: 30vh;
