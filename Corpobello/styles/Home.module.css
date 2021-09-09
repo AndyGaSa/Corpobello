@@ -90,11 +90,12 @@
   margin-top: 120px;
   color: #F5B3B7;
   margin-bottom: 20px;
-  font-size: 22px;
+  font-size: 28px;
 }
 .ourServices > h2 {
   font-size: 58px;
   margin-bottom: 20px;
+  max-width: 96vw;
 }
 .ourServices > hr {
   margin-bottom: 20px;
@@ -139,6 +140,49 @@
   font-weight: 700;
   padding: 0px 30px;
 }
+.employeesCard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+}
+.employeesCard > li {
+  width: 390px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  max-width: 90vw;
+}
+.employeesCard > li > div > h3{
+  font-family: 'Montserrat', 'Arial Narrow', Arial, sans-serif;
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+.employeesCard > li > div > h4{
+  margin-bottom: 25px;
+  font-weight: bold;
+  font-size: 24px;
+}
+.employeesCard > li > div > p{
+  margin-bottom: 25px;
+  font-weight: 700;
+  padding: 0px 30px;
+  font-size: 17px;
+}
+.employeesAvatarDiv{
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin-bottom: 40px;
+}
+.employeesAvatar{
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: 100% 28%;
+}
 .servicesCards > li > div > button{
   width: 200px;
   color: #FFFFFF;
@@ -173,7 +217,59 @@
   background-position: center 100%;
   background-size: cover;
 }
+.videoContainer{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60vh;
+}
+.videoBg{
+  background: url(https://i.pinimg.com/originals/8a/b9/3e/8ab93e04d1eafca1423b03ab14842f0a.jpg);
+  height: 70%;
+  width: 100%;
+}
+.video{
+  position: absolute;
+  left: 0; 
+  right: 0; 
+  top: 0;
+  bottom: 0;
+  margin:auto;
+}
+.ourEmployeesBg{
+  background-image: url(https://i.ibb.co/bdMssCg/image.png);
+  background-size: 100% 100%;
+}
+.ourEmployees{
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  max-height: 400vh;
+  letter-spacing: 0.2em;
+}
+.ourEmployees > h3 {
+  margin-top: 60px;
+  color: white;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+.ourEmployees > h2 {
+  font-size: 58px;
+  margin-bottom: 10px;
+  max-width: 96vw;
+}
 @media (max-width: 900px) {
+  .video{
+    width: 90vw;
+    height: 30vh;
+  }
   .landingBg{
     background-size: cover;
   }
@@ -204,6 +300,9 @@
     margin: 5.604vw 3.3vw;
   }
   .ourServices > h2 {
+    font-size: 38px;
+  }
+  .ourEmployees > h2 {
     font-size: 38px;
   }
 }
