@@ -6,6 +6,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Reserves from '../components/Reserves';
 import downArrow from '../images/downArrow.svg';
+import bayLeaf from '../images/bayLeaf.svg';
+import Masajista from '../images/Masajista1.jpeg';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -89,6 +91,109 @@ export default function Home() {
           </ul>
         </section>
         <Reserves />
+        <section className={styles.ourServices} id="services">
+          <h3>CORPOBELLO</h3>
+          <h2>
+            APUNTATE A
+            <br />
+            NUESTROS EVENTOS
+          </h2>
+          <hr />
+          <ul className={styles.servicesCards}>
+            <li className={styles.serviceCardOne}>
+              <div>
+                <h3>REIKI</h3>
+                <h4>SABADO 12/12</h4>
+                <p>
+                  Blanquea, desvanece la oscuridad, previene hongos / pecas y rejuvenece
+                  la piel con propiedades de vitamina C pura
+                </p>
+                <Link href="/events">
+                  <button type="button"> CUENTAME MAS</button>
+                </Link>
+              </div>
+            </li>
+            <li className={styles.serviceCardTwo}>
+              <div>
+                <h3>YOGA</h3>
+                <h4>DOMINGO 13/13</h4>
+                <p>
+                  Blanquea, desvanece la oscuridad, previene hongos / pecas y rejuvenece
+                  la piel con propiedades de vitamina C pura
+                </p>
+                <Link href="/events">
+                  <button type="button"> CUENTAME MAS</button>
+                </Link>
+              </div>
+            </li>
+            <li className={styles.serviceCardThree}>
+              <div>
+                <h3>MEDITACION</h3>
+                <h4>DOMINGO 20/12</h4>
+                <p>
+                  Blanquea, desvanece la oscuridad, previene hongos / pecas y rejuvenece
+                  la piel con propiedades de vitamina C pura
+                </p>
+                <Link href="/events">
+                  <button type="button"> CUENTAME MAS</button>
+                </Link>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <picture className={styles.videoContainer}>
+          <div className={styles.videoBg}>
+            <iframe
+              className={styles.video}
+              width="922"
+              height="489"
+              src="https://www.youtube-nocookie.com/embed/julm2C5OWW4"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </picture>
+        <section className={styles.ourEmployeesBg} id="services">
+          <div className={styles.ourEmployees}>
+            <h3>CORPOBELLO</h3>
+            <h2>
+              CONOCE A
+              NUESTRO EQUIPO
+            </h2>
+            <ul className={styles.employeesCard}>
+              <li>
+                <div className={styles.employeesAvatarDiv}>
+                  <Image src={Masajista} className={styles.employeesAvatar} alt="Peluqueria" layout="fill" />
+                </div>
+                <div>
+                  <h3>ALICIA LOPEZ</h3>
+                  <h4>Peluqueria</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Ipsam, sunt iure vitae alias quia hic voluptates,
+                    maxime nesciunt consequuntur.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div className={styles.employeesAvatarDiv}>
+                  <Image src={Masajista} className={styles.employeesAvatar} alt="Peluqueria" layout="fill" />
+                </div>
+                <div>
+                  <h3>MARISOL SANCHEZ </h3>
+                  <h4>Masajes y Estetica</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Ipsam, sunt iure vitae alias quia hic voluptates,
+                    maxime nesciunt consequuntur.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
       </main>
     </>
   );
