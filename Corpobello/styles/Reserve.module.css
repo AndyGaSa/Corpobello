@@ -17,7 +17,10 @@
   flex-direction: column;
   width: 40vw;
 }
-.ReserveButton{
+.ReserveButton , .ReserveButton:focus{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 2vh;
   font-size: 1.2vw;
   width: 200px;
@@ -53,17 +56,60 @@
   padding-bottom: 3vh;
 }
 .Calendar{
+  margin-top: 20px;
   width: 90%;
   border: '1px solid #d9d9d9' ;
+  padding: 25px;
+  background-color: whitesmoke;
+  border-radius: 10px;
 }
 .ReserveInput{
   border-radius: 10px;
-  padding: 25px;
+  padding: 15px;
+  color: black;
+  font-size: 1.5vw;
 }
 .ReserveInput::placeholder{
   color: #7B7A79;
   font-size: 1.5vw;
 }
 @media (max-width: 1350px) {
-
+  .Reserves{
+    flex-wrap: wrap;
+    min-height: 50vh;
+    height: auto;
+    max-height: auto;
+  }
+  .h2{
+    font-size: 10.5vw;
+    margin: 0;
+    padding: 0;
+  }
+  .ReservesFormDiv{
+    width: 100vw;
+    height: auto;
+    justify-content: flex-start;
+  }
+  .ReservesCalendar{
+    width: 100vw;
+    height: auto;
+  }
+  .ReservesForm{
+    width: 75vw;
+    padding: 25px;
+  }
+  .ReserveInput{
+    display: flex;
+    padding: 15px;
+    font-size: 4vw;
+  }
+  .ReserveInput::placeholder{
+    font-size: 4vw;
+    padding-left:2%
+  }
+  .ReserveButton , .ReserveButton:focus{
+    font-size: 3vw;
+    width: 300px;
+    height: 60px;
+  }
 }
