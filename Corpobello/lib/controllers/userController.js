@@ -37,7 +37,7 @@ export async function login(req, res) {
         const data = { sub: _id, email };
         const jwt = await sign(data,
           process.env.jwt_secret,
-          { expiresIn: '1h' });
+          { expiresIn: '8h' });
         res.json({ authToken: jwt });
         res.status(200);
       } else {
