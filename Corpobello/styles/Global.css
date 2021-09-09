@@ -170,37 +170,52 @@ body::-webkit-scrollbar-thumb {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
-.ant-form-item-control-input-content > .ant-select > .ant-select-selector:nth-child(1n){
-  border-radius: 10px !important;
-  padding: 35px !important;
-  position: relative;
+.ant-form-item-control-input-content > .ant-select > .ant-select-selector{
+  padding: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content:center;
+  border-radius: 10px;
+  
 }
 .ant-select-selection-placeholder{
   color: #7B7A79;
-  top: 25%;
-  left: 0%;
-  position: absolute;
   font-size: 1.5vw;
-  margin-left: 25px;
+  overflow: visible;
 }
 .ant-form-item-control-input-content{
   display: flex;
   justify-content: center;
 }
+.ant-picker{
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+}
 .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item{
   color: black ;
-  top: 25%;
-  left: 0%;
-  position: absolute !important;
+  overflow: visible;
   font-size: 1.5vw;
-  margin-left: 25px;
+}
+.ant-picker-footer{
+  display: none;
 }
 @media (max-width: 1950px) {
   a{
-      font-size: 1.5vw;
-    }
+    font-size: 1.5vw;
   }
+}
 @media (max-width: 1350px) {
+  .ant-form-item-control-input-content > .ant-select > .ant-select-selector{
+    padding: 40px;
+  }
+  .ant-select-selection-placeholder{
+    font-size: 3.5vw;
+  }
+  .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item{
+    font-size: 3.5vw;
+  }
 header > .bigHeader{
     display: none;
   }
@@ -239,3 +254,12 @@ header > .bigHeader{
   }
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
