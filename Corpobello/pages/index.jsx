@@ -12,7 +12,7 @@ import Masajista from '../images/Masajista1.jpeg';
 import styles from '../styles/Home.module.css';
 
 export default function Home({ events }) {
-  const firstEvents = events.slice(0, 3);
+  const firstEvents = events?.slice(0, 3);
   return (
     <>
       <Head>
@@ -102,7 +102,7 @@ export default function Home({ events }) {
           </h2>
           <hr />
           <ul className={styles.servicesCards}>
-            {firstEvents.map((event) => (
+            {firstEvents?.map((event) => (
               <li className={styles.serviceCardOne}>
                 <div>
                   <h3>{event.title.toUpperCase()}</h3>
