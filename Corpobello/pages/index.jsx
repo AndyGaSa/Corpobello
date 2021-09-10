@@ -1,16 +1,18 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/anchor-has-content */
+import axios from 'axios';
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import Reserves from '../components/Reserves';
 import downArrow from '../images/downArrow.svg';
-import bayLeaf from '../images/bayLeaf.svg';
 import Masajista from '../images/Masajista1.jpeg';
 import styles from '../styles/Home.module.css';
 
-export default function Home() {
+export default function Home({ events }) {
+  const firstEvents = events.slice(0, 3);
   return (
     <>
       <Head>
@@ -100,45 +102,20 @@ export default function Home() {
           </h2>
           <hr />
           <ul className={styles.servicesCards}>
-            <li className={styles.serviceCardOne}>
-              <div>
-                <h3>REIKI</h3>
-                <h4>SABADO 12/12</h4>
-                <p>
-                  Blanquea, desvanece la oscuridad, previene hongos / pecas y rejuvenece
-                  la piel con propiedades de vitamina C pura
-                </p>
-                <Link href="/events">
-                  <button type="button"> CUENTAME MAS</button>
-                </Link>
-              </div>
-            </li>
-            <li className={styles.serviceCardTwo}>
-              <div>
-                <h3>YOGA</h3>
-                <h4>DOMINGO 13/13</h4>
-                <p>
-                  Blanquea, desvanece la oscuridad, previene hongos / pecas y rejuvenece
-                  la piel con propiedades de vitamina C pura
-                </p>
-                <Link href="/events">
-                  <button type="button"> CUENTAME MAS</button>
-                </Link>
-              </div>
-            </li>
-            <li className={styles.serviceCardThree}>
-              <div>
-                <h3>MEDITACION</h3>
-                <h4>DOMINGO 20/12</h4>
-                <p>
-                  Blanquea, desvanece la oscuridad, previene hongos / pecas y rejuvenece
-                  la piel con propiedades de vitamina C pura
-                </p>
-                <Link href="/events">
-                  <button type="button"> CUENTAME MAS</button>
-                </Link>
-              </div>
-            </li>
+            {firstEvents.map((event) => (
+              <li className={styles.serviceCardOne}>
+                <div>
+                  <h3>{event.title.toUpperCase()}</h3>
+                  <h4>{event.date}</h4>
+                  <p>
+                    {event.description}
+                  </p>
+                  <Link href="/events">
+                    <button type="button"> CUENTAME MAS</button>
+                  </Link>
+                </div>
+              </li>
+            ))}
           </ul>
         </section>
         <picture className={styles.videoContainer}>
@@ -197,4 +174,11 @@ export default function Home() {
       </main>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const { data } = await axios.get('http://localhost:3000/api/eventsHandler');
+  return {
+    props: { events: data, content: '...' },
+  };
 }
