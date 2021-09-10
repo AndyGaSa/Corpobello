@@ -1,0 +1,35 @@
+.footerTextContainer{
+    display: flex;
+    background-color: #444343;
+    color: white;
+    height: 30vh;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 20px;
+    letter-spacing: 0.2em;
+}
+.footerTextContainer > div > h5 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 13px;
+}
+.horary{
+    font-weight: bold;
+    margin-left: 0px !important;
+}
+.footerTextContainer > div > p {
+    margin-left: 20px;
+    font-size: 18px;
+}
+.footerCopyContainer{
+    display: flex;
+    height: 6vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    color: white;
+}
+.footerTextContainer > div > svg {
+  margin-right: 10px ;  
+  cursor: pointer;
+}
