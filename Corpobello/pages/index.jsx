@@ -93,7 +93,7 @@ export default function Home({ events }) {
           </ul>
         </section>
         <Reserves />
-        <section className={styles.ourServices} id="services">
+        <section className={styles.ourServices}>
           <h3>CORPOBELLO</h3>
           <h2>
             APUNTATE A
@@ -176,7 +176,7 @@ export default function Home({ events }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { data } = await axios.get('http://localhost:3000/api/eventsHandler');
   return {
     props: { events: data, content: '...' },
