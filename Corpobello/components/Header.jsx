@@ -11,13 +11,16 @@ export default function Header() {
   pathname = pathname.substring(1);
   const [allValues, setAllValues] = useState({});
   const [homeOrNot, setHomeOrNot] = useState('bigHeader');
+  const [homeOrNotMobile, setHomeOrNotMobile] = useState('mobile-menu');
   useEffect(() => {
     if (pathname.length === 0) {
       setAllValues({ home: 'actualPage anchor' });
       setHomeOrNot('bigHeader');
+      setHomeOrNotMobile('mobile-menu');
     } else {
       setAllValues({ [pathname]: 'actualPage anchor' });
       setHomeOrNot('bigHeaderPink');
+      setHomeOrNotMobile('mobile-menuPink');
     }
   }, [pathname]);
   return (
@@ -43,7 +46,7 @@ export default function Header() {
           <a className={`anchor ${allValues.login}`}>INICIAR SESIÓN</a>
         </Link>
       </nav>
-      <nav className="mobile-menu">
+      <nav className={homeOrNotMobile}>
         <Image src={bigLogoCb} className="logo" height={65} width={700} alt="Logo" />
         <input type="checkbox" id="checkbox" className="mobile-menu__checkbox" />
         <label htmlFor="checkbox" className="mobile-menu__btn"><div className="mobile-menu__icon" /></label>

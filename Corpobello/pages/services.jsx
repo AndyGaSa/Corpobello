@@ -3,7 +3,10 @@ import React from 'react';
 export default function Services() {
   return (
     <main>
-      <h1>Hola estas en services</h1>
+      <picture>
+        <h3>CORPOBELLO</h3>
+        <h2>DESCUBRE NUESTROS SERVICIOS</h2>
+      </picture>
     </main>
   );
 }

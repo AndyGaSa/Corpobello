@@ -76,6 +76,22 @@ body::-webkit-scrollbar-thumb {
 .mobile-menu::after{
   background: rgba(123, 122, 121, 1);
 }
+.mobile-menuPink {
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 16px;
+  top: 0;
+  background: rgba(123, 122, 121, 1);
+  height: 13vh;
+  left: 0;
+  right: 0;
+  z-index: 9999999;
+}
+.mobile-menuPink::after{
+  background: rgba(123, 122, 121, 1);
+}
 .mobile-menu__btn {
   position: relative;
   display: flex;
@@ -252,6 +268,11 @@ header > .bigHeader{
     font-size: 4vh; 
   }
   .mobile-menu {
+    display: flex;
+    justify-content: space-around;
+    padding: 0px 25px;
+  }
+  .mobile-menuPink {
     display: flex;
     justify-content: space-around;
     padding: 0px 25px;
