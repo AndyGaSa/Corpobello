@@ -28,6 +28,15 @@
     justify-content: space-evenly;
     align-items: center;
   }
+  header > .bigHeaderPink{
+    background: #F5B3B7;
+    height: 13vh;
+    width: 100%;
+    display: flex;
+    padding: 0px 2.5vw ;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 .logo{
     width: 100px !important;
 }

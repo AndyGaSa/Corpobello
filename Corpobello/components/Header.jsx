@@ -10,16 +10,19 @@ export default function Header() {
   let { pathname } = useRouter();
   pathname = pathname.substring(1);
   const [allValues, setAllValues] = useState({});
+  const [homeOrNot, setHomeOrNot] = useState('bigHeader');
   useEffect(() => {
     if (pathname.length === 0) {
       setAllValues({ home: 'actualPage anchor' });
+      setHomeOrNot('bigHeader');
     } else {
       setAllValues({ [pathname]: 'actualPage anchor' });
+      setHomeOrNot('bigHeaderPink');
     }
   }, [pathname]);
   return (
     <header>
-      <nav className="bigHeader">
+      <nav className={homeOrNot}>
         <Image src={bigLogoCb} className="logo" alt="Logo" />
         <Link href="/">
           <a className={`anchor ${allValues.home}`}>INICIO</a>
