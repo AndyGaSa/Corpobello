@@ -10,7 +10,7 @@ export default function Footer() {
     <footer>
       <div className={styles.footerTextContainer}>
         <div>
-          <Image src={bigLogoCb} className="logo" alt="footer Logo" />
+          <Image src={bigLogoCb} className="footerLogo" alt="footer Logo" />
         </div>
         <div>
           <h5>DIRECCIÓN:</h5>
