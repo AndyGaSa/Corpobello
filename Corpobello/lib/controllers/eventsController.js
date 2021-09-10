@@ -13,7 +13,7 @@ export async function createEvent(req, res) {
 
 export async function getEvent(req, res) {
   try {
-    const foundEvent = await Event.find().populate('author');
+    const foundEvent = await Event.find();
     res.send(foundEvent);
     res.status(200);
   } catch (error) {
