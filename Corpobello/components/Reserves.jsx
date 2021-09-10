@@ -76,74 +76,76 @@ export default function Reserves() {
     setScreenSize(colSize === 'xxl' || colSize === 'xl' || colSize === 'lg' || colSize === 'md');
   }, [colSize]);
   return (
-    <section className={styles.Reserves}>
-      <div className={styles.ReservesCalendar}>
-        <Calendar
-          fullscreen={screenIsBig}
-          locale="es_ES"
-          className={styles.Calendar}
-          onSelect={onPanelChange}
-          disabledDate={(current) => disabledDate(current)}
-        />
-      </div>
-      <div className={styles.ReservesFormDiv}>
-        <h2 className={styles.h2}>RESERVA YA</h2>
-        <Form className={styles.ReservesForm}>
-          <Form.Item name="nombre" rules={[{ required: true }]}>
-            <Input className={styles.ReserveInput} placeholder="Nombre y Apellidos" />
-          </Form.Item>
-          <Form.Item name="telêfono" rules={[{ required: true }]}>
-            <Input type="number" validateStatus={telStatus} help={telHelp} className={styles.ReserveInput} placeholder="Teléfono" />
-          </Form.Item>
-          <Form.Item name="email" rules={[{ required: true }]}>
-            <Input className={styles.ReserveInput} placeholder="E-mail" />
-          </Form.Item>
-          <Form.Item
-            name="servicio"
-            rules={[{ required: true }]}
-          >
-            <Select
-              placeholder="Servicio"
-              onChange={(event) => onServiceChange(event)}
-            >
-              <Option value="massage">Masaje</Option>
-              <Option value="haircut">Peluqueria</Option>
-              <Option value="spa">Spa</Option>
-            </Select>
-          </Form.Item>
-          <Form.Item
-            name="personal"
-            rules={[{ required: true }]}
-          >
-            <Select
-              placeholder="Personal"
-              onChange={(event) => onPersonalChange(event)}
-            >
-              <Option value="alicia">Alicia</Option>
-              <Option value="marisol">Marisol</Option>
-            </Select>
-          </Form.Item>
-          <TimePicker
-            format="HH:mm"
-            defaultValue={moment('08:00', 'HH:mm')}
-            showNow={false}
-            onSelect={(value) => {
-              const timeString = moment(value).format('HH:mm');
-              setSelectedHour(timeString.substring(0, 2));
-              setSelectedMinutes(timeString.substring(3, 5));
-              console.log('minutos', timeString.substring(3, 5));
-            }}
-            minuteStep={30}
-            disabledHours={disabledHours}
-            disabledMinutes={disabledMinutes}
-            hideDisabledOptions
+    <section className={styles.ReservesBg}>
+      <div className={styles.Reserves}>
+        <div className={styles.ReservesCalendar}>
+          <Calendar
+            fullscreen={screenIsBig}
+            locale="es_ES"
+            className={styles.Calendar}
+            onSelect={onPanelChange}
+            disabledDate={(current) => disabledDate(current)}
           />
-          <Form.Item>
-            <Button className={styles.ReserveButton} type="primary" htmlType="submit">
-              RESERVAR
-            </Button>
-          </Form.Item>
-        </Form>
+        </div>
+        <div className={styles.ReservesFormDiv}>
+          <h2 className={styles.h2}>RESERVA YA</h2>
+          <Form className={styles.ReservesForm}>
+            <Form.Item name="nombre" rules={[{ required: true }]}>
+              <Input className={styles.ReserveInput} placeholder="Nombre y Apellidos" />
+            </Form.Item>
+            <Form.Item name="telêfono" rules={[{ required: true }]}>
+              <Input type="number" validateStatus={telStatus} help={telHelp} className={styles.ReserveInput} placeholder="Teléfono" />
+            </Form.Item>
+            <Form.Item name="email" rules={[{ required: true }]}>
+              <Input className={styles.ReserveInput} placeholder="E-mail" />
+            </Form.Item>
+            <Form.Item
+              name="servicio"
+              rules={[{ required: true }]}
+            >
+              <Select
+                placeholder="Servicio"
+                onChange={(event) => onServiceChange(event)}
+              >
+                <Option value="massage">Masaje</Option>
+                <Option value="haircut">Peluqueria</Option>
+                <Option value="spa">Spa</Option>
+              </Select>
+            </Form.Item>
+            <Form.Item
+              name="personal"
+              rules={[{ required: true }]}
+            >
+              <Select
+                placeholder="Personal"
+                onChange={(event) => onPersonalChange(event)}
+              >
+                <Option value="alicia">Alicia</Option>
+                <Option value="marisol">Marisol</Option>
+              </Select>
+            </Form.Item>
+            <TimePicker
+              format="HH:mm"
+              defaultValue={moment('08:00', 'HH:mm')}
+              showNow={false}
+              onSelect={(value) => {
+                const timeString = moment(value).format('HH:mm');
+                setSelectedHour(timeString.substring(0, 2));
+                setSelectedMinutes(timeString.substring(3, 5));
+                console.log('minutos', timeString.substring(3, 5));
+              }}
+              minuteStep={30}
+              disabledHours={disabledHours}
+              disabledMinutes={disabledMinutes}
+              hideDisabledOptions
+            />
+            <Form.Item>
+              <Button className={styles.ReserveButton} type="primary" htmlType="submit">
+                RESERVAR
+              </Button>
+            </Form.Item>
+          </Form>
+        </div>
       </div>
     </section>
   );
