@@ -9,8 +9,8 @@ export default function Footer() {
   return (
     <footer>
       <div className={styles.footerTextContainer}>
-        <div>
-          <Image src={bigLogoCb} className="footerLogo" alt="footer Logo" />
+        <div className={styles.footerMap}>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.808035871469!2d2.2325336159274776!3d41.443386779259065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4bb689555eb33%3A0x785edbf7358e869a!2sCorpo%20Bello!5e0!3m2!1sca!2ses!4v1631268488885!5m2!1sca!2ses" width="500" height="250" allowFullScreen="" loading="lazy" />
         </div>
         <div>
           <h5>DIRECCIÓN:</h5>
