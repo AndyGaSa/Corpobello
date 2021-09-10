@@ -1,12 +1,13 @@
 import React from 'react';
+import styles from '../styles/Services.module.css';
 
 export default function Services() {
   return (
     <main>
-      <picture>
-        <h3>CORPOBELLO</h3>
-        <h2>DESCUBRE NUESTROS SERVICIOS</h2>
-      </picture>
+      <div className={styles.portraitDiv}>
+        <h3>DESCUBRE</h3>
+        <h2>NUESTROS SERVICIOS</h2>
+      </div>
     </main>
   );
 }

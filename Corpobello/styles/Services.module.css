@@ -1,0 +1,19 @@
+.portraitDiv{
+    background: url(https://i.ibb.co/VHYJYfP/image-1.png);
+    width: 100%;
+    height: 35vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.portraitDiv > h3{
+    font-size: 1.5vw;
+    color: white;
+}
+.portraitDiv > h2{
+    font-size: 3.5vw;
+    color: white;
+}
