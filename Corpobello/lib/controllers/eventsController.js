@@ -12,13 +12,8 @@ export async function createEvent(req, res) {
 }
 
 export async function getEvent(req, res) {
-  const { userId } = req.body;
   try {
-    const foundEvent = await Event.find({ author: userId })
-      .populate({
-        path: 'author',
-        select: 'name',
-      });
+    const foundEvent = await Event.find().populate('author');
     res.send(foundEvent);
     res.status(200);
   } catch (error) {
