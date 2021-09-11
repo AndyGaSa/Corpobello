@@ -59,3 +59,18 @@
 .contactContainer > div > hr{
     margin-bottom: 10px;
    }
+ @media (max-width: 1300px) {
+.contactContainer{
+    flex-wrap: wrap;
+    height: auto;
+    padding: 30px 10px;
+    }
+
+.contactContainer > div > iframe{
+    height:50vh;
+    width:50vw;
+    padding: 10px;
+    min-width: 65vw;
+    }
+}
+        
