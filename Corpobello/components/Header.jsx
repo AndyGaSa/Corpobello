@@ -17,6 +17,10 @@ export default function Header() {
       setAllValues({ home: 'actualPage anchor' });
       setHomeOrNot('bigHeader');
       setHomeOrNotMobile('mobile-menu');
+    } else if (pathname === 'login' || pathname === 'signup') {
+      setAllValues({ login: 'actualPage anchor' });
+      setHomeOrNot('bigHeader');
+      setHomeOrNotMobile('mobile-menu');
     } else {
       setAllValues({ [pathname]: 'actualPage anchor' });
       setHomeOrNot('bigHeaderPink');
