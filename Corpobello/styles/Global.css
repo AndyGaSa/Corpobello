@@ -2,6 +2,12 @@
 html {
   scroll-behavior: smooth;
 }
+.Mui-focused > fieldset{
+  border-color: green !important;
+}
+.Mui-focused {
+  color:  green !important;
+}
 *, *::after, *::before {
     margin: 0;
     padding: 0;
