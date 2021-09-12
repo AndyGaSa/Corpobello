@@ -21,7 +21,7 @@
    padding-right: 10px;
 }
 .loginContainer{
-    margin-top: 10vh;
+    margin-top: 18vh;
     padding: 10px 0px;
     width: 40vw;
     color: white;
@@ -29,6 +29,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    align-content: center;
 }
 .loginContainer > h1{
     color: white;
@@ -84,10 +85,15 @@ font-family: 'Montserrat','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-
 @media (max-width: 1340px) {
 .bgDiv{
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.55);
 }
 .loginContainer{
     width: 100%;
+}
+.loginContainer > h1{
+    margin-bottom: 0px;
+    font-size: 34px;
+    padding-bottom: 6vh;
 }
 .form{
     min-width: 45vw;
@@ -98,10 +104,42 @@ font-family: 'Montserrat','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-
         min-width: 55vw;
     }
     .loginContainer > h1{
-        font-size: 32px;
-        margin-bottom: 60px;
+        margin-top:15vh;
+        margin-bottom: 0px;
+        font-size: 34px;
+        padding-bottom: 6vh;
     }
     .loginContainer{
-        margin-top: 12vh;
+        margin-top: 0;
+    }
+    .errorMessage{
+        margin-top: 25px;
+        font-size: 16px;
+    }
+}
+@media (max-width: 414px) {
+    .loginContainer > h1{
+        font-size: 26px;
+        padding-bottom: 14vh;
+    }
+    .errorMessage{
+        margin-top: 18px;
+        font-size: 16px;
+        margin-bottom: 50px;
+    }
+}
+@media (max-width: 360px) {
+    .loginContainer > h1{
+        font-size: 20px;
+        padding-bottom: 30vh;
+    }
+    .errorMessage{
+        font-size: 14px;
+    }
+    .mainContainer{
+        height: 125vh;
+    }
+    .bgDiv{
+       height: 125vh;
     }
 }
