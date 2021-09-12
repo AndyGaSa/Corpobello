@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import axios from 'axios';
 import {
   TextField,
@@ -7,6 +8,7 @@ import {
 import styles from '../styles/Signup.module.css';
 
 export default function Signup() {
+  const router = useRouter();
   const [errorStatus, setErrorStatus] = useState('');
   const [sendClick, setClicked] = useState(1);
   const [password, setPassword] = useState('');
@@ -59,12 +61,12 @@ export default function Signup() {
       try {
         if (errorTitle === false && nameErrorTitle === false && mailErrorTitle === false
          && validateEmail(mailTitle) === true) {
-          const { data } = await axios.post('http://localhost:3000/api/signup', {
+          await axios.post('http://localhost:3000/api/signup', {
             name,
             email: mailTitle,
             password,
           });
-          alert(data);
+          router.push('/');
           setErrorStatus('');
         }
       } catch (error) {
