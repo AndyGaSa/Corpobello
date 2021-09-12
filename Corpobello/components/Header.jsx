@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useRouter } from 'next/router';
@@ -6,7 +7,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import bigLogoCb from '../images/bigLogoCb.svg';
 
-export default function Header() {
+export default function Header({ username }) {
+  console.log(username);
   let { pathname } = useRouter();
   pathname = pathname.substring(1);
   const [allValues, setAllValues] = useState({});
