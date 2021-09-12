@@ -65,7 +65,6 @@ export default function Login() {
               label="E-mail"
               helperText={mailLegend}
               variant="outlined"
-              color="secondary"
             />
             <TextField
               className={styles.loginInput}
@@ -82,10 +81,8 @@ export default function Login() {
               error={errorTitle}
               label="Contraseña"
               type="password"
-              autoComplete="current-password"
               helperText={legend}
               variant="outlined"
-              color="secondary"
             />
             <Button variant="contained" onClick={() => checkValidation()} color="secondary">
               Login
