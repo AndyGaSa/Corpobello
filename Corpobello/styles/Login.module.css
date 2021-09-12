@@ -10,9 +10,9 @@
    background-color: rgba(0, 0, 0, 0.55);
    display: flex;
    justify-content: flex-end;
-   font-family: 'Montserrat';
-letter-spacing: 0.2em;
-padding-right: 10px;
+   font-family: 'Montserrat','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   letter-spacing: 0.2em;
+   padding-right: 10px;
 }
 .loginContainer{
     margin-top: 10vh;
@@ -32,14 +32,16 @@ padding-right: 10px;
 }
 .loginInput > label {
 color: white;
-font-family: 'Montserrat';
+font-family: 'Montserrat','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+.loginInput > div > input {
+    color: white;
+    border-color:white;
+   font-family: 'Montserrat','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
 .loginInput > div > fieldset {
     border-color:white;
     border-radius: 10px;
-}
-.loginInput > div > fieldset:hover {
-    border-color:red !important;
 }
 .loginContainer > span{
     margin-top: 10px;
@@ -91,6 +93,7 @@ font-family: 'Montserrat';
     }
     .loginContainer > h1{
         font-size: 32px;
+        margin-bottom: 60px;
     }
     .loginContainer{
         margin-top: 12vh;
