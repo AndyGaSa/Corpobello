@@ -14,5 +14,4 @@ const signupHandler = async (req, res) => {
       break;
   }
 };
-
 export default connectDB(signupHandler);

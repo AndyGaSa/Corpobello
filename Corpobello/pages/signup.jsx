@@ -57,7 +57,7 @@ export default function Signup() {
   }
 
   useEffect(() => {
-    (async function signup() {
+    (async function signupAndLogin() {
       try {
         if (errorTitle === false && nameErrorTitle === false && mailErrorTitle === false
          && validateEmail(mailTitle) === true) {
@@ -66,6 +66,7 @@ export default function Signup() {
             email: mailTitle,
             password,
           });
+          await axios.post('http://localhost:3000/api/userHandler', { email: mailTitle, password });
           router.push('/');
           setErrorStatus('');
         }
@@ -85,6 +86,7 @@ export default function Signup() {
           </h1>
           <form className={styles.form}>
             <TextField
+              autoComplete="current-password"
               className={styles.loginInput}
               onChange={(event) => {
                 setName(event.target.value);
@@ -96,13 +98,14 @@ export default function Signup() {
                   setNameLegend('');
                 }
               }}
-              autoFocus="true"
+              autoFocus
               error={nameErrorTitle}
               label="Nombre y Apellidos"
               helperText={nameLegend}
               variant="outlined"
             />
             <TextField
+              autoComplete="current-password"
               className={styles.loginInput}
               onChange={(event) => {
                 setMailTitle(event.target.value);
@@ -120,6 +123,7 @@ export default function Signup() {
               variant="outlined"
             />
             <TextField
+              autoComplete="current-password"
               className={styles.loginInput}
               onChange={(event) => {
                 setPassword(event.target.value);
