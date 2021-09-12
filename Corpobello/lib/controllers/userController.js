@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt';
+import cookie from 'cookie';
 import { sign } from 'jsonwebtoken';
 import User from '../../models/userModel';
 import handleError from '../../utils/handleError';
@@ -30,9 +31,13 @@ export async function createNewUser(req, res) {
 }
 
 export async function login(req, res) {
-  const { email } = req.body;
   try {
+    const { email } = req.body;
     const foundUser = await User.findOne({ email });
+    if (foundUser === null) {
+      res.status(404);
+      return res.json({ message: 'Este usuario no existe, registrate!' });
+    }
     const { _id } = foundUser;
     bcrypt.compare(req.body.password, foundUser.password, async (err, result) => {
       if (!err && result) {
@@ -40,15 +45,22 @@ export async function login(req, res) {
         const jwt = await sign(data,
           process.env.jwt_secret,
           { expiresIn: '8h' });
-        res.json({ authToken: jwt });
+        res.setHeader('Set-Cookie', cookie.serialize('username', foundUser.name, {
+          httpOnly: true,
+          secure: process.env.NODE_ENV !== 'development',
+          maxAge: 60 * 60,
+          sameSite: 'strict',
+          path: '/',
+        }));
         res.status(200);
-      } else {
-        res.json({ message: 'Ups, something went wrong!' });
-        res.status(401);
+        return res.json({ name: foundUser.name, authToken: jwt });
       }
+      res.status(401);
+      return res.json({ message: 'Algo ha ido mal! Revisa tu usuario y contraseña...' });
     });
+    return true;
   } catch (error) {
-    handleError(error, res);
+    return handleError(error, res);
   }
 }
 
