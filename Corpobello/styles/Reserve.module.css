@@ -33,12 +33,9 @@
   color: #FFFFFF;
   height: 50px;
   border-radius: 1000px;
-  border: 0PX;
   background-size: 200% 100%;	
   background-color:  #F5B3B7;
   border: 2px solid #FFFFFF;
-  border-radius: 1000px;
-  color: #FFFFFF;
   transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
 }
 .ReserveButton:hover{
@@ -53,7 +50,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    align-content: center;
+    min-width: 50%;
+    max-height: 95%;
+    margin-top: 2.25vh;
 }
 .h2 {
   font-size: 3.3vw;
@@ -62,10 +62,9 @@
   padding-bottom: 3vh;
 }
 .Calendar{
-  margin-top: 20px;
-  width: 90%;
+  width: 95%;
   border: '1px solid #d9d9d9' ;
-  padding: 25px;
+  padding: 20px;
   background-color: whitesmoke;
   border-radius: 10px;
 }
@@ -96,10 +95,7 @@
     height: auto;
     justify-content: flex-start;
   }
-  .ReservesCalendar{
-    width: 100vw;
-    height: auto;
-  }
+
   .ReservesForm{
     width: 75vw;
     padding: 25px;
