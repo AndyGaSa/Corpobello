@@ -120,7 +120,7 @@ font-family: 'Montserrat','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-
 @media (max-width: 414px) {
     .loginContainer > h1{
         font-size: 26px;
-        padding-bottom: 2vh;
+        padding-bottom: 14vh;
     }
     .errorMessage{
         margin-top: 18px;
@@ -131,10 +131,7 @@ font-family: 'Montserrat','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-
 @media (max-width: 360px) {
     .loginContainer > h1{
         font-size: 20px;
-        margin-top:18vh;
-    }
-    .loginContainer{
-      justify-content: flex-start;;
+        padding-bottom: 20vh;
     }
     .errorMessage{
         font-size: 14px;

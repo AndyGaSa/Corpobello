@@ -4,9 +4,9 @@ import {
   TextField,
   Button,
 } from '@material-ui/core';
-import styles from '../styles/Login.module.css';
+import styles from '../styles/Signup.module.css';
 
-export default function Login() {
+export default function Signup() {
   const [errorStatus, setErrorStatus] = useState('');
   const [sendClick, setClicked] = useState(1);
   const [password, setPassword] = useState('');
