@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import axios from 'axios';
 import {
   TextField,
   Button,
@@ -7,6 +9,9 @@ import {
 import styles from '../styles/Login.module.css';
 
 export default function Login() {
+  const router = useRouter();
+  const [errorStatus, setErrorStatus] = useState('');
+  const [sendClick, setClicked] = useState(1);
   const [password, setPassword] = useState('');
   const [legend, setPasswordLegend] = useState('');
   const [errorTitle, setPasswordErrorTitle] = useState(false);
@@ -37,7 +42,22 @@ export default function Login() {
       setPasswordErrorTitle(false);
       setPasswordLegend('');
     }
+    setClicked(sendClick + 1);
   }
+  useEffect(() => {
+    (async function LoginWithApi() {
+      try {
+        if (errorTitle === false && mailErrorTitle === false
+         && validateEmail(mailTitle) === true) {
+          await axios.post('http://localhost:3000/api/userHandler', { email: mailTitle, password });
+          router.push('/');
+          setErrorStatus('');
+        }
+      } catch (error) {
+        setErrorStatus(error?.response?.data?.message);
+      }
+    }());
+  }, [sendClick]);
   return (
     <main className={styles.mainContainer}>
       <div className={styles.bgDiv}>
@@ -49,6 +69,7 @@ export default function Login() {
           </h1>
           <form className={styles.form}>
             <TextField
+              autoComplete="current-password"
               className={styles.loginInput}
               onChange={(event) => {
                 setMailTitle(event.target.value);
@@ -60,13 +81,14 @@ export default function Login() {
                   setMailLegend('');
                 }
               }}
-              autoFocus="true"
+              autoFocus
               error={mailErrorTitle}
               label="E-mail"
               helperText={mailLegend}
               variant="outlined"
             />
             <TextField
+              autoComplete="current-password"
               className={styles.loginInput}
               onChange={(event) => {
                 setPassword(event.target.value);
@@ -87,6 +109,7 @@ export default function Login() {
             <Button variant="contained" onClick={() => checkValidation()} color="secondary">
               Login
             </Button>
+            <p className={styles.errorMessage}>{errorStatus}</p>
           </form>
           <span>
             No tienes una cuenta?
