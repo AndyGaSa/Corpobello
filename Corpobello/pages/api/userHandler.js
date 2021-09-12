@@ -5,7 +5,7 @@ import {
 
 const userHandler = async (req, res) => {
   switch (req.method) {
-    case 'GET':
+    case 'POST':
       await login(req, res);
       break;
 
