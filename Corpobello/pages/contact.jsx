@@ -18,7 +18,7 @@ export default function Contact() {
           <h4>E- MAIL:</h4>
           <p>corpobello@gmail.com</p>
           <hr />
-          <h4>HORARIO DE TRABAJO:</h4>
+          <h4>HORARIO:</h4>
           <p>08:00 - 20:00</p>
           <br />
           <p className={styles.horary}>
