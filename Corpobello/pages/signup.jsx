@@ -7,6 +7,7 @@ import {
 import styles from '../styles/Login.module.css';
 
 export default function Login() {
+  const [errorStatus, setErrorStatus] = useState('');
   const [sendClick, setClicked] = useState(1);
   const [password, setPassword] = useState('');
   const [legend, setPasswordLegend] = useState('');
@@ -52,16 +53,22 @@ export default function Login() {
     }
     setClicked(sendClick + 1);
   }
+
   useEffect(() => {
     (async function signup() {
-      if (errorTitle === false && nameErrorTitle === false && mailErrorTitle === false
-       && validateEmail(mailTitle) === true) {
-        const data = await axios.post('http://localhost:3000/api/signup', {
-          name,
-          email: mailTitle,
-          password,
-        });
-        alert(data);
+      try {
+        if (errorTitle === false && nameErrorTitle === false && mailErrorTitle === false
+         && validateEmail(mailTitle) === true) {
+          const { data } = await axios.post('http://localhost:3000/api/signup', {
+            name,
+            email: mailTitle,
+            password,
+          });
+          alert(data);
+          setErrorStatus('');
+        }
+      } catch (error) {
+        setErrorStatus('Ya existe un usuario con este mail...');
       }
     }());
   }, [sendClick]);
@@ -131,6 +138,7 @@ export default function Login() {
             <Button variant="contained" onClick={() => checkValidation()}>
               estoy list@
             </Button>
+            <p className={styles.errorMessage}>{errorStatus}</p>
           </form>
         </section>
       </div>
