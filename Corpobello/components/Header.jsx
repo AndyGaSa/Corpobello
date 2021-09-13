@@ -29,6 +29,35 @@ export default function Header({ username }) {
       setHomeOrNotMobile('mobile-menuPink');
     }
   }, [pathname]);
+  let userButtonMobile;
+  let userButton;
+  if (username && username === 'undefined') {
+    userButtonMobile = (
+      <Link href="/login">
+        <div className="mobile-menu__item">
+          <a className={allValues.login ? allValues.login : 'notActual anchor'}>INICIAR SESIÓN</a>
+        </div>
+      </Link>
+    );
+    userButton = (
+      <Link href="/login">
+        <a className={`anchor ${allValues.login}`}>INICIAR SESIÓN</a>
+      </Link>
+    );
+  } else {
+    userButtonMobile = (
+      <Link href="/profile">
+        <div className="mobile-menu__item">
+          <a className={allValues.login ? allValues.login : 'notActual anchor'}>{username.toUpperCase()}</a>
+        </div>
+      </Link>
+    );
+    userButton = (
+      <Link href="/profile">
+        <a className={`anchor ${allValues.login}`}>{username.toUpperCase()}</a>
+      </Link>
+    );
+  }
   return (
     <header>
       <nav className={homeOrNot}>
@@ -48,9 +77,7 @@ export default function Header({ username }) {
         <Link href="/contact">
           <a className={`anchor ${allValues.contact}`}>CONTACTO</a>
         </Link>
-        <Link href="/login">
-          <a className={`anchor ${allValues.login}`}>INICIAR SESIÓN</a>
-        </Link>
+        {userButton}
       </nav>
       <nav className={homeOrNotMobile}>
         <Image src={bigLogoCb} className="logo" height={65} width={700} alt="Logo" />
@@ -83,11 +110,7 @@ export default function Header({ username }) {
                 <a className={allValues.contact ? allValues.contact : 'notActual anchor'}>CONTACTO</a>
               </div>
             </Link>
-            <Link href="/login">
-              <div className="mobile-menu__item">
-                <a className={allValues.login ? allValues.login : 'notActual anchor'}>INICIAR SESIÓN</a>
-              </div>
-            </Link>
+            {userButtonMobile}
           </div>
         </div>
       </nav>
