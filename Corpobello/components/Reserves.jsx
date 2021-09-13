@@ -65,7 +65,6 @@ export default function Reserves() {
   useEffect(() => {
     if (reserves.length > 0) {
       const reservesDate = reserves.map((reserve) => reserve.date.day);
-      console.log(reservesDate);
       setDisabledDates(reservesDate);
     }
   }, [reserves]);
