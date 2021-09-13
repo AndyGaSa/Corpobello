@@ -52,6 +52,13 @@ export async function login(req, res) {
           sameSite: 'strict',
           path: '/',
         }));
+        res.setHeader('Set-Cookie', cookie.serialize('email', foundUser.email, {
+          httpOnly: true,
+          secure: process.env.NODE_ENV !== 'development',
+          maxAge: 60 * 60,
+          sameSite: 'strict',
+          path: '/',
+        }));
         res.status(200);
         return res.json({ name: foundUser.name, authToken: jwt });
       }
