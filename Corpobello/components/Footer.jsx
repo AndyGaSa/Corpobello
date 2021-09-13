@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import Link from 'next/link';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
@@ -29,10 +30,14 @@ export default function Footer() {
           </p>
           <h5>NUESTRAS REDES:</h5>
           <Link href="https://m.facebook.com/corpobelloBCN/?locale2=es_ES">
-            <FaFacebook className="rrssIcon" size={30} />
+            <a className={styles.anchor}>
+              <FaFacebook className="rrssIcon" size={30} />
+            </a>
           </Link>
           <Link href="https://www.instagram.com/corpobellointegral/">
-            <FaInstagram className="rrssIcon" size={30} />
+            <a className={styles.anchor}>
+              <FaInstagram className="rrssIcon" size={30} />
+            </a>
           </Link>
         </div>
       </div>
