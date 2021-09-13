@@ -39,11 +39,13 @@ export default function Home({ events, username }) {
               desde países extranjeros hasta los estándares internacionales
             </p>
             <Link href="/reserves">
-              <button type="button">RESERVA YA</button>
+              <a>RESERVA YA</a>
             </Link>
             <div className={styles.arrowbounce}>
               <Link href="#services">
-                <Image src={downArrow} className={styles.arrowDown} alt="Arrow Down" />
+                <a>
+                  <Image src={downArrow} className={styles.arrowDown} alt="Arrow Down" />
+                </a>
               </Link>
             </div>
           </div>
@@ -62,7 +64,7 @@ export default function Home({ events, username }) {
                   la piel con propiedades de vitamina C pura
                 </p>
                 <Link href="/services">
-                  <button type="button"> CUENTAME MAS</button>
+                  <a> CUENTAME MAS</a>
                 </Link>
               </div>
             </li>
@@ -75,7 +77,7 @@ export default function Home({ events, username }) {
                   la piel con propiedades de vitamina C pura
                 </p>
                 <Link href="/services">
-                  <button type="button"> CUENTAME MAS</button>
+                  <a> CUENTAME MAS</a>
                 </Link>
               </div>
             </li>
@@ -88,7 +90,7 @@ export default function Home({ events, username }) {
                   la piel con propiedades de vitamina C pura
                 </p>
                 <Link href="/services">
-                  <button type="button"> CUENTAME MAS</button>
+                  <a> CUENTAME MAS</a>
                 </Link>
               </div>
             </li>
@@ -113,7 +115,7 @@ export default function Home({ events, username }) {
                     {event.description}
                   </p>
                   <Link href="/events">
-                    <button type="button"> CUENTAME MAS</button>
+                    <a> CUENTAME MAS</a>
                   </Link>
                 </div>
               </li>
