@@ -94,7 +94,7 @@ export default function Reserves() {
               <Input className={styles.ReserveInput} placeholder="Nombre y Apellidos" />
             </Form.Item>
             <Form.Item name="telêfono" rules={[{ required: true }]}>
-              <Input type="number" validateStatus={telStatus} help={telHelp} className={styles.ReserveInput} placeholder="Teléfono" />
+              <Input type="number" help={telHelp} className={styles.ReserveInput} placeholder="Teléfono" />
             </Form.Item>
             <Form.Item name="email" rules={[{ required: true }]}>
               <Input className={styles.ReserveInput} placeholder="E-mail" />
