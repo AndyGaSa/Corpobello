@@ -65,10 +65,10 @@ export default function Signup({ username }) {
          && validateEmail(mailTitle) === true) {
           await axios.post('http://localhost:3000/api/signup', {
             name,
-            email: mailTitle,
+            email: mailTitle.toLowerCase(),
             password,
           });
-          await axios.post('http://localhost:3000/api/userHandler', { email: mailTitle, password });
+          await axios.post('http://localhost:3000/api/userHandler', { email: mailTitle.toLowerCase(), password });
           router.push('/');
           setErrorStatus('');
         }
@@ -155,4 +155,10 @@ export default function Signup({ username }) {
       </main>
     </>
   );
+}
+
+export async function getServerSideProps({ req }) {
+  return {
+    props: { username: req.cookies.username || 'undefined' },
+  };
 }
