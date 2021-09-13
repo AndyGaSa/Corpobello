@@ -8,7 +8,6 @@ import Image from 'next/image';
 import bigLogoCb from '../images/bigLogoCb.svg';
 
 export default function Header({ username }) {
-  console.log(username);
   let { pathname } = useRouter();
   pathname = pathname.substring(1);
   const [allValues, setAllValues] = useState({});
@@ -48,13 +47,13 @@ export default function Header({ username }) {
     userButtonMobile = (
       <Link href="/profile">
         <div className="mobile-menu__item">
-          <a className={allValues.login ? allValues.login : 'notActual anchor'}>{username.toUpperCase()}</a>
+          <a className={allValues.login ? allValues.login : 'notActual anchor'}>{username?.toUpperCase()}</a>
         </div>
       </Link>
     );
     userButton = (
       <Link href="/profile">
-        <a className={`anchor ${allValues.login}`}>{username.toUpperCase()}</a>
+        <a className={`anchor ${allValues.login}`}>{username?.toUpperCase()}</a>
       </Link>
     );
   }
