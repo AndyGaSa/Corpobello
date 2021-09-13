@@ -31,23 +31,21 @@
   font-size: 1.46vw;
   margin: 1.604vw 21.875vw;
 }
-.landingSection > button {
-  margin-top: 20px;
+.landingSection > a {
+  line-height: 225%;
   width: 211.51px;
   height: 55px;
-  left: 610.25px;
-  top: 609.53px;
   background-color: transparent;
   background-size: 200% 100%;	
   background-image: linear-gradient(to right, transparent 50%, rgba(196, 196, 196, 0.35) 50%);
   border: 3px solid #FFFFFF;
   border-radius: 1000px;
   color: #FFFFFF;
-  font-size: 24px;
+  font-size: 22px;
   margin-bottom: 45px;
   transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
 }
-.landingSection > button:hover{
+.landingSection > a:hover{
 	color:rgba(255, 255, 255, 1);
   cursor: pointer;
 	background-color:rgba(196, 196, 196, 0.35);
@@ -183,8 +181,10 @@
   object-fit: cover;
   object-position: 100% 28%;
 }
-.servicesCards > li > div > button{
+.servicesCards > li > div > a{
   width: 200px;
+  font-size: 18px;
+  padding:15px;
   height: 50px;
   background-size: 200% 100%;	
   background-color:  #F5B3B7;
@@ -193,7 +193,7 @@
   color: #FFFFFF;
   transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
 }
-.servicesCards > li > div > button:hover{
+.servicesCards > li > div > a:hover{
 	color: #F5B3B7;
   cursor: pointer;
   border: 3px solid #F5B3B7;
