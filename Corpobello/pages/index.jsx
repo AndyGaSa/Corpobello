@@ -105,7 +105,7 @@ export default function Home({ events, username }) {
           <hr />
           <ul className={styles.servicesCards}>
             {firstEvents?.map((event) => (
-              <li className={styles.serviceCardOne}>
+              <li key={event.title} className={styles.serviceCardOne}>
                 <div>
                   <h3>{event.title.toUpperCase()}</h3>
                   <h4>{event.date}</h4>
@@ -181,6 +181,6 @@ export default function Home({ events, username }) {
 export async function getServerSideProps({ req }) {
   const { data } = await axios.get('http://localhost:3000/api/eventsHandler');
   return {
-    props: { events: data, username: req.cookies.username || 'No hay cookies' },
+    props: { events: data, username: req.cookies.username || 'undefined' },
   };
 }
