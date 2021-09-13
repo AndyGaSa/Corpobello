@@ -1,3 +1,6 @@
+.anchor{
+    color: white;
+}
 .footerTextContainer{
     display: flex;
     background-color: #444343;
