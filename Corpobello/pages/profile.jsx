@@ -1,28 +1,29 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useEffect } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 import Header from '../components/Header';
-import UserAvatar from '../components/UserAvatar';
 import UserForm from '../components/UserForm';
 import styles from '../styles/Profile.module.css';
 
-export default function Profile({ username }) {
+export default function Profile({ username, data }) {
+  const router = useRouter();
+  useEffect(() => {
+    if (username === 'undefined') {
+      router?.push({
+        pathname: '/login',
+        query: { redirect: true },
+      });
+    }
+  }, []);
   return (
     <>
       <Header username={username} />
       <main>
-        <div className={styles.portraitDiv}>
-          <h3>CORPOBELLO</h3>
-          <h2>BIENVENIDO A TU PERFIL</h2>
-        </div>
         <section className={styles.UserContainer}>
           <div className={styles.UserInfoContainer}>
-            <div className={styles.PortraitImg}>
-              <UserAvatar />
-            </div>
-            <UserForm className={styles.UserForm} />
-          </div>
-          <div className={styles.reservesContainer}>
-            <h2>aquivan las reservas</h2>
+            <div />
+            <UserForm user={data} className={styles.UserForm} />
           </div>
         </section>
       </main>
@@ -31,7 +32,14 @@ export default function Profile({ username }) {
 }
 
 export async function getServerSideProps({ req }) {
+  const username = req.cookies.username || 'undefined';
+  const email = req.cookies.email || 'holaeraerea';
+  const { data } = await axios.post('http://localhost:3000/api/userHandler', { email });
   return {
-    props: { username: req.cookies.username || 'undefined' },
+    props: {
+      data,
+      username,
+      email,
+    },
   };
 }
