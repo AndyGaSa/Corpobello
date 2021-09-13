@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Notiflix from 'notiflix';
 import axios from 'axios';
 import {
   TextField,
@@ -11,6 +12,7 @@ import Header from '../components/Header';
 import styles from '../styles/Login.module.css';
 
 export default function Login({ username }) {
+  <script src="dist/notiflix-aio-3.0.2.min.js" />;
   const router = useRouter();
   const [errorStatus, setErrorStatus] = useState('');
   const [sendClick, setClicked] = useState(1);
@@ -20,7 +22,11 @@ export default function Login({ username }) {
   const [mailTitle, setMailTitle] = useState('');
   const [mailLegend, setMailLegend] = useState('');
   const [mailErrorTitle, setMailErrorTitle] = useState(false);
-
+  useEffect(() => {
+    if (router.query.redirect) {
+      Notiflix.Report.info('Hola!', 'Parece que has intentado acceder a la pagina perfil sin estar logeado.\n\rLogeate primero para poder acceder a tu perfil!', 'Entendido');
+    }
+  }, []);
   function validateEmail(email) {
     const mailRegexp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return mailRegexp.test(email);
@@ -51,7 +57,7 @@ export default function Login({ username }) {
       try {
         if (errorTitle === false && mailErrorTitle === false
          && validateEmail(mailTitle) === true) {
-          await axios.post('http://localhost:3000/api/userHandler', { email: mailTitle, password });
+          await axios.post('http://localhost:3000/api/userHandler', { email: mailTitle?.toLowerCase(), password });
           router.push('/');
           setErrorStatus('');
         }
