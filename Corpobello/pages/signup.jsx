@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
@@ -5,9 +6,10 @@ import {
   TextField,
   Button,
 } from '@material-ui/core';
+import Header from '../components/Header';
 import styles from '../styles/Signup.module.css';
 
-export default function Signup() {
+export default function Signup({ username }) {
   const router = useRouter();
   const [errorStatus, setErrorStatus] = useState('');
   const [sendClick, setClicked] = useState(1);
@@ -76,79 +78,81 @@ export default function Signup() {
     }());
   }, [sendClick]);
   return (
-    <main className={styles.mainContainer}>
-      <div className={styles.bgDiv}>
-        <section className={styles.loginContainer}>
-          <h1>
-            Bienvenid@
-            <br />
-            Registrate y unete!
-          </h1>
-          <form className={styles.form}>
-            <TextField
-              autoComplete="current-password"
-              className={styles.loginInput}
-              onChange={(event) => {
-                setName(event.target.value);
-                if (name.length > 24) {
-                  setNameErrorTitle(true);
-                  setNameLegend('El campo nombre no puede ser mas largo de 24 letras...');
-                } else {
-                  setNameErrorTitle(false);
-                  setNameLegend('');
-                }
-              }}
-              autoFocus
-              error={nameErrorTitle}
-              label="Nombre y Apellidos"
-              helperText={nameLegend}
-              variant="outlined"
-            />
-            <TextField
-              autoComplete="current-password"
-              className={styles.loginInput}
-              onChange={(event) => {
-                setMailTitle(event.target.value);
-                if (mailTitle.length > 50) {
-                  setMailErrorTitle(true);
-                  setMailLegend('El campo e-mail no puede ser mas largo de 50 caracteres!');
-                } else {
-                  setMailErrorTitle(false);
-                  setMailLegend('');
-                }
-              }}
-              error={mailErrorTitle}
-              label="E-mail"
-              helperText={mailLegend}
-              variant="outlined"
-            />
-            <TextField
-              autoComplete="current-password"
-              className={styles.loginInput}
-              onChange={(event) => {
-                setPassword(event.target.value);
-                if (password.length > 30) {
-                  setPasswordErrorTitle(true);
-                  setPasswordLegend('La contraseña no puede ser mas larga de 30 caracteres!');
-                } else {
-                  setPasswordErrorTitle(false);
-                  setPasswordLegend('');
-                }
-              }}
-              error={errorTitle}
-              label="Contraseña"
-              type="password"
-              helperText={legend}
-              variant="outlined"
-            />
-            <Button variant="contained" onClick={() => checkValidation()}>
-              estoy list@
-            </Button>
-            <p className={styles.errorMessage}>{errorStatus}</p>
-          </form>
-        </section>
-      </div>
-    </main>
-
+    <>
+      <Header username={username} />
+      <main className={styles.mainContainer}>
+        <div className={styles.bgDiv}>
+          <section className={styles.loginContainer}>
+            <h1>
+              Bienvenid@
+              <br />
+              Registrate y unete!
+            </h1>
+            <form className={styles.form}>
+              <TextField
+                autoComplete="current-password"
+                className={styles.loginInput}
+                onChange={(event) => {
+                  setName(event.target.value);
+                  if (name.length > 24) {
+                    setNameErrorTitle(true);
+                    setNameLegend('El campo nombre no puede ser mas largo de 24 letras...');
+                  } else {
+                    setNameErrorTitle(false);
+                    setNameLegend('');
+                  }
+                }}
+                autoFocus
+                error={nameErrorTitle}
+                label="Nombre y Apellidos"
+                helperText={nameLegend}
+                variant="outlined"
+              />
+              <TextField
+                autoComplete="current-password"
+                className={styles.loginInput}
+                onChange={(event) => {
+                  setMailTitle(event.target.value);
+                  if (mailTitle.length > 50) {
+                    setMailErrorTitle(true);
+                    setMailLegend('El campo e-mail no puede ser mas largo de 50 caracteres!');
+                  } else {
+                    setMailErrorTitle(false);
+                    setMailLegend('');
+                  }
+                }}
+                error={mailErrorTitle}
+                label="E-mail"
+                helperText={mailLegend}
+                variant="outlined"
+              />
+              <TextField
+                autoComplete="current-password"
+                className={styles.loginInput}
+                onChange={(event) => {
+                  setPassword(event.target.value);
+                  if (password.length > 30) {
+                    setPasswordErrorTitle(true);
+                    setPasswordLegend('La contraseña no puede ser mas larga de 30 caracteres!');
+                  } else {
+                    setPasswordErrorTitle(false);
+                    setPasswordLegend('');
+                  }
+                }}
+                error={errorTitle}
+                label="Contraseña"
+                type="password"
+                helperText={legend}
+                variant="outlined"
+              />
+              <Button variant="contained" onClick={() => checkValidation()}>
+                estoy list@
+              </Button>
+              <p className={styles.errorMessage}>{errorStatus}</p>
+            </form>
+          </section>
+        </div>
+      </main>
+    </>
   );
 }
