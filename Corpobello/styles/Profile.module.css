@@ -1,67 +1,44 @@
-.portraitDiv{
-    background-image:
-    url(https://images.unsplash.com/photo-1591343395082-e120087004b4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDl8fGNvbnRhY3QlMjB1cyUyMHNwYXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60);
-    width: 100%;
-    height: 30vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-y: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-}
-.portraitDiv > h3{
-    font-size: 2vw;
-    color: white;
-}
-.portraitDiv > h2{
-    font-size: 4vw;
-    color: white;
-}
 .UserContainer{
 width: 100%;
-height: 57vh;
+height: 87vh;
 display: flex;
 justify-content: space-around;
 align-items: center;
+background: url(https://i.ibb.co/vJm6jJw/logindarkandyimage-1.jpg);
+background-size: cover;
 }
 .UserInfoContainer{
-    height: 57vh;
-    width: 50vw;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    justify-content: center;
+    align-items: center;
+    padding-right: 8vw;
 }
 .UserInfoContainer:first-child{
     display: flex;
-    flex-direction: column;
-    height: auto;
-    background-color: red;
     justify-content: center;
 }
-.PortraitImg{
-    background-color: lightblue;
-    height: 200px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-.UserInfoContainer{
-    margin-bottom: 2vh;
-}
-@media (max-width: 1500px) {
-    .portraitDiv > h3{
-        font-size: 2.5vw;
-    }
-    .portraitDiv > h2{
-        font-size: 4.5vw;
+@media (max-width: 1050px) {
+    .UserContainer{
+        width: 100%;
+        height: 120vh;
+        }
+    .UserInfoContainer{
+       flex-direction: column;
+       padding: 0vw 4vw;
+       padding-bottom: 4vw;
     }
 }
-@media (max-width: 900px) {
-    .portraitDiv > h3{
-        font-size: 5vw;
-    }
-    .portraitDiv > h2{
-        font-size: 8vw;
+@media (max-width: 400px) {
+    .UserContainer{
+        width: 100%;
+        height: 135vh;
+        }
+    .UserInfoContainer{
+       flex-direction: column;
+       padding: 0vw 4vw;
+       padding-bottom: 4vw;
     }
 }
+
