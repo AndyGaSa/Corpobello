@@ -5,9 +5,9 @@ export default function reservesReducer(
   action,
 ) {
   let reservesResult = reserves;
-  switch (action.type) {
-    case actionTypes.LOAD_RESERVES:
-      reservesResult = action.payload;
+  switch (action?.type) {
+    case actionTypes?.LOAD_RESERVES:
+      reservesResult = action?.payload;
       break;
 
     case actionTypes.CREATE_RESERVES:
