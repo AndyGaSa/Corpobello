@@ -3,64 +3,49 @@ import { verify } from 'jsonwebtoken';
 import Reserve from '../../models/reserveModel';
 import Calendar from '../../models/calendarModel';
 import handleError from '../../utils/handleError';
+import createCalendarArray from '../../utils/createCalendarArray';
 
 export async function createNewReserve({ body }, res) {
   try {
     const { service } = body;
     switch (service) {
-      case 'Spa':
+      case 'spa':
         body.date.time = 60;
         break;
-      case 'Masaje':
+      case 'massage':
         body.date.time = 60;
         break;
-      case 'Peluqueria':
+      case 'haircut':
         body.date.time = 30;
         break;
       default:
         break;
     }
-    // const newReserve = await Reserve.create(body);
+    await Reserve.create(body);
     const dayExists = await Calendar.findOne({ day: body.date.day });
     let creation = {};
     if (dayExists === null) {
       const freeTimeRes = 600 - body.date.time;
-      let hoursArray = [];
-      if (body.date.time === 60 && +body.date.minute === 0) {
-        hoursArray = [{
-          hour: body.date.hour, minutes: [0, 30],
-        }];
-      } else if (body.date.time === 60 && +body.date.minute === 30) {
-        hoursArray = [{
-          hour: +body.date.hour, minutes: [30],
-        },
-        {
-          hour: +body.date.hour + 1, minutes: [0],
-        },
-        ];
-      } else if (body.date.time === 30) {
-        hoursArray = [{
-          hour: +body.date.hour, minutes: [+body.date.minute],
-        },
-        ];
-      }
+      const hoursArray = createCalendarArray(body);
       creation = await Calendar.create(
         {
           day: body.date.day,
-          hours: hoursArray,
+          hoursAndMinutes: hoursArray,
           freeTime: freeTimeRes,
         },
       );
     } else {
-      console.log(dayExists);
-      dayExists.freeTime -= body.date.time;
-      const hourExists = dayExists.hours.findIndex((hour) => {
-        if (hour.hour === +body.date.hour) { return true; }
-        return false;
-      });
-      if (hourExists !== -1) {
-        console.log(dayExists.hours[hourExists]);
-      }
+      const freeTimeRes = dayExists.freeTime - body.date.time;
+      const hoursArray = createCalendarArray(body);
+      const { _id } = dayExists;
+      creation = await Calendar.findOneAndUpdate(
+        { _id }, {
+          $push: {
+            hoursAndMinutes: hoursArray,
+          },
+          freeTime: freeTimeRes,
+        },
+      );
     }
     res.send(creation);
     res.status(200);
@@ -70,7 +55,7 @@ export async function createNewReserve({ body }, res) {
 }
 export async function getReserves({ query }, res) {
   try {
-    const foundReserve = await Reserve.find(query);
+    const foundReserve = await Calendar.find(query);
     res.send(foundReserve);
     return res.status(200);
   } catch (error) {
