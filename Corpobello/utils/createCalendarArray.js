@@ -1,5 +1,6 @@
 export default function createCalendarArray(body) {
-  let hour = +body.date.hour;
+  const hour = +body.date.hour;
+  const hour2 = +body.date.hour + 1;
   let hoursArray = [];
   if (body.date.time === 60 && +body.date.minute === 0) {
     hoursArray = [{
@@ -10,7 +11,7 @@ export default function createCalendarArray(body) {
       [hour]: [30],
     },
     {
-      [hour += 1]: [0],
+      [hour2]: [0],
     },
     ];
   } else if (body.date.time === 30) {
