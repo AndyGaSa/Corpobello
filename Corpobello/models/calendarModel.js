@@ -7,14 +7,8 @@ const calendar = new Schema({
     type: String,
     required: true,
   },
-  hours: [{
-    hour: {
-      type: Number,
-      required: true,
-    },
-    minutes: [{
-      type: Number,
-    }],
+  hoursAndMinutes: [{
+    type: Object,
   }],
   freeTime: {
     type: Number,
