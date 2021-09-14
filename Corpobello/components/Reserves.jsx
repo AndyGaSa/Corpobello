@@ -7,7 +7,7 @@ import {
   Form, Input, Button, Select, Calendar, TimePicker,
 } from 'antd';
 import moment from 'moment-business-days';
-import loadReserves from '../redux/actions/actionCreators';
+import loadReserves from '../redux/actions/loadReserves';
 import styles from '../styles/Reserve.module.css';
 
 const { Option } = Select;
