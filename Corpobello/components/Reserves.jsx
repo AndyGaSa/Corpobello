@@ -45,11 +45,11 @@ export default function Reserves() {
       Notiflix.Report.failure('Error!', { error }, 'Ok');
     }
   }
-  async function onServiceChange(value) {
-    await setService(value);
+  function onServiceChange(value) {
+    setService(value);
   }
-  async function onPersonalChange(value) {
-    await setPersonal(value);
+  function onPersonalChange(value) {
+    setPersonal(value);
   }
   function range(start, end) {
     const result = [];
@@ -60,8 +60,7 @@ export default function Reserves() {
   }
 
   function disabledHours() {
-    const hours = range(0, 8) + range(14, 15) + range(21, 24);
-    return hours;
+    return range(0, 8) + range(14, 15) + range(21, 24);
   }
   function disabledMinutes(h) {
     const todayReserves = reserves?.find((reserve) => reserve?.day === currentDay);
@@ -89,8 +88,8 @@ export default function Reserves() {
     }
     return !moment(current.format('YYYY-MM-DD'), 'YYYY-MM-DD').isBusinessDay() || current.isBefore(moment());
   }
-  async function getAndSetReserves() {
-    await dispatch(loadReserves());
+  function getAndSetReserves() {
+    dispatch(loadReserves());
   }
   useEffect(() => {
     if (reserves.length > 0) {
