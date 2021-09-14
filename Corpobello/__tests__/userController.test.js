@@ -1,8 +1,8 @@
-import User from '../../models/userModel';
+import User from '../models/userModel';
 import {
   createNewUser, login, updateUser,
-} from './userController';
-import handleError from '../../utils/handleError';
+} from '../lib/controllers/userController';
+import handleError from '../utils/handleError';
 
 jest.mock('../../utils/handleError');
 jest.mock('../../models/userModel');

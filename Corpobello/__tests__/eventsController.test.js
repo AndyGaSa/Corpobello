@@ -1,9 +1,13 @@
-import Event from '../../models/eventsModel';
-import handleError from '../../utils/handleError';
-import { createEvent, getEvent, deleteEvent } from './eventsController';
+import Event from '../models/eventsModel';
+import handleError from '../utils/handleError';
+import { createEvent, getEvent, deleteEvent } from '../lib/controllers/eventsController';
 
-jest.mock('../../models/eventsModel');
-jest.mock('../../utils/handleError');
+jest.mock('mongoose', () => ({
+  ...jest.requireActual('mongoose'),
+  connect: jest.fn().mockResolvedValue(),
+}));
+jest.mock('../models/eventsModel');
+jest.mock('../utils/handleError');
 
 describe('Given a createEvent function', () => {
   describe('When is invoked', () => {
