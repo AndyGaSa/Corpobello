@@ -13,10 +13,6 @@
   height: 100vh;
   letter-spacing: 0.2em;
 }
-.landingSection > a { 
-  color: white;
-  text-decoration: none;
-}
 .h3 {
   margin-top: 11.458vw;
   color: #FFFFFF;
@@ -32,6 +28,7 @@
   margin: 1.604vw 21.875vw;
 }
 .landingSection > a {
+  text-decoration: none;
   line-height: 225%;
   width: 211.51px;
   height: 55px;
