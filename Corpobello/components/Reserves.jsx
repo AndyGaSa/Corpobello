@@ -40,7 +40,6 @@ export default function Reserves() {
 
   function disabledHours() {
     const hours = range(0, 8) + range(14, 15) + range(21, 24);
-    console.log('hours', hours);
     return hours;
   }
 
@@ -50,7 +49,6 @@ export default function Reserves() {
     } if (h === 9) {
       return range(0, 31);
     }
-    console.log('min', []);
     return [];
   }
   function onPanelChange(value) {
@@ -131,7 +129,6 @@ export default function Reserves() {
                 const timeString = moment(value).format('HH:mm');
                 setSelectedHour(timeString.substring(0, 2));
                 setSelectedMinutes(timeString.substring(3, 5));
-                console.log('minutos', timeString.substring(3, 5));
               }}
               minuteStep={30}
               disabledHours={disabledHours}
