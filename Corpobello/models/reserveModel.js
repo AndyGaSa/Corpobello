@@ -16,7 +16,7 @@ const reserve = new Schema({
       type: String,
       required: true,
     },
-    time: {
+    minute: {
       type: Number,
       required: true,
     },
