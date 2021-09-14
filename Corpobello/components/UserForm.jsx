@@ -94,7 +94,7 @@ export default function UserForm({ user }) {
   useEffect(() => {
     (async function signupAndLogin() {
       try {
-        if (errorTitle === false && errorTitle === false && mailErrorTitle === false
+        if (errorTitle === false && mailErrorTitle === false
          && validateEmail(mailTitle) === true && sendClick > 1) {
           await axios.put('http://localhost:3000/api/userHandler', {
             name: userTitle,
