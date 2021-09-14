@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import { PropTypes } from 'prop-types';
 import React from 'react';
 import styles from '../styles/Events.module.css';
 import Header from '../components/Header';
@@ -23,3 +23,7 @@ export async function getServerSideProps({ req }) {
     props: { username: req.cookies.username || 'undefined' },
   };
 }
+
+Events.propTypes = {
+  username: PropTypes.string.isRequired,
+};

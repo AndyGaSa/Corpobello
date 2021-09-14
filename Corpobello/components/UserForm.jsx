@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import { PropTypes } from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import Notiflix from 'notiflix';
 import { useRouter } from 'next/router';
@@ -194,3 +194,12 @@ export default function UserForm({ user }) {
 
   );
 }
+
+UserForm.propTypes = {
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+  }).isRequired,
+};

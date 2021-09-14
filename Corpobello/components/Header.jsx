@@ -1,8 +1,8 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
+import { PropTypes } from 'prop-types';
 import Link from 'next/link';
 import Image from 'next/image';
 import bigLogoCb from '../images/bigLogoCb.svg';
@@ -116,3 +116,7 @@ export default function Header({ username }) {
     </header>
   );
 }
+
+Header.propTypes = {
+  username: PropTypes.string.isRequired,
+};

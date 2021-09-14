@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import { PropTypes } from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Notiflix from 'notiflix';
@@ -137,3 +137,7 @@ export async function getServerSideProps({ req }) {
     props: { username: req.cookies.username || 'undefined' },
   };
 }
+
+Login.propTypes = {
+  username: PropTypes.string.isRequired,
+};

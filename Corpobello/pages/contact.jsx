@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import { PropTypes } from 'prop-types';
 import React from 'react';
 import Header from '../components/Header';
 import styles from '../styles/Contact.module.css';
@@ -45,3 +45,7 @@ export async function getServerSideProps({ req }) {
     props: { username: req.cookies.username || 'undefined' },
   };
 }
+
+Contact.propTypes = {
+  username: PropTypes.string.isRequired,
+};

@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
+import { PropTypes } from 'prop-types';
 import axios from 'axios';
 import React from 'react';
 import Head from 'next/head';
@@ -149,7 +148,7 @@ export default function Home({ events, username }) {
                   <Image src={Masajista} className={styles.employeesAvatar} alt="Peluqueria" layout="fill" />
                 </div>
                 <div>
-                  <h3>ALICIA LOPEZ</h3>
+                  <h3>ALICIA LÓPEZ</h3>
                   <h4>Peluqueria</h4>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -186,3 +185,7 @@ export async function getServerSideProps({ req }) {
     props: { events: data, username: req.cookies.username || 'undefined' },
   };
 }
+Home.propTypes = {
+  events: PropTypes.objectOf(PropTypes.string).isRequired,
+  username: PropTypes.string.isRequired,
+};

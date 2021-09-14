@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import useMediaQuery from 'use-media-antd-query';
@@ -80,7 +78,7 @@ export default function Reserves() {
             fullscreen={screenIsBig}
             locale="es_ES"
             className={styles.Calendar}
-            onSelect={onPanelChange}
+            onSelect={() => onPanelChange()}
             disabledDate={(current) => disabledDate(current)}
           />
         </div>
@@ -131,8 +129,8 @@ export default function Reserves() {
                 setSelectedMinutes(timeString.substring(3, 5));
               }}
               minuteStep={30}
-              disabledHours={disabledHours}
-              disabledMinutes={disabledMinutes}
+              disabledHours={() => disabledHours()}
+              disabledMinutes={() => disabledMinutes()}
               hideDisabledOptions
             />
             <Form.Item>
