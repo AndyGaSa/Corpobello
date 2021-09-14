@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
 import useMediaQuery from 'use-media-antd-query';
 import {
@@ -13,20 +15,41 @@ const { Option } = Select;
 export default function Reserves() {
   const dispatch = useDispatch();
   const colSize = useMediaQuery();
-
+  const [name, setName] = useState('');
+  const [tel, setTel] = useState(0);
+  const [email, setEmail] = useState('');
+  const [currentDay, setCurrentDay] = useState(moment(new Date()).format('YYYY-MM-DD'));
   const [disabledDates, setDisabledDates] = useState([]);
-  const [serviceValue, setService] = useState('');
+  const [service, setService] = useState('');
+  const [personal, setPersonal] = useState('');
   const [screenIsBig, setScreenSize] = useState(true);
-  const [telStatus, setTelStatus] = useState('');
-  const [telHelp, setTelHelp] = useState('');
   const [selectedHour, setSelectedHour] = useState('');
   const [selectedMinutes, setSelectedMinutes] = useState('');
   const reserves = useSelector((store) => store.reserves);
+  async function sendReserve() {
+    try {
+      await axios.post('http://localhost:3000/api/reserveHandler', {
+        name,
+        date: {
+          day: currentDay,
+          hour: selectedHour,
+          minute: selectedMinutes,
+        },
+        tel,
+        email,
+        service,
+        personal,
+      });
+      Notiflix.Report.success('Genial!', 'Se ha hecho tu reserva con exito!', 'Ok');
+    } catch (error) {
+      Notiflix.Report.failure('Error!', { error }, 'Ok');
+    }
+  }
   async function onServiceChange(value) {
     await setService(value);
   }
   async function onPersonalChange(value) {
-    await setService(value);
+    await setPersonal(value);
   }
   function range(start, end) {
     const result = [];
@@ -40,27 +63,39 @@ export default function Reserves() {
     const hours = range(0, 8) + range(14, 15) + range(21, 24);
     return hours;
   }
-
   function disabledMinutes(h) {
-    if (h === 13) {
-      return range(15, 60);
-    } if (h === 9) {
-      return range(0, 31);
+    const todayReserves = reserves?.find((reserve) => reserve?.day === currentDay);
+    const todayHours = todayReserves?.hoursAndMinutes?.map((
+      hours,
+    ) => Object.entries(hours));
+    const todayBlockedHours = todayHours?.filter((hour) => +hour[0][0] === h);
+    let todayBlockedMinutes = todayBlockedHours?.map((mins) => mins[0][1][0]);
+    const todayBlockedMinutes2 = todayBlockedHours?.map((mins) => mins[0][1][1]);
+    if (todayBlockedMinutes2.length === 1) {
+      todayBlockedMinutes = todayBlockedMinutes.concat(todayBlockedMinutes2);
     }
-    return [];
+    if (h === 13) {
+      todayBlockedMinutes.push(30);
+      return todayBlockedMinutes;
+    }
+    return todayBlockedMinutes;
   }
   function onPanelChange(value) {
-    console.log(value.format('LLL'));
+    setCurrentDay(value.format().substring(0, 10));
   }
   function disabledDate(current) {
-    return disabledDates.find((date) => date === moment(current).format('YYYY-MM-DD') || !moment(current.format('YYYY-MM-DD'), 'YYYY-MM-DD').isBusinessDay() || current.isBefore(moment()));
+    if (disabledDates.length > 0) {
+      return disabledDates?.find((date) => date === moment(current).format('YYYY-MM-DD') || !moment(current.format('YYYY-MM-DD'), 'YYYY-MM-DD').isBusinessDay() || current.isBefore(moment()));
+    }
+    return !moment(current.format('YYYY-MM-DD'), 'YYYY-MM-DD').isBusinessDay() || current.isBefore(moment());
   }
   async function getAndSetReserves() {
     await dispatch(loadReserves());
   }
   useEffect(() => {
     if (reserves.length > 0) {
-      const reservesDate = reserves.map((reserve) => reserve.date.day);
+      let reservesDate = reserves.filter((reserve) => reserve.freeTime < 1);
+      reservesDate = reservesDate.map((reserve) => reserve.day);
       setDisabledDates(reservesDate);
     }
   }, [reserves]);
@@ -78,7 +113,7 @@ export default function Reserves() {
             fullscreen={screenIsBig}
             locale="es_ES"
             className={styles.Calendar}
-            onSelect={() => onPanelChange()}
+            onSelect={(value) => onPanelChange(value)}
             disabledDate={(current) => disabledDate(current)}
           />
         </div>
@@ -86,13 +121,13 @@ export default function Reserves() {
           <h2 className={styles.h2}>RESERVA YA</h2>
           <Form className={styles.ReservesForm}>
             <Form.Item name="nombre" rules={[{ required: true }]}>
-              <Input className={styles.ReserveInput} placeholder="Nombre y Apellidos" />
+              <Input className={styles.ReserveInput} placeholder="Nombre y Apellidos" onChange={(event) => setName(event.target.value)} />
             </Form.Item>
             <Form.Item name="telêfono" rules={[{ required: true }]}>
-              <Input type="number" help={telHelp} className={styles.ReserveInput} placeholder="Teléfono" />
+              <Input type="number" className={styles.ReserveInput} placeholder="Teléfono" onChange={(event) => setTel(event.target.value)} />
             </Form.Item>
             <Form.Item name="email" rules={[{ required: true }]}>
-              <Input className={styles.ReserveInput} placeholder="E-mail" />
+              <Input className={styles.ReserveInput} placeholder="E-mail" onChange={(event) => setEmail(event.target.value)} />
             </Form.Item>
             <Form.Item
               name="servicio"
@@ -130,11 +165,11 @@ export default function Reserves() {
               }}
               minuteStep={30}
               disabledHours={() => disabledHours()}
-              disabledMinutes={() => disabledMinutes()}
+              disabledMinutes={(h) => disabledMinutes(h)}
               hideDisabledOptions
             />
             <Form.Item>
-              <Button className={styles.ReserveButton} type="primary" htmlType="submit">
+              <Button className={styles.ReserveButton} type="primary" onClick={() => sendReserve()}>
                 RESERVAR
               </Button>
             </Form.Item>
