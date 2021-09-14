@@ -28,31 +28,31 @@ export default function Signup({ username }) {
     return mailRegexp.test(email);
   }
 
-  async function checkValidation() {
+  function checkValidation() {
     if (mailTitle.trim().length < 1) {
-      await setMailErrorTitle(true);
+      setMailErrorTitle(true);
       setMailLegend('El E-mail no puede estar vacio!');
     } else if (!validateEmail(mailTitle)) {
-      await setMailErrorTitle(true);
+      setMailErrorTitle(true);
       setMailLegend('Vaya! Parece que tu email no es valido...');
     } else {
-      await setMailErrorTitle(false);
+      setMailErrorTitle(false);
       setMailLegend('');
     }
 
     if (password.trim().length < 1) {
-      await setPasswordErrorTitle(true);
+      setPasswordErrorTitle(true);
       setPasswordLegend('La contraseña  no puede estar vacia!');
     } else {
-      await setPasswordErrorTitle(false);
+      setPasswordErrorTitle(false);
       setPasswordLegend('');
     }
 
     if (name.trim().length < 1) {
-      await setNameErrorTitle(true);
+      setNameErrorTitle(true);
       setNameLegend('El campo nombre no puede estar vacio!');
     } else {
-      await setNameErrorTitle(false);
+      setNameErrorTitle(false);
       setNameLegend('');
     }
     setClicked(sendClick + 1);
