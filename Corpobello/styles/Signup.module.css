@@ -77,7 +77,7 @@ font-family: 'Montserrat','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-
     font-size: 20px;
     background-color: green;
     padding:10px;
-    border-radius: 10px;;
+    border-radius: 10px;
 }
 .form > button:hover{
     background-color: rgb(7, 73, 7);
