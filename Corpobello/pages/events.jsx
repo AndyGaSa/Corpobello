@@ -1,7 +1,6 @@
 import { PropTypes } from 'prop-types';
 import axios from 'axios';
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
 import stylesHome from '../styles/Home.module.css';
@@ -37,7 +36,6 @@ export default function Events({ username, events }) {
             {events?.map((event) => (
               <li key={event.title} className={stylesHome.serviceCardOne}>
                 <div>
-                  <Image src={`/api/imageproxy?url=${encodeURIComponent(event.img)}`} className={styles.employeesAvatar} alt="Evento" width={75} height={75} />
                   <h3>{event.title.toUpperCase()}</h3>
                   <h4>{event.date}</h4>
                   <p>
