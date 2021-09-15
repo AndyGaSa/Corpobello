@@ -7,7 +7,7 @@ import Header from '../components/Header';
 import UserForm from '../components/UserForm';
 import styles from '../styles/Profile.module.css';
 
-export default function Profile({ username, data }) {
+export default function Profile({ username, data, reserves }) {
   const router = useRouter();
   useEffect(() => {
     if (username === 'undefined') {
@@ -37,7 +37,7 @@ export default function Profile({ username, data }) {
         <section className={styles.UserContainer}>
           <div className={styles.UserInfoContainer}>
             <div />
-            <UserForm user={data} className={styles.UserForm} />
+            <UserForm reserves={reserves} user={data} className={styles.UserForm} />
           </div>
         </section>
       </main>
@@ -46,13 +46,15 @@ export default function Profile({ username, data }) {
 }
 
 export async function getServerSideProps({ req }) {
-  const username = req.cookies.username || 'undefined';
   const email = req.cookies.email || 'undefined';
+  const username = req.cookies.username || 'undefined';
+  const reserves = await axios.post('http://localhost:3000/api/reserveHandlerUser', { email });
   const { data } = await axios.post('http://localhost:3000/api/userHandler', { email });
   return {
     props: {
       data,
       username,
+      reserves: reserves.data,
     },
   };
 }
@@ -65,4 +67,5 @@ Profile.propTypes = {
     description: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
   }).isRequired,
+  reserves: PropTypes.objectOf(PropTypes.string).isRequired,
 };
