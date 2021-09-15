@@ -34,3 +34,16 @@
         font-size: 8vw;
     }
 }
+.ourServices{
+    padding-top: 2vh;
+    background-color: rgba(211, 211, 211, 0.13);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    min-height: 57vh;
+    max-height: 400vh;
+    letter-spacing: 0.2em;
+  }

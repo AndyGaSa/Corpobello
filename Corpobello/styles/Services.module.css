@@ -19,7 +19,8 @@
     color: white;
 }
 .ourServices{
-    background-color: white;
+    padding-top: 2vh;
+    background-color: rgba(211, 211, 211, 0.13);
     color: black;
     display: flex;
     flex-direction: column;
