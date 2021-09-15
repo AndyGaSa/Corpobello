@@ -1,8 +1,12 @@
+/* eslint-disable no-underscore-dangle */
 import { PropTypes } from 'prop-types';
+import Modal from '@material-ui/core/Modal';
 import React, { useState, useEffect } from 'react';
 import Notiflix from 'notiflix';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import axios from 'axios';
+
 import {
   FormHelperText,
   TextField,
@@ -17,8 +21,10 @@ import {
 } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import styles from '../styles/UserForm.module.css';
+import stylesHome from '../styles/Home.module.css';
+import stylesEvents from '../styles/Events.module.css';
 
-export default function UserForm({ user }) {
+export default function UserForm({ user, reserves }) {
   const router = useRouter();
   const [userTitle, setUserTitle] = useState(user?.name);
   const [legend, setLegend] = useState('');
@@ -32,12 +38,18 @@ export default function UserForm({ user }) {
   const [RadioError, setRadioError] = React.useState(false);
   const [profileImg, setImg] = useState(user?.image);
   const [description, setDescription] = useState(user?.description);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   function onImageChange(event) {
     if (event.target.files && event.target.files[0]) {
       setImg(URL.createObjectURL(event.target.files[0]));
     }
   }
-
   const descriptionPlaceholder = user && user?.description?.length > 0 ? user?.description : 'Comentanos aqui lo que necesites!';
   const RadioHandleChange = (event) => {
     setRadioValue(event.target.value);
@@ -83,6 +95,15 @@ export default function UserForm({ user }) {
 
     setClicked(sendClick + 1);
   }
+  async function deleteReserve(reserveId) {
+    try {
+      await axios.delete('http://localhost:3000/api/reserveHandler', { data: { reserveId } });
+      Notiflix.Report.success('Guardado!', 'Se ha borrado la reserva con exito!', 'Genial!');
+      router.reload(window.location.pathname);
+    } catch (error) {
+      Notiflix.Report.failure('Error!', { error }, 'Ok');
+    }
+  }
   async function logout() {
     try {
       await axios.get('http://localhost:3000/api/logout');
@@ -114,7 +135,7 @@ export default function UserForm({ user }) {
     <>
       <div className={styles.PortraitImg}>
         <div className="UserAvatarDiv">
-          <Avatar alt="Jhon Snow" src={profileImg} className={styles.UserAvatarImg} />
+          <Avatar alt="User Profile Pic" src={profileImg} className={styles.UserAvatarImg} />
           <div />
           <label htmlFor="icon-button-file" className={styles.editIconDiv}>
             <input accept="image/*" className={styles.inputUpload} onChange={onImageChange} id="icon-button-file" type="file" />
@@ -189,6 +210,54 @@ export default function UserForm({ user }) {
         <Button className={styles.logoutButton} variant="contained" onClick={() => logout()} data-testid="saveButton">
           CERRAR SESIÓN
         </Button>
+        <Button className={styles.formButton} variant="contained" onClick={() => handleOpen()} data-testid="saveButton">
+          MODIFICAR RESERVAS
+        </Button>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+        >
+          <div className={styles.reservesModal}>
+            <ul className={stylesHome.servicesCards}>
+              {reserves?.map((reserve) => (
+                <li key={reserve._id} className={stylesEvents.serviceCardTwo}>
+                  <div>
+                    <h3>
+                      Usuario:
+                      {' '}
+                      {reserve.name}
+                    </h3>
+                    <h2>
+                      Tel:
+                      {' '}
+                      {reserve.tel}
+                    </h2>
+                    <h4>
+                      Dia:
+                      {' '}
+                      {reserve.date.day}
+                    </h4>
+                    <h4>
+                      Hora:
+                      {' '}
+                      {reserve.date.hour}
+                    </h4>
+                    <p>
+                      Personal :
+                      {' '}
+                      {reserve.personal}
+                    </p>
+                    <Link href="/admin">
+                      <a href="replace" onClick={() => deleteReserve(reserve._id)}> ELIMINAR RESERVA</a>
+                    </Link>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Modal>
       </form>
     </>
 
@@ -202,4 +271,5 @@ UserForm.propTypes = {
     description: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
   }).isRequired,
+  reserves: PropTypes.objectOf(PropTypes.string).isRequired,
 };
