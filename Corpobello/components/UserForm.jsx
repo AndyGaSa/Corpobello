@@ -103,7 +103,7 @@ export default function UserForm({ user }) {
             image: profileImg,
             description,
           });
-          Notiflix.Report.success('Guardado!', 'Se han guardado tus cambios con exito!', 'Ok');
+          Notiflix.Report.success('Guardado!', 'Se han guardado tus cambios con exito!', 'Genial!');
         }
       } catch (error) {
         Notiflix.Report.failure('Error!', { error }, 'Ok');
