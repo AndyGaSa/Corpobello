@@ -1,7 +1,9 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import Head from 'next/head';
+import Link from 'next/link';
 import Header from '../components/Header';
+import stylesHome from '../styles/Home.module.css';
 import styles from '../styles/Services.module.css';
 
 export default function Services({ username }) {
@@ -28,6 +30,49 @@ export default function Services({ username }) {
           <h3>DESCUBRE</h3>
           <h2>NUESTROS SERVICIOS</h2>
         </div>
+        <section className={styles.ourServices} id="services">
+          <ul className={stylesHome.servicesCards}>
+            <li className={stylesHome.serviceCardOne}>
+              <div>
+                <h3>MASAJES</h3>
+                <h4>CUIDAMOS TU PELO</h4>
+                <p>
+                  Blanquea, desvanece la oscuridad, previene hongos / pecas y rejuvenece
+                  la piel con propiedades de vitamina C pura
+                </p>
+                <Link href="/services">
+                  <a href="replace"> CUENTAME MAS</a>
+                </Link>
+              </div>
+            </li>
+            <li className={stylesHome.serviceCardTwo}>
+              <div>
+                <h3>PELUQUERIA</h3>
+                <h4>CUIDAMOS TU PELO</h4>
+                <p>
+                  Blanquea, desvanece la oscuridad, previene hongos / pecas y rejuvenece
+                  la piel con propiedades de vitamina C pura
+                </p>
+                <Link href="/services">
+                  <a href="replace"> CUENTAME MAS</a>
+                </Link>
+              </div>
+            </li>
+            <li className={stylesHome.serviceCardThree}>
+              <div>
+                <h3>SPA</h3>
+                <h4>CUIDAMOS TU PELO</h4>
+                <p>
+                  Blanquea, desvanece la oscuridad, previene hongos / pecas y rejuvenece
+                  la piel con propiedades de vitamina C pura
+                </p>
+                <Link href="/services">
+                  <a href="replace"> CUENTAME MAS</a>
+                </Link>
+              </div>
+            </li>
+          </ul>
+        </section>
       </main>
     </>
   );

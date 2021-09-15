@@ -18,6 +18,18 @@
     font-size: 4vw;
     color: white;
 }
+.ourServices{
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    min-height: 57vh;
+    max-height: 400vh;
+    letter-spacing: 0.2em;
+  }
 @media (max-width: 1500px) {
     .portraitDiv > h3{
         font-size: 2.5vw;
