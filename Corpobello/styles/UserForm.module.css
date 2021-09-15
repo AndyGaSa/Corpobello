@@ -1,3 +1,16 @@
+.reservesModal{
+    position: 'absolute';
+    width: 90%;
+    height: 90%;
+    margin: 2.5% 5%;
+    padding: 2%;
+    background-color: rgba(225, 143, 157, 0.955);
+    border-radius: 10px;
+    border: '2px solid #000';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .formInputs{
     background-color: transparent;
     border-radius: 10px;
@@ -59,7 +72,7 @@ color: white;
     background-color: #f5b3b8 !important;
 }
 .logoutButton{
-    margin-top: 20px !important;
+    margin: 20px 0px!important;
     background-color: lightgray !important;
 }
 
