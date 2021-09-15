@@ -47,3 +47,8 @@
     max-height: 400vh;
     letter-spacing: 0.2em;
   }
+  .serviceCardOne{
+    background-image: url(https://media.istockphoto.com/vectors/space-background-green-realistic-cosmos-backdrop-starry-nebula-with-vector-id1210188109?k=20&m=1210188109&s=612x612&w=0&h=vRmoY7Fp83ZPnbFqvsTFJv_1nry0R7urqU8AiKAyFDA=);
+    background-position: center 100%;
+    background-size: cover;
+  }
