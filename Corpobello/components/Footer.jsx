@@ -30,12 +30,12 @@ export default function Footer() {
           </p>
           <h5>NUESTRAS REDES:</h5>
           <Link href="https://m.facebook.com/corpobelloBCN/?locale2=es_ES">
-            <a className={styles.anchor}>
+            <a className={`${styles.anchor} ${styles.facebook}`}>
               <FaFacebook className="rrssIcon" size={30} />
             </a>
           </Link>
           <Link href="https://www.instagram.com/corpobellointegral/">
-            <a className={styles.anchor}>
+            <a className={`${styles.anchor} ${styles.instagram}`}>
               <FaInstagram className="rrssIcon" size={30} />
             </a>
           </Link>
