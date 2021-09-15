@@ -1,11 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 import Link from 'next/link';
 import Image from 'next/image';
-import bigLogoCb from '../images/bigLogoCb.svg';
+import bigLogoCb from '../public/static/images/bigLogoCb.svg';
 
 export default function Header({ username }) {
   let { pathname } = useRouter();
@@ -34,26 +33,26 @@ export default function Header({ username }) {
     userButtonMobile = (
       <Link href="/login">
         <div className="mobile-menu__item">
-          <a className={allValues.login ? allValues.login : 'notActual anchor'}>INICIAR SESIÓN</a>
+          <a href="replace" className={allValues.login ? allValues.login : 'notActual anchor'}>INICIAR SESIÓN</a>
         </div>
       </Link>
     );
     userButton = (
       <Link href="/login">
-        <a className={`anchor ${allValues.login}`}>INICIAR SESIÓN</a>
+        <a href="replace" className={`anchor ${allValues.login}`}>INICIAR SESIÓN</a>
       </Link>
     );
   } else {
     userButtonMobile = (
       <Link href="/profile">
         <div className="mobile-menu__item">
-          <a className={allValues.login ? allValues.login : 'notActual anchor'}>{username?.toUpperCase()}</a>
+          <a href="replace" className={allValues.login ? allValues.login : 'notActual anchor'}>{username?.toUpperCase()}</a>
         </div>
       </Link>
     );
     userButton = (
       <Link href="/profile">
-        <a className={`anchor ${allValues.login}`}>{username?.toUpperCase()}</a>
+        <a href="replace" className={`anchor ${allValues.login}`}>{username?.toUpperCase()}</a>
       </Link>
     );
   }
@@ -62,19 +61,19 @@ export default function Header({ username }) {
       <nav className={homeOrNot}>
         <Image src={bigLogoCb} className="logo" alt="Logo" />
         <Link href="/">
-          <a className={`anchor ${allValues.home}`}>INICIO</a>
+          <a href="replace" className={`anchor ${allValues.home}`}>INICIO</a>
         </Link>
         <Link href="/services">
-          <a className={`anchor ${allValues.services}`}>SERVICIOS</a>
+          <a href="replace" className={`anchor ${allValues.services}`}>SERVICIOS</a>
         </Link>
         <Link href="/reserves">
-          <a className={`anchor ${allValues.reserves}`}>RESERVA</a>
+          <a href="replace" className={`anchor ${allValues.reserves}`}>RESERVA</a>
         </Link>
         <Link href="/events">
-          <a className={`anchor ${allValues.events}`}>EVENTOS</a>
+          <a href="replace" className={`anchor ${allValues.events}`}>EVENTOS</a>
         </Link>
         <Link href="/contact">
-          <a className={`anchor ${allValues.contact}`}>CONTACTO</a>
+          <a href="replace" className={`anchor ${allValues.contact}`}>CONTACTO</a>
         </Link>
         {userButton}
       </nav>
@@ -86,27 +85,27 @@ export default function Header({ username }) {
           <div className="mobile-menu__list">
             <Link href="/">
               <div className="mobile-menu__item">
-                <a className={allValues.home ? allValues.home : 'notActual anchor'}>INICIO</a>
+                <a href="replace" className={allValues.home ? allValues.home : 'notActual anchor'}>INICIO</a>
               </div>
             </Link>
             <Link href="/services">
               <div className="mobile-menu__item">
-                <a className={allValues.services ? allValues.services : 'notActual anchor'}>SERVICIOS</a>
+                <a href="replace" className={allValues.services ? allValues.services : 'notActual anchor'}>SERVICIOS</a>
               </div>
             </Link>
             <Link href="/reserves">
               <div className="mobile-menu__item">
-                <a className={allValues.reserves ? allValues.reserves : 'notActual anchor'}>RESERVA</a>
+                <a href="replace" className={allValues.reserves ? allValues.reserves : 'notActual anchor'}>RESERVA</a>
               </div>
             </Link>
             <Link href="/events">
               <div className="mobile-menu__item">
-                <a className={allValues.events ? allValues.events : 'notActual anchor'}>EVENTOS</a>
+                <a href="replace" className={allValues.events ? allValues.events : 'notActual anchor'}>EVENTOS</a>
               </div>
             </Link>
             <Link href="/contact">
               <div className="mobile-menu__item">
-                <a className={allValues.contact ? allValues.contact : 'notActual anchor'}>CONTACTO</a>
+                <a href="replace" className={allValues.contact ? allValues.contact : 'notActual anchor'}>CONTACTO</a>
               </div>
             </Link>
             {userButtonMobile}
