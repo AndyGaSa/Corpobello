@@ -82,7 +82,6 @@ export function getReservesAuthorized(req, res) {
 
 export async function deleteReserve(req, res) {
   const { reserveId } = req.body;
-  console.log(reserveId);
   try {
     const deletedUser = await Reserve.findByIdAndDelete(reserveId);
     res.send(`tu reserva para el dia ${deletedUser.date} ha sido cancelada`);
