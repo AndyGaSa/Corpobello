@@ -9,6 +9,7 @@ import Reserves from '../components/Reserves';
 import Header from '../components/Header';
 import downArrow from '../public/static/images/downArrow.svg';
 import Masajista from '../public/static/images/Masajista1.jpeg';
+import Peluquera from '../public/static/images/Peluqera.jpeg';
 import styles from '../styles/Home.module.css';
 
 export default function Home({ events, username, prices }) {
@@ -155,7 +156,7 @@ export default function Home({ events, username, prices }) {
             <ul className={styles.employeesCard}>
               <li>
                 <div className={styles.employeesAvatarDiv}>
-                  <Image src={Masajista} className={styles.employeesAvatar} alt="Peluqueria" layout="fill" />
+                  <Image src={Peluquera} className={styles.employeesAvatar} alt="Peluqueria" layout="fill" />
                 </div>
                 <div>
                   <h3>ALICIA LÓPEZ</h3>
