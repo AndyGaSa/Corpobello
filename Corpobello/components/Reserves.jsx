@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import { PropTypes } from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { loadStripe } from '@stripe/stripe-js';
@@ -81,15 +81,15 @@ export default function Reserves({ prices }) {
     const todayReserves = reserves?.find((reserve) => reserve?.day === currentDay);
     const todayHours = todayReserves?.hoursAndMinutes?.map((
       hours,
-    ) => Object.entries(hours));
+    ) => Object?.entries(hours));
     const todayBlockedHours = todayHours?.filter((hour) => +hour[0][0] === h);
     let todayBlockedMinutes = todayBlockedHours?.map((mins) => mins[0][1][0]);
     const todayBlockedMinutes2 = todayBlockedHours?.map((mins) => mins[0][1][1]);
-    if (todayBlockedMinutes2.length === 1) {
+    if (todayBlockedMinutes2?.length === 1) {
       todayBlockedMinutes = todayBlockedMinutes.concat(todayBlockedMinutes2);
     }
     if (h === 13) {
-      todayBlockedMinutes.push(30);
+      todayBlockedMinutes?.push(30);
       return todayBlockedMinutes;
     }
     return todayBlockedMinutes;
@@ -98,7 +98,7 @@ export default function Reserves({ prices }) {
     setCurrentDay(value.format().substring(0, 10));
   }
   function disabledDate(current) {
-    if (disabledDates.length > 0) {
+    if (disabledDates?.length > 0) {
       return disabledDates?.find((date) => date === moment(current).format('YYYY-MM-DD') || !moment(current.format('YYYY-MM-DD'), 'YYYY-MM-DD').isBusinessDay() || current.isBefore(moment()));
     }
     return !moment(current.format('YYYY-MM-DD'), 'YYYY-MM-DD').isBusinessDay() || current.isBefore(moment());
@@ -137,7 +137,7 @@ export default function Reserves({ prices }) {
             <Form.Item name="nombre" rules={[{ required: true }]}>
               <Input className={styles.ReserveInput} placeholder="Nombre y Apellidos" onChange={(event) => setName(event.target.value)} />
             </Form.Item>
-            <Form.Item name="telêfono" rules={[{ required: true }]}>
+            <Form.Item name="telefono" rules={[{ required: true }]}>
               <Input type="number" className={styles.ReserveInput} placeholder="Teléfono" onChange={(event) => setTel(event.target.value)} />
             </Form.Item>
             <Form.Item name="email" rules={[{ required: true }]}>
@@ -148,6 +148,7 @@ export default function Reserves({ prices }) {
               rules={[{ required: true }]}
             >
               <Select
+                aria-label="Service selector"
                 placeholder="Servicio"
                 onChange={(event) => onServiceChange(event)}
               >
@@ -161,6 +162,7 @@ export default function Reserves({ prices }) {
               rules={[{ required: true }]}
             >
               <Select
+                aria-label="Personal selector"
                 placeholder="Personal"
                 onChange={(event) => onPersonalChange(event)}
               >
@@ -193,3 +195,12 @@ export default function Reserves({ prices }) {
     </section>
   );
 }
+
+Reserves.propTypes = {
+  prices: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+  }).isRequired,
+};
