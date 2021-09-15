@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { PropTypes } from 'prop-types';
 import axios from 'axios';
 import React from 'react';
@@ -49,11 +48,11 @@ export default function Home({ events, username, prices }) {
               desde países extranjeros hasta los estándares internacionales
             </p>
             <Link href="/reserves">
-              <a>RESERVA YA</a>
+              <a href="replace">RESERVA YA</a>
             </Link>
             <div className={styles.arrowbounce}>
               <Link href="#services">
-                <a>
+                <a href="replace">
                   <Image src={downArrow} className={styles.arrowDown} alt="Arrow Down" />
                 </a>
               </Link>
@@ -74,7 +73,7 @@ export default function Home({ events, username, prices }) {
                   la piel con propiedades de vitamina C pura
                 </p>
                 <Link href="/services">
-                  <a> CUENTAME MAS</a>
+                  <a href="replace"> CUENTAME MAS</a>
                 </Link>
               </div>
             </li>
@@ -87,7 +86,7 @@ export default function Home({ events, username, prices }) {
                   la piel con propiedades de vitamina C pura
                 </p>
                 <Link href="/services">
-                  <a> CUENTAME MAS</a>
+                  <a href="replace"> CUENTAME MAS</a>
                 </Link>
               </div>
             </li>
@@ -100,7 +99,7 @@ export default function Home({ events, username, prices }) {
                   la piel con propiedades de vitamina C pura
                 </p>
                 <Link href="/services">
-                  <a> CUENTAME MAS</a>
+                  <a href="replace"> CUENTAME MAS</a>
                 </Link>
               </div>
             </li>
@@ -125,7 +124,7 @@ export default function Home({ events, username, prices }) {
                     {event.description}
                   </p>
                   <Link href="/events">
-                    <a> CUENTAME MAS</a>
+                    <a href="replace"> CUENTAME MAS</a>
                   </Link>
                 </div>
               </li>
