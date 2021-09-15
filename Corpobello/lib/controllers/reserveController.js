@@ -53,9 +53,14 @@ export async function createNewReserve({ body }, res) {
     handleError(error, res);
   }
 }
-export async function getReserves({ query }, res) {
+export async function getReserves(req, res) {
   try {
-    const foundReserve = await Reserve.find(query);
+    if (req.body.email === undefined) {
+      const foundReserve = await Reserve.find(req.query);
+      res.send(foundReserve);
+      return res.status(200);
+    }
+    const foundReserve = await Reserve.find({ email: req.body.email });
     res.send(foundReserve);
     return res.status(200);
   } catch (error) {
