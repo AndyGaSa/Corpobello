@@ -19,9 +19,7 @@ export default function Services({ username }) {
         <meta name="keywords" content="Estetica Belleza Peluqueria Salon Masajes Masaje Spa Badalona" />
 
         <link rel="manifest" href="/manifest.webmanifest" />
-        <link href="/static/images/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16" />
-        <link href="/static/images/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32" />
-        <link rel="apple-touch-icon" href="/static/images/apple-icon.png" />
+
         <meta name="theme-color" content="#417505" />
       </Head>
       <Header username={username} />
