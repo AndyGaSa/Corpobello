@@ -55,7 +55,7 @@ export async function createNewReserve({ body }, res) {
 }
 export async function getReserves({ query }, res) {
   try {
-    const foundReserve = await Calendar.find(query);
+    const foundReserve = await Reserve.find(query);
     res.send(foundReserve);
     return res.status(200);
   } catch (error) {
@@ -82,6 +82,7 @@ export function getReservesAuthorized(req, res) {
 
 export async function deleteReserve(req, res) {
   const { reserveId } = req.body;
+  console.log(reserveId);
   try {
     const deletedUser = await Reserve.findByIdAndDelete(reserveId);
     res.send(`tu reserva para el dia ${deletedUser.date} ha sido cancelada`);
