@@ -1,5 +1,8 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { loadStripe } from '@stripe/stripe-js';
+import { createCheckoutSession } from 'next-stripe/client';
 import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
 import useMediaQuery from 'use-media-antd-query';
@@ -12,7 +15,8 @@ import styles from '../styles/Reserve.module.css';
 
 const { Option } = Select;
 
-export default function Reserves() {
+export default function Reserves({ prices }) {
+  console.log(prices);
   const dispatch = useDispatch();
   const colSize = useMediaQuery();
   const [name, setName] = useState('');
@@ -28,6 +32,17 @@ export default function Reserves() {
   const reserves = useSelector((store) => store.reserves);
   async function sendReserve() {
     try {
+      const session = await createCheckoutSession({
+        success_url: window.location.href,
+        cancel_url: window.location.href,
+        line_items: [{ price: 'price_1JZuJhFXhsus6ZXxbXMOeKsX', quantity: 1 }],
+        payment_method_types: ['card'],
+        mode: 'payment',
+      });
+      const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
+      if (stripe) {
+        stripe.redirectToCheckout({ sessionId: session.id });
+      }
       await axios.post('http://localhost:3000/api/reserveHandler', {
         name,
         date: {
