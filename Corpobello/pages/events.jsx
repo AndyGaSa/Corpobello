@@ -1,10 +1,14 @@
 import { PropTypes } from 'prop-types';
+import axios from 'axios';
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import Head from 'next/head';
+import stylesHome from '../styles/Home.module.css';
 import styles from '../styles/Events.module.css';
 import Header from '../components/Header';
 
-export default function Events({ username }) {
+export default function Events({ username, events }) {
   return (
     <>
       <Head>
@@ -28,18 +32,42 @@ export default function Events({ username }) {
           <h3>VEN Y CONOCENOS</h3>
           <h2>NUESTROS EVENTOS</h2>
         </div>
-        <h1>Hola estas en events</h1>
+        <section className={styles.ourServices}>
+          <ul className={stylesHome.servicesCards}>
+            {events?.map((event) => (
+              <li key={event.title} className={stylesHome.serviceCardOne}>
+                <div>
+                  <Image src={`/api/imageproxy?url=${encodeURIComponent(event.img)}`} className={styles.employeesAvatar} alt="Evento" width={75} height={75} />
+                  <h3>{event.title.toUpperCase()}</h3>
+                  <h4>{event.date}</h4>
+                  <p>
+                    {event.description}
+                  </p>
+                  <Link href="/events">
+                    <a href="replace"> CUENTAME MAS</a>
+                  </Link>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+
       </main>
     </>
   );
 }
 
 export async function getServerSideProps({ req }) {
+  const { data } = await axios.get('http://localhost:3000/api/eventsHandler');
   return {
-    props: { username: req.cookies.username || 'undefined' },
+    props: {
+      username: req.cookies.username || 'undefined',
+      events: data,
+    },
   };
 }
 
 Events.propTypes = {
   username: PropTypes.string.isRequired,
+  events: PropTypes.objectOf(PropTypes.string).isRequired,
 };
