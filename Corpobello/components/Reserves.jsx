@@ -15,8 +15,7 @@ import styles from '../styles/Reserve.module.css';
 
 const { Option } = Select;
 
-export default function Reserves({ prices }) {
-  console.log(prices);
+export default function Reserves() {
   const dispatch = useDispatch();
   const colSize = useMediaQuery();
   const [name, setName] = useState('');

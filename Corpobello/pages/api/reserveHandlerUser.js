@@ -1,6 +1,6 @@
 import connectDB from '../../config/mongoose.config';
 import {
-  getReserves, deleteReserve, updateReserve,
+  getCalendar, getReserves, deleteReserve, updateReserve,
 } from '../../lib/controllers/reserveController';
 
 const reserveHandlerUser = async (req, res) => {
@@ -17,6 +17,9 @@ const reserveHandlerUser = async (req, res) => {
       await updateReserve(req, res);
       break;
 
+    case 'GET':
+      await getCalendar(req, res);
+      break;
     default:
       break;
   }

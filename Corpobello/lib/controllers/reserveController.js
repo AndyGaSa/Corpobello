@@ -67,6 +67,15 @@ export async function getReserves(req, res) {
     return handleError(error, res);
   }
 }
+export async function getCalendar(req, res) {
+  try {
+    const foundReserve = await Calendar.find(req.query);
+    res.send(foundReserve);
+    return res.status(200);
+  } catch (error) {
+    return handleError(error, res);
+  }
+}
 export function getReservesAuthorized(req, res) {
   const { userEmail } = req.body;
   const { authorization } = req.headers;
