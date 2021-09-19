@@ -1,4 +1,4 @@
-# Corpobello Beauty Salon
+# Corpobello Beauty Salon ​💇‍♀️​💆‍♀️​💅​
 
 Corpobello is a beauty salon located on Barcelona where they do massages, spa and hairdressing. 
 They asked me to do a web where users can make reserves with a payment gateway, check the services offered and read about and see the contact info.
@@ -10,13 +10,11 @@ SEO and performance was a primordial objective, thats why all the project was ma
 
 
 <p> 
-
-  </a> 
-  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> 
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> 
-  </a> 
   <a href="https://nextjs.org/" target="_blank"> 
-    <img src="http://www.legrandlucas.com/assets/nextjs__white.png=" alt="next" width="40" height="40"/> 
+    <img src="http://www.legrandlucas.com/assets/nextjs__white.png" alt="next" width="65" height="40"/> 
+  </a> 
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> 
   </a> 
   <a href="https://jestjs.io" target="_blank"> 
     <img src="https://www.vectorlogo.zone/logos/jestjsio/jestjsio-icon.svg" alt="jest" width="40" height="40"/> 
@@ -35,6 +33,7 @@ SEO and performance was a primordial objective, thats why all the project was ma
   </a>
   <a href="https://www.w3schools.com/css/" target="_blank"> 
     <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn1.iconfinder.com%2Fdata%2Ficons%2Flogotypes%2F32%2Fbadge-css-3-512.png&f=1&nofb=1" alt="css3" width="40" height="40"/>
+  </a>
   <a href="https://material-ui.com/" target="_blank"> 
     <img src="https://material-ui.com/static/logo_raw.svg" alt="materialUI" width="40" height="40"/> 
    </a>
@@ -47,11 +46,11 @@ SEO and performance was a primordial objective, thats why all the project was ma
     <a href="https://jwt.io/" target="_blank"> 
     <img src="https://jwt.io/img/logo.svg" alt="jwt" width="40" height="40"/> 
    </a>
-  <a href="mongoosejs.com" target="_blank"> 
-    <img src="https://mongoosejs.com/docs/images/mongoose5_62x30_transparent.png" alt="moongose" width="40" height="40"/> 
-   </a>
    <a href="https://ant.design/" target="_blank"> 
     <img src="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png" alt="antd" width="40" height="40"/> 
+   </a>
+    <a href="mongoosejs.com" target="_blank"> 
+    <img src="https://mongoosejs.com/docs/images/mongoose5_62x30_transparent.png" alt="moongose" width="65" height="40"/> 
    </a>
 </p>
 
