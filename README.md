@@ -10,14 +10,13 @@ SEO and performance was a primordial objective, thats why all the project was ma
 
 
 <p> 
-  <a href="https://www.w3schools.com/css/" target="_blank"> 
-    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn1.iconfinder.com%2Fdata%2Ficons%2Flogotypes%2F32%2Fbadge-css-3-512.png&f=1&nofb=1" alt="css3" width="40" height="40"/>
+
   </a> 
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> 
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> 
   </a> 
-  <a href="https://reactjs.org/" target="_blank"> 
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> 
+  <a href="https://nextjs.org/" target="_blank"> 
+    <img src="http://www.legrandlucas.com/assets/nextjs__white.png=" alt="next" width="40" height="40"/> 
   </a> 
   <a href="https://jestjs.io" target="_blank"> 
     <img src="https://www.vectorlogo.zone/logos/jestjsio/jestjsio-icon.svg" alt="jest" width="40" height="40"/> 
@@ -34,9 +33,8 @@ SEO and performance was a primordial objective, thats why all the project was ma
   <a href="https://git-scm.com/" target="_blank">
     <img src="https://raw.githubusercontent.com/rahulbanerjee26/githubAboutMeGenerator/main/icons/git.svg" width="40" height="40">
   </a>
-  <a href="https://firebase.google.com/" target="_blank"> 
-    <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/> 
-   </a>
+  <a href="https://www.w3schools.com/css/" target="_blank"> 
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn1.iconfinder.com%2Fdata%2Ficons%2Flogotypes%2F32%2Fbadge-css-3-512.png&f=1&nofb=1" alt="css3" width="40" height="40"/>
   <a href="https://material-ui.com/" target="_blank"> 
     <img src="https://material-ui.com/static/logo_raw.svg" alt="materialUI" width="40" height="40"/> 
    </a>
@@ -45,6 +43,15 @@ SEO and performance was a primordial objective, thats why all the project was ma
    </a>
    <a href="https://eslint.org/" target="_blank"> 
     <img src="https://d33wubrfki0l68.cloudfront.net/204482ca413433c80cd14fe369e2181dd97a2a40/092e2/assets/img/logo.svg" alt="eslint" width="40" height="40"/> 
+   </a>
+    <a href="https://jwt.io/" target="_blank"> 
+    <img src="https://jwt.io/img/logo.svg" alt="jwt" width="40" height="40"/> 
+   </a>
+  <a href="mongoosejs.com" target="_blank"> 
+    <img src="https://mongoosejs.com/docs/images/mongoose5_62x30_transparent.png" alt="moongose" width="40" height="40"/> 
+   </a>
+   <a href="https://ant.design/" target="_blank"> 
+    <img src="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png" alt="antd" width="40" height="40"/> 
    </a>
 </p>
 
