@@ -69,7 +69,7 @@ In the project directory, you can run:
 Runs the app in build mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will not reload if you make edits.\=
+The page will not reload if you make edits.\
 
 
 ### `npm run build`
