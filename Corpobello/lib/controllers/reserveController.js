@@ -27,24 +27,23 @@ export async function createNewReserve({ body }, res) {
     if (dayExists === null) {
       const freeTimeRes = 600 - body.date.time;
       const hoursArray = createCalendarArray(body);
-      creation = await Calendar.create(
-        {
-          day: body.date.day,
-          hoursAndMinutes: hoursArray,
-          freeTime: freeTimeRes,
-        },
-      );
+      creation = await Calendar.create({
+        day: body.date.day,
+        hoursAndMinutes: hoursArray,
+        freeTime: freeTimeRes,
+      });
     } else {
       const freeTimeRes = dayExists.freeTime - body.date.time;
       const hoursArray = createCalendarArray(body);
       const { _id } = dayExists;
       creation = await Calendar.findOneAndUpdate(
-        { _id }, {
+        { _id },
+        {
           $push: {
             hoursAndMinutes: hoursArray,
           },
           freeTime: freeTimeRes,
-        },
+        }
       );
     }
     res.send(creation);
@@ -79,7 +78,7 @@ export async function getCalendar(req, res) {
 export function getReservesAuthorized(req, res) {
   const { userEmail } = req.body;
   const { authorization } = req.headers;
-  verify(authorization, process.env.jwt_secret, async (err, decoded) => {
+  verify(authorization, process.env.NEXT_JWT_SECRET, async (err, decoded) => {
     try {
       if (!err && decoded) {
         const foundReserve = await Reserve.find({ email: userEmail });
@@ -112,7 +111,7 @@ export async function updateReserve(req, res) {
     const updatedUser = await Reserve.findByIdAndUpdate(
       reserveId,
       { date: dataToUpdate },
-      { new: true },
+      { new: true }
     );
     res.send(updatedUser);
     res.status(200);
