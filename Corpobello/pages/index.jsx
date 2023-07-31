@@ -1,4 +1,4 @@
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import React from 'react';
 import Stripe from 'stripe';
@@ -228,7 +228,7 @@ export async function getServerSideProps({ req }) {
 }
 
 Home.propTypes = {
-  events: PropTypes.objectOf(PropTypes.string).isRequired,
+  events: PropTypes.arrayOf(PropTypes.object).isRequired,
   username: PropTypes.string.isRequired,
-  prices: PropTypes.objectOf(PropTypes.string).isRequired,
+  prices: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
