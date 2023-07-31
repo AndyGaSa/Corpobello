@@ -190,7 +190,7 @@ export default function Home({ events, username, prices }) {
 
 export async function getServerSideProps({ req }) {
   const { data } = await axios.get('http://localhost:3000/api/eventsHandler');
-  const stripe = new Stripe(process.env.STRIPE_RESTRICTED_KEY, {
+  const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_RESTRICTED_KEY, {
     apiVersion: '2020-08-27',
   });
   const prices = await stripe.prices.list({

@@ -6,9 +6,7 @@ import { createCheckoutSession } from 'next-stripe/client';
 import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
 import useMediaQuery from 'use-media-antd-query';
-import {
-  Form, Input, Button, Select, Calendar, TimePicker,
-} from 'antd';
+import { Form, Input, Button, Select, Calendar, TimePicker } from 'antd';
 import moment from 'moment-business-days';
 import loadReserves from '../redux/actions/loadReserves';
 import styles from '../styles/Reserve.module.css';
@@ -21,7 +19,9 @@ export default function Reserves() {
   const [name, setName] = useState('');
   const [tel, setTel] = useState(0);
   const [email, setEmail] = useState('');
-  const [currentDay, setCurrentDay] = useState(moment(new Date()).format('YYYY-MM-DD'));
+  const [currentDay, setCurrentDay] = useState(
+    moment(new Date()).format('YYYY-MM-DD')
+  );
   const [disabledDates, setDisabledDates] = useState([]);
   const [service, setService] = useState('');
   const [personal, setPersonal] = useState('');
@@ -38,7 +38,9 @@ export default function Reserves() {
         payment_method_types: ['card'],
         mode: 'payment',
       });
-      const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
+      const stripe = await loadStripe(
+        process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY
+      );
       if (stripe) {
         stripe.redirectToCheckout({ sessionId: session.id });
       }
@@ -54,7 +56,11 @@ export default function Reserves() {
         service,
         personal,
       });
-      Notiflix.Report.success('Genial!', 'Se ha hecho tu reserva con exito!', 'Ok');
+      Notiflix.Report.success(
+        'Genial!',
+        'Se ha hecho tu reserva con exito!',
+        'Ok'
+      );
     } catch (error) {
       Notiflix.Report.failure('Error!', { error }, 'Ok');
     }
@@ -77,13 +83,17 @@ export default function Reserves() {
     return range(0, 8) + range(14, 15) + range(21, 24);
   }
   function disabledMinutes(h) {
-    const todayReserves = reserves?.find((reserve) => reserve?.day === currentDay);
-    const todayHours = todayReserves?.hoursAndMinutes?.map((
-      hours,
-    ) => Object?.entries(hours));
+    const todayReserves = reserves?.find(
+      (reserve) => reserve?.day === currentDay
+    );
+    const todayHours = todayReserves?.hoursAndMinutes?.map((hours) =>
+      Object?.entries(hours)
+    );
     const todayBlockedHours = todayHours?.filter((hour) => +hour[0][0] === h);
     let todayBlockedMinutes = todayBlockedHours?.map((mins) => mins[0][1][0]);
-    const todayBlockedMinutes2 = todayBlockedHours?.map((mins) => mins[0][1][1]);
+    const todayBlockedMinutes2 = todayBlockedHours?.map(
+      (mins) => mins[0][1][1]
+    );
     if (todayBlockedMinutes2?.length === 1) {
       todayBlockedMinutes = todayBlockedMinutes.concat(todayBlockedMinutes2);
     }
@@ -98,9 +108,17 @@ export default function Reserves() {
   }
   function disabledDate(current) {
     if (disabledDates?.length > 0) {
-      return disabledDates?.find((date) => date === moment(current).format('YYYY-MM-DD') || !moment(current.format('YYYY-MM-DD'), 'YYYY-MM-DD').isBusinessDay() || current.isBefore(moment()));
+      return disabledDates?.find(
+        (date) =>
+          date === moment(current).format('YYYY-MM-DD') ||
+          !moment(current.format('YYYY-MM-DD'), 'YYYY-MM-DD').isBusinessDay() ||
+          current.isBefore(moment())
+      );
     }
-    return !moment(current.format('YYYY-MM-DD'), 'YYYY-MM-DD').isBusinessDay() || current.isBefore(moment());
+    return (
+      !moment(current.format('YYYY-MM-DD'), 'YYYY-MM-DD').isBusinessDay() ||
+      current.isBefore(moment())
+    );
   }
   function getAndSetReserves() {
     dispatch(loadReserves());
@@ -116,7 +134,12 @@ export default function Reserves() {
     getAndSetReserves();
   }, []);
   useEffect(() => {
-    setScreenSize(colSize === 'xxl' || colSize === 'xl' || colSize === 'lg' || colSize === 'md');
+    setScreenSize(
+      colSize === 'xxl' ||
+        colSize === 'xl' ||
+        colSize === 'lg' ||
+        colSize === 'md'
+    );
   }, [colSize]);
   return (
     <section className={styles.ReservesBg}>
@@ -134,18 +157,28 @@ export default function Reserves() {
           <h2 className={styles.h2}>RESERVA YA</h2>
           <Form className={styles.ReservesForm}>
             <Form.Item name="nombre" rules={[{ required: true }]}>
-              <Input className={styles.ReserveInput} placeholder="Nombre y Apellidos" onChange={(event) => setName(event.target.value)} />
+              <Input
+                className={styles.ReserveInput}
+                placeholder="Nombre y Apellidos"
+                onChange={(event) => setName(event.target.value)}
+              />
             </Form.Item>
             <Form.Item name="telefono" rules={[{ required: true }]}>
-              <Input type="number" className={styles.ReserveInput} placeholder="Teléfono" onChange={(event) => setTel(event.target.value)} />
+              <Input
+                type="number"
+                className={styles.ReserveInput}
+                placeholder="Teléfono"
+                onChange={(event) => setTel(event.target.value)}
+              />
             </Form.Item>
             <Form.Item name="email" rules={[{ required: true }]}>
-              <Input className={styles.ReserveInput} placeholder="E-mail" onChange={(event) => setEmail(event.target.value)} />
+              <Input
+                className={styles.ReserveInput}
+                placeholder="E-mail"
+                onChange={(event) => setEmail(event.target.value)}
+              />
             </Form.Item>
-            <Form.Item
-              name="servicio"
-              rules={[{ required: true }]}
-            >
+            <Form.Item name="servicio" rules={[{ required: true }]}>
               <Select
                 aria-label="Service selector"
                 placeholder="Servicio"
@@ -156,10 +189,7 @@ export default function Reserves() {
                 <Option value="spa">Spa</Option>
               </Select>
             </Form.Item>
-            <Form.Item
-              name="personal"
-              rules={[{ required: true }]}
-            >
+            <Form.Item name="personal" rules={[{ required: true }]}>
               <Select
                 aria-label="Personal selector"
                 placeholder="Personal"
@@ -184,7 +214,11 @@ export default function Reserves() {
               hideDisabledOptions
             />
             <Form.Item>
-              <Button className={styles.ReserveButton} type="primary" onClick={() => sendReserve()}>
+              <Button
+                className={styles.ReserveButton}
+                type="primary"
+                onClick={() => sendReserve()}
+              >
                 RESERVAR
               </Button>
             </Form.Item>

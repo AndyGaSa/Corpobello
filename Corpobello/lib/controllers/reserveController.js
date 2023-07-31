@@ -79,19 +79,23 @@ export async function getCalendar(req, res) {
 export function getReservesAuthorized(req, res) {
   const { userEmail } = req.body;
   const { authorization } = req.headers;
-  verify(authorization, process.env.jwt_secret, async (err, decoded) => {
-    try {
-      if (!err && decoded) {
-        const foundReserve = await Reserve.find({ email: userEmail });
-        res.send(foundReserve);
-        return res.status(200);
+  verify(
+    authorization,
+    process.env.NEXT_PUBLIC_JWT_SECRET,
+    async (err, decoded) => {
+      try {
+        if (!err && decoded) {
+          const foundReserve = await Reserve.find({ email: userEmail });
+          res.send(foundReserve);
+          return res.status(200);
+        }
+        res.status(500).json({ message: 'Sorry you are not authenticated' });
+        return new Error('Bad authentication');
+      } catch (error) {
+        return handleError(error, res);
       }
-      res.status(500).json({ message: 'Sorry you are not authenticated' });
-      return new Error('Bad authentication');
-    } catch (error) {
-      return handleError(error, res);
     }
-  });
+  );
 }
 
 export async function deleteReserve(req, res) {
