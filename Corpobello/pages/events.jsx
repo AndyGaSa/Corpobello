@@ -63,7 +63,6 @@ export default function Events({ username, events }) {
 }
 
 export async function getServerSideProps({ req }) {
-  alert('test');
   const baseUrl = process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
     : 'http://localhost:3000';
