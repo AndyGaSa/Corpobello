@@ -1,7 +1,5 @@
 import connectDB from '../../config/mongoose.config';
-import {
-  createNewUser,
-} from '../../lib/controllers/userController';
+import { createNewUser } from '../../lib/controllers/userController';
 
 const signupHandler = async (req, res) => {
   if (req.method === 'POST') {
