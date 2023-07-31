@@ -17,7 +17,8 @@ import {
   FormControl,
   FormLabel,
   Button,
-  Avatar, IconButton,
+  Avatar,
+  IconButton,
 } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import styles from '../styles/UserForm.module.css';
@@ -50,7 +51,10 @@ export default function UserForm({ user, reserves }) {
       setImg(URL.createObjectURL(event.target.files[0]));
     }
   }
-  const descriptionPlaceholder = user && user?.description?.length > 0 ? user?.description : 'Comentanos aqui lo que necesites!';
+  const descriptionPlaceholder =
+    user && user?.description?.length > 0
+      ? user?.description
+      : 'Comentanos aqui lo que necesites!';
   const RadioHandleChange = (event) => {
     setRadioValue(event.target.value);
     if (event.target.value.length < 1) {
@@ -97,8 +101,14 @@ export default function UserForm({ user, reserves }) {
   }
   async function deleteReserve(reserveId) {
     try {
-      await axios.delete('http://localhost:3000/api/reserveHandler', { data: { reserveId } });
-      Notiflix.Report.success('Guardado!', 'Se ha borrado la reserva con exito!', 'Genial!');
+      await axios.delete('http://localhost:3000/api/reserveHandler', {
+        data: { reserveId },
+      });
+      Notiflix.Report.success(
+        'Guardado!',
+        'Se ha borrado la reserva con exito!',
+        'Genial!'
+      );
       router.reload(window.location.pathname);
     } catch (error) {
       Notiflix.Report.failure('Error!', { error }, 'Ok');
@@ -115,8 +125,12 @@ export default function UserForm({ user, reserves }) {
   useEffect(() => {
     (async function signupAndLogin() {
       try {
-        if (errorTitle === false && mailErrorTitle === false
-         && validateEmail(mailTitle) === true && sendClick > 1) {
+        if (
+          errorTitle === false &&
+          mailErrorTitle === false &&
+          validateEmail(mailTitle) === true &&
+          sendClick > 1
+        ) {
           await axios.put('http://localhost:3000/api/userHandler', {
             name: userTitle,
             email: mailTitle.toLowerCase(),
@@ -124,22 +138,40 @@ export default function UserForm({ user, reserves }) {
             image: profileImg,
             description,
           });
-          Notiflix.Report.success('Guardado!', 'Se han guardado tus cambios con exito!', 'Genial!');
+          Notiflix.Report.success(
+            'Guardado!',
+            'Se han guardado tus cambios con exito!',
+            'Genial!'
+          );
         }
       } catch (error) {
         Notiflix.Report.failure('Error!', { error }, 'Ok');
       }
-    }());
+    })();
   }, [sendClick]);
   return (
     <>
       <div className={styles.PortraitImg}>
         <div className="UserAvatarDiv">
-          <Avatar alt="User Profile Pic" src={profileImg} className={styles.UserAvatarImg} />
+          <Avatar
+            alt="User Profile Pic"
+            src={profileImg}
+            className={styles.UserAvatarImg}
+          />
           <div />
           <label htmlFor="icon-button-file" className={styles.editIconDiv}>
-            <input accept="image/*" className={styles.inputUpload} onChange={onImageChange} id="icon-button-file" type="file" />
-            <IconButton aria-label="upload picture" className={styles.iconButton} component="span">
+            <input
+              accept="image/*"
+              className={styles.inputUpload}
+              onChange={onImageChange}
+              id="icon-button-file"
+              type="file"
+            />
+            <IconButton
+              aria-label="upload picture"
+              className={styles.iconButton}
+              component="span"
+            >
               <EditIcon style={{ color: 'white' }} />
             </IconButton>
           </label>
@@ -153,7 +185,9 @@ export default function UserForm({ user, reserves }) {
               setUserTitle(event.target.value);
               if (userTitle.length > 30) {
                 setErrorTitle(true);
-                setLegend('El campo nombre no puede ser mas grande de 30 caracteres');
+                setLegend(
+                  'El campo nombre no puede ser mas grande de 30 caracteres'
+                );
               } else {
                 setErrorTitle(false);
                 setLegend('');
@@ -171,7 +205,9 @@ export default function UserForm({ user, reserves }) {
               setMailTitle(event.target.value);
               if (mailTitle.length > 30) {
                 setMailErrorTitle(true);
-                setMailLegend('El campo email no puede ser mas largo de 30 caracteres');
+                setMailLegend(
+                  'El campo email no puede ser mas largo de 30 caracteres'
+                );
               } else {
                 setMailErrorTitle(false);
                 setMailLegend('');
@@ -185,11 +221,34 @@ export default function UserForm({ user, reserves }) {
           />
         </div>
         <FormControl component="fieldset" error={RadioError}>
-          <FormLabel id={styles.RadioFormLabel} component="legend">Genero</FormLabel>
-          <RadioGroup aria-label="gender" id={styles.radioButtons} name="gender1" value={RadioValue} onChange={RadioHandleChange}>
-            <FormControlLabel className={styles.radioValues} value="female" control={<Radio />} label="Mujer" />
-            <FormControlLabel className={styles.radioValues} value="male" control={<Radio />} label="Hombre" />
-            <FormControlLabel className={styles.radioValues} value="unknown" control={<Radio />} label="Prefiero no decirlo" />
+          <FormLabel id={styles.RadioFormLabel} component="legend">
+            Genero
+          </FormLabel>
+          <RadioGroup
+            aria-label="gender"
+            id={styles.radioButtons}
+            name="gender1"
+            value={RadioValue}
+            onChange={RadioHandleChange}
+          >
+            <FormControlLabel
+              className={styles.radioValues}
+              value="female"
+              control={<Radio />}
+              label="Mujer"
+            />
+            <FormControlLabel
+              className={styles.radioValues}
+              value="male"
+              control={<Radio />}
+              label="Hombre"
+            />
+            <FormControlLabel
+              className={styles.radioValues}
+              value="unknown"
+              control={<Radio />}
+              label="Prefiero no decirlo"
+            />
             <FormHelperText>{RadioErrorText}</FormHelperText>
           </RadioGroup>
         </FormControl>
@@ -204,13 +263,28 @@ export default function UserForm({ user, reserves }) {
             />
           </div>
         </div>
-        <Button className={styles.formButton} variant="contained" onClick={() => checkValidation()} data-testid="saveButton">
+        <Button
+          className={styles.formButton}
+          variant="contained"
+          onClick={() => checkValidation()}
+          data-testid="saveButton"
+        >
           GUARDAR CAMBIOS
         </Button>
-        <Button className={styles.logoutButton} variant="contained" onClick={() => logout()} data-testid="saveButton">
+        <Button
+          className={styles.logoutButton}
+          variant="contained"
+          onClick={() => logout()}
+          data-testid="saveButton"
+        >
           CERRAR SESIÓN
         </Button>
-        <Button className={styles.formButton} variant="contained" onClick={() => handleOpen()} data-testid="saveButton">
+        <Button
+          className={styles.formButton}
+          variant="contained"
+          onClick={() => handleOpen()}
+          data-testid="saveButton"
+        >
           MODIFICAR RESERVAS
         </Button>
         <Modal
@@ -224,33 +298,19 @@ export default function UserForm({ user, reserves }) {
               {reserves?.map((reserve) => (
                 <li key={reserve._id} className={stylesEvents.serviceCardTwo}>
                   <div>
-                    <h3>
-                      Usuario:
-                      {' '}
-                      {reserve.name}
-                    </h3>
-                    <h2>
-                      Tel:
-                      {' '}
-                      {reserve.tel}
-                    </h2>
-                    <h4>
-                      Dia:
-                      {' '}
-                      {reserve.date.day}
-                    </h4>
-                    <h4>
-                      Hora:
-                      {' '}
-                      {reserve.date.hour}
-                    </h4>
-                    <p>
-                      Personal :
-                      {' '}
-                      {reserve.personal}
-                    </p>
+                    <h3>Usuario: {reserve.name}</h3>
+                    <h2>Tel: {reserve.tel}</h2>
+                    <h4>Dia: {reserve.date.day}</h4>
+                    <h4>Hora: {reserve.date.hour}</h4>
+                    <p>Personal : {reserve.personal}</p>
                     <Link href="/admin">
-                      <a href="replace" onClick={() => deleteReserve(reserve._id)}> ELIMINAR RESERVA</a>
+                      <a
+                        href="replace"
+                        onClick={() => deleteReserve(reserve._id)}
+                      >
+                        {' '}
+                        ELIMINAR RESERVA
+                      </a>
                     </Link>
                   </div>
                 </li>
@@ -260,7 +320,6 @@ export default function UserForm({ user, reserves }) {
         </Modal>
       </form>
     </>
-
   );
 }
 

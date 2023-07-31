@@ -1,6 +1,8 @@
 import User from '../models/userModel';
 import {
-  createNewUser, login, updateUser,
+  createNewUser,
+  login,
+  updateUser,
 } from '../lib/controllers/userController';
 import handleError from '../utils/handleError';
 

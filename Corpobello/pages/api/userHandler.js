@@ -1,7 +1,5 @@
 import connectDB from '../../config/mongoose.config';
-import {
-  login, updateUser,
-} from '../../lib/controllers/userController';
+import { login, updateUser } from '../../lib/controllers/userController';
 
 const userHandler = async (req, res) => {
   switch (req.method) {

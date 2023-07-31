@@ -1,6 +1,9 @@
 import connectDB from '../../config/mongoose.config';
 import {
-  getCalendar, getReserves, deleteReserve, updateReserve,
+  getCalendar,
+  getReserves,
+  deleteReserve,
+  updateReserve,
 } from '../../lib/controllers/reserveController';
 
 const reserveHandlerUser = async (req, res) => {

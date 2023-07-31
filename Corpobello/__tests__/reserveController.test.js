@@ -2,7 +2,10 @@ import { verify } from 'jsonwebtoken';
 import Reserve from '../models/reserveModel';
 import handleError from '../utils/handleError';
 import {
-  createNewReserve, getReserves, deleteReserve, updateReserve,
+  createNewReserve,
+  getReserves,
+  deleteReserve,
+  updateReserve,
 } from '../lib/controllers/reserveController';
 
 jest.mock('jsonwebtoken', () => ({

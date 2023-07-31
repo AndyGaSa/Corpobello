@@ -1,9 +1,6 @@
 import actionTypes from '../actions/actionTypes';
 
-export default function reservesReducer(
-  reserves = {},
-  action,
-) {
+export default function reservesReducer(reserves = {}, action) {
   let reservesResult = reserves;
   switch (action?.type) {
     case actionTypes?.LOAD_RESERVES:

@@ -1,6 +1,10 @@
 import Event from '../models/eventsModel';
 import handleError from '../utils/handleError';
-import { createEvent, getEvent, deleteEvent } from '../lib/controllers/eventsController';
+import {
+  createEvent,
+  getEvent,
+  deleteEvent,
+} from '../lib/controllers/eventsController';
 
 jest.mock('mongoose', () => ({
   ...jest.requireActual('mongoose'),
