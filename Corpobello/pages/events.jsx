@@ -63,7 +63,10 @@ export default function Events({ username, events }) {
 }
 
 export async function getServerSideProps({ req }) {
-  const events = await axios.get('http://localhost:3000/api/eventsHandler');
+  const baseUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : 'http://localhost:3000';
+  const events = await axios.get(`${baseUrl}/api/eventsHandler`);
   return {
     props: {
       username: req.cookies.username || 'undefined',
