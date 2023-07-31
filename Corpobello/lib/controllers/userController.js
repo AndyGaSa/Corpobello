@@ -46,7 +46,7 @@ export async function login(req, res) {
         async (err, result) => {
           if (!err && result) {
             const data = { sub: _id, email };
-            const jwt = await sign(data, process.env.NEXT_JWT_SECRET, {
+            const jwt = await sign(data, process.env.NEXT_PUBLIC_JWT_SECRET, {
               expiresIn: '8h',
             });
             res.setHeader('Set-Cookie', [
