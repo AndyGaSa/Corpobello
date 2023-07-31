@@ -209,7 +209,10 @@ export default function Home({ events, username, prices }) {
 }
 
 export async function getServerSideProps({ req }) {
-  const { data } = await axios.get('http://localhost:3000/api/eventsHandler');
+  const baseUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : 'http://localhost:3000';
+  const { data } = await axios.get(`${baseUrl}/api/eventsHandler`);
   const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_RESTRICTED_KEY, {
     apiVersion: '2020-08-27',
   });
