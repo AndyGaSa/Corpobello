@@ -1,5 +1,9 @@
 import connectDB from '../../config/mongoose.config';
-import { createEvent, deleteEvent, getEvent } from '../../lib/controllers/eventsController';
+import {
+  createEvent,
+  deleteEvent,
+  getEvent,
+} from '../../lib/controllers/eventsController';
 
 const eventHandler = async (req, res) => {
   switch (req.method) {

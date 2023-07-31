@@ -12,12 +12,24 @@ export default function Events({ username, events }) {
     <>
       <Head>
         <title>Corpobello - Eventos</title>
-        <meta name="description" content="Tu centro de estetica y peluqueria de confianza en Badalona" />
-        <link rel="icon" href="https://i.ibb.co/3Ryht66/Corpobello-Logo-Corto.png" />
+        <meta
+          name="description"
+          content="Tu centro de estetica y peluqueria de confianza en Badalona"
+        />
+        <link
+          rel="icon"
+          href="https://i.ibb.co/3Ryht66/Corpobello-Logo-Corto.png"
+        />
         <meta charset="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-        <meta name="keywords" content="Estetica Belleza Peluqueria Salon Masajes Masaje Spa Badalona" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <meta
+          name="keywords"
+          content="Estetica Belleza Peluqueria Salon Masajes Masaje Spa Badalona"
+        />
 
         <link rel="manifest" href="/manifest.webmanifest" />
 
@@ -36,9 +48,7 @@ export default function Events({ username, events }) {
                 <div>
                   <h3>{event.title.toUpperCase()}</h3>
                   <h4>{event.date}</h4>
-                  <p>
-                    {event.description}
-                  </p>
+                  <p>{event.description}</p>
                   <Link href="/events">
                     <a href="replace"> CUENTAME MAS</a>
                   </Link>
@@ -47,18 +57,17 @@ export default function Events({ username, events }) {
             ))}
           </ul>
         </section>
-
       </main>
     </>
   );
 }
 
 export async function getServerSideProps({ req }) {
-  const { data } = await axios.get('http://localhost:3000/api/eventsHandler');
+  const events = await axios.get('http://localhost:3000/api/eventsHandler');
   return {
     props: {
       username: req.cookies.username || 'undefined',
-      events: data,
+      events: events.data,
     },
   };
 }
