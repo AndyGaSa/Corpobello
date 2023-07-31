@@ -18,28 +18,16 @@ export default function Home({ events, username, prices }) {
     <>
       <Head>
         <title>Corpobello</title>
-        <meta
-          name="description"
-          content="Tu centro de estetica y peluqueria de confianza en Badalona"
-        />
+        <meta name="description" content="Tu centro de estetica y peluqueria de confianza en Badalona" />
         <meta charset="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta
-          name="viewport"
-          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
-        />
-        <meta
-          name="keywords"
-          content="Estetica Belleza Peluqueria Salon Masajes Masaje Spa Badalona"
-        />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <meta name="keywords" content="Estetica Belleza Peluqueria Salon Masajes Masaje Spa Badalona" />
 
         <link rel="manifest" href="/manifest.webmanifest" />
 
         <meta name="theme-color" content="#417505" />
-        <link
-          rel="icon"
-          href="https://i.ibb.co/3Ryht66/Corpobello-Logo-Corto.png"
-        />
+        <link rel="icon" href="https://i.ibb.co/3Ryht66/Corpobello-Logo-Corto.png" />
       </Head>
       <Header username={username} />
       <main>
@@ -53,9 +41,9 @@ export default function Home({ events, username, prices }) {
             </h2>
             <p>
               Alimentando dentro de sí mismas el deseo de preservar la belleza
-              eterna de la piel de las mujeres vietnamitas, no solo se ganan la
-              confianza de los clientes gracias a un equipo profesional, sino
-              que también brindan soluciones y tecnologías líderes transferidas
+              eterna de la piel de las mujeres vietnamitas,
+              no solo se ganan la confianza de los clientes gracias a un equipo profesional,
+              sino que también brindan soluciones y tecnologías líderes transferidas
               desde países extranjeros hasta los estándares internacionales
             </p>
             <Link href="/reserves">
@@ -64,11 +52,7 @@ export default function Home({ events, username, prices }) {
             <div className={styles.arrowbounce}>
               <Link href="#services">
                 <a href="replace">
-                  <Image
-                    src={downArrow}
-                    className={styles.arrowDown}
-                    alt="Arrow Down"
-                  />
+                  <Image src={downArrow} className={styles.arrowDown} alt="Arrow Down" />
                 </a>
               </Link>
             </div>
@@ -84,8 +68,8 @@ export default function Home({ events, username, prices }) {
                 <h3>MASAJES</h3>
                 <h4>CUIDAMOS TU PELO</h4>
                 <p>
-                  Blanquea, desvanece la oscuridad, previene hongos / pecas y
-                  rejuvenece la piel con propiedades de vitamina C pura
+                  Blanquea, desvanece la oscuridad, previene hongos / pecas y rejuvenece
+                  la piel con propiedades de vitamina C pura
                 </p>
                 <Link href="/services">
                   <a href="replace"> CUENTAME MAS</a>
@@ -97,8 +81,8 @@ export default function Home({ events, username, prices }) {
                 <h3>PELUQUERIA</h3>
                 <h4>CUIDAMOS TU PELO</h4>
                 <p>
-                  Blanquea, desvanece la oscuridad, previene hongos / pecas y
-                  rejuvenece la piel con propiedades de vitamina C pura
+                  Blanquea, desvanece la oscuridad, previene hongos / pecas y rejuvenece
+                  la piel con propiedades de vitamina C pura
                 </p>
                 <Link href="/services">
                   <a href="replace"> CUENTAME MAS</a>
@@ -110,8 +94,8 @@ export default function Home({ events, username, prices }) {
                 <h3>SPA</h3>
                 <h4>CUIDAMOS TU PELO</h4>
                 <p>
-                  Blanquea, desvanece la oscuridad, previene hongos / pecas y
-                  rejuvenece la piel con propiedades de vitamina C pura
+                  Blanquea, desvanece la oscuridad, previene hongos / pecas y rejuvenece
+                  la piel con propiedades de vitamina C pura
                 </p>
                 <Link href="/services">
                   <a href="replace"> CUENTAME MAS</a>
@@ -135,7 +119,9 @@ export default function Home({ events, username, prices }) {
                 <div>
                   <h3>{event.title.toUpperCase()}</h3>
                   <h4>{event.date}</h4>
-                  <p>{event.description}</p>
+                  <p>
+                    {event.description}
+                  </p>
                   <Link href="/events">
                     <a href="replace"> CUENTAME MAS</a>
                   </Link>
@@ -161,43 +147,36 @@ export default function Home({ events, username, prices }) {
         <section className={styles.ourEmployeesBg} id="services">
           <div className={styles.ourEmployees}>
             <h3>CORPOBELLO</h3>
-            <h2>CONOCE A NUESTRO EQUIPO</h2>
+            <h2>
+              CONOCE A
+              NUESTRO EQUIPO
+            </h2>
             <ul className={styles.employeesCard}>
               <li>
                 <div className={styles.employeesAvatarDiv}>
-                  <Image
-                    src={Peluquera}
-                    className={styles.employeesAvatar}
-                    alt="Peluqueria"
-                    layout="fill"
-                  />
+                  <Image src={Peluquera} className={styles.employeesAvatar} alt="Peluqueria" layout="fill" />
                 </div>
                 <div>
                   <h3>ALICIA LÓPEZ</h3>
                   <h4>Peluqueria</h4>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Ipsam, sunt iure vitae alias quia hic voluptates, maxime
-                    nesciunt consequuntur.
+                    Ipsam, sunt iure vitae alias quia hic voluptates,
+                    maxime nesciunt consequuntur.
                   </p>
                 </div>
               </li>
               <li>
                 <div className={styles.employeesAvatarDiv}>
-                  <Image
-                    src={Masajista}
-                    className={styles.employeesAvatar}
-                    alt="Peluqueria"
-                    layout="fill"
-                  />
+                  <Image src={Masajista} className={styles.employeesAvatar} alt="Peluqueria" layout="fill" />
                 </div>
                 <div>
                   <h3>MARISOL SANCHEZ </h3>
                   <h4>Masajes y Estetica</h4>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Ipsam, sunt iure vitae alias quia hic voluptates, maxime
-                    nesciunt consequuntur.
+                    Ipsam, sunt iure vitae alias quia hic voluptates,
+                    maxime nesciunt consequuntur.
                   </p>
                 </div>
               </li>
@@ -211,7 +190,7 @@ export default function Home({ events, username, prices }) {
 
 export async function getServerSideProps({ req }) {
   const { data } = await axios.get('http://localhost:3000/api/eventsHandler');
-  const stripe = new Stripe(process.env.NEXT_STRIPE_RESTRICTED_KEY, {
+  const stripe = new Stripe(process.env.STRIPE_RESTRICTED_KEY, {
     apiVersion: '2020-08-27',
   });
   const prices = await stripe.prices.list({
