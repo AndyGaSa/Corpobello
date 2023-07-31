@@ -11,24 +11,12 @@ export default function ReservesPage({ username, prices }) {
     <>
       <Head>
         <title>Corpobello -Reservas</title>
-        <meta
-          name="description"
-          content="Tu centro de estetica y peluqueria de confianza en Badalona"
-        />
-        <link
-          rel="icon"
-          href="https://i.ibb.co/3Ryht66/Corpobello-Logo-Corto.png"
-        />
+        <meta name="description" content="Tu centro de estetica y peluqueria de confianza en Badalona" />
+        <link rel="icon" href="https://i.ibb.co/3Ryht66/Corpobello-Logo-Corto.png" />
         <meta charset="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta
-          name="viewport"
-          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
-        />
-        <meta
-          name="keywords"
-          content="Estetica Belleza Peluqueria Salon Masajes Masaje Spa Badalona"
-        />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <meta name="keywords" content="Estetica Belleza Peluqueria Salon Masajes Masaje Spa Badalona" />
 
         <link rel="manifest" href="/manifest.webmanifest" />
 
@@ -56,10 +44,7 @@ export async function getServerSideProps({ req }) {
     expand: ['data.product'],
   });
   return {
-    props: {
-      username: req.cookies.username || 'undefined',
-      prices: prices.data,
-    },
+    props: { username: req.cookies.username || 'undefined', prices: prices.data },
   };
 }
 

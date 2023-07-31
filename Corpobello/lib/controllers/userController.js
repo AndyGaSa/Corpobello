@@ -73,7 +73,9 @@ export async function login(req, res) {
             message: 'Algo ha ido mal! Revisa tu usuario y contraseña...',
           });
         }
-      );
+        res.status(401);
+        return res.json({ message: 'Algo ha ido mal! Revisa tu usuario y contraseña...' });
+      });
       return true;
     } catch (error) {
       return handleError(error, res);
@@ -102,25 +104,24 @@ export async function updateUser(req, res) {
     const dataToUpdate = req.body;
     const findUser = await User.findOne({ email });
     const { _id } = findUser;
-    const updatedUser = await User.findByIdAndUpdate(_id, dataToUpdate, {
-      new: true,
-    });
-    res.setHeader('Set-Cookie', [
-      cookie.serialize('email', updatedUser.email, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV !== 'development',
-        maxAge: 60 * 60 * 60,
-        sameSite: 'strict',
-        path: '/',
-      }),
-      cookie.serialize('username', updatedUser.name, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV !== 'development',
-        maxAge: 60 * 60 * 60,
-        sameSite: 'strict',
-        path: '/',
-      }),
-    ]);
+    const updatedUser = await User.findByIdAndUpdate(
+      _id,
+      dataToUpdate,
+      { new: true },
+    );
+    res.setHeader('Set-Cookie', [cookie.serialize('email', updatedUser.email, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV !== 'development',
+      maxAge: 60 * 60 * 60,
+      sameSite: 'strict',
+      path: '/',
+    }), cookie.serialize('username', updatedUser.name, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV !== 'development',
+      maxAge: 60 * 60 * 60,
+      sameSite: 'strict',
+      path: '/',
+    })]);
     res.send(updatedUser);
     res.status(200);
   } catch (error) {
@@ -129,22 +130,19 @@ export async function updateUser(req, res) {
 }
 
 export function logout(req, res) {
-  res.setHeader('Set-Cookie', [
-    cookie.serialize('email', '', {
-      httpOnly: true,
-      secure: process.env.NODE_ENV !== 'development',
-      expires: new Date(0),
-      sameSite: 'strict',
-      path: '/',
-    }),
-    cookie.serialize('username', '', {
-      httpOnly: true,
-      secure: process.env.NODE_ENV !== 'development',
-      expires: new Date(0),
-      sameSite: 'strict',
-      path: '/',
-    }),
-  ]);
+  res.setHeader('Set-Cookie', [cookie.serialize('email', '', {
+    httpOnly: true,
+    secure: process.env.NODE_ENV !== 'development',
+    expires: new Date(0),
+    sameSite: 'strict',
+    path: '/',
+  }), cookie.serialize('username', '', {
+    httpOnly: true,
+    secure: process.env.NODE_ENV !== 'development',
+    expires: new Date(0),
+    sameSite: 'strict',
+    path: '/',
+  })]);
   res.statusCode = 200;
   res.json({ success: true });
 }
