@@ -3,15 +3,13 @@ import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import {
-  TextField,
-  Button,
-} from '@material-ui/core';
+import { TextField, Button } from '@material-ui/core';
 import Header from '../components/Header';
 import styles from '../styles/Signup.module.css';
 
 export default function Signup({ username }) {
   const router = useRouter();
+  console.log('🚀 ~ file: signup.jsx:15 ~ Signup ~ router:', router);
   const [errorStatus, setErrorStatus] = useState('');
   const [sendClick, setClicked] = useState(1);
   const [password, setPassword] = useState('');
@@ -62,32 +60,51 @@ export default function Signup({ username }) {
   useEffect(() => {
     (async function signupAndLogin() {
       try {
-        if (errorTitle === false && nameErrorTitle === false && mailErrorTitle === false
-         && validateEmail(mailTitle) === true) {
+        if (
+          errorTitle === false &&
+          nameErrorTitle === false &&
+          mailErrorTitle === false &&
+          validateEmail(mailTitle) === true
+        ) {
           await axios.post('http://localhost:3000/api/signup', {
             name,
             email: mailTitle.toLowerCase(),
             password,
           });
-          await axios.post('http://localhost:3000/api/userHandler', { email: mailTitle.toLowerCase(), password });
+          await axios.post('http://localhost:3000/api/userHandler', {
+            email: mailTitle.toLowerCase(),
+            password,
+          });
           router.push('/');
           setErrorStatus('');
         }
       } catch (error) {
         setErrorStatus('Ya existe un usuario con este mail...');
       }
-    }());
+    })();
   }, [sendClick]);
   return (
     <>
       <Head>
         <title>Corpobello - Signup</title>
-        <meta name="description" content="Tu centro de estetica y peluqueria de confianza en Badalona" />
-        <link rel="icon" href="https://i.ibb.co/3Ryht66/Corpobello-Logo-Corto.png" />
+        <meta
+          name="description"
+          content="Tu centro de estetica y peluqueria de confianza en Badalona"
+        />
+        <link
+          rel="icon"
+          href="https://i.ibb.co/3Ryht66/Corpobello-Logo-Corto.png"
+        />
         <meta charset="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-        <meta name="keywords" content="Estetica Belleza Peluqueria Salon Masajes Masaje Spa Badalona" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <meta
+          name="keywords"
+          content="Estetica Belleza Peluqueria Salon Masajes Masaje Spa Badalona"
+        />
 
         <link rel="manifest" href="/manifest.webmanifest" />
 
@@ -102,6 +119,10 @@ export default function Signup({ username }) {
               <br />
               Registrate y unete!
             </h1>
+            <p>route:{router.route}</p>
+            <p>basepath {router.basePath}</p>
+            <p>pathname {router.pathname}</p>
+            <p>aspath {router.asPath}</p>
             <form className={styles.form}>
               <TextField
                 autoComplete="current-password"
@@ -110,7 +131,9 @@ export default function Signup({ username }) {
                   setName(event.target.value);
                   if (name.length > 24) {
                     setNameErrorTitle(true);
-                    setNameLegend('El campo nombre no puede ser mas largo de 24 letras...');
+                    setNameLegend(
+                      'El campo nombre no puede ser mas largo de 24 letras...'
+                    );
                   } else {
                     setNameErrorTitle(false);
                     setNameLegend('');
@@ -129,7 +152,9 @@ export default function Signup({ username }) {
                   setMailTitle(event.target.value);
                   if (mailTitle.length > 50) {
                     setMailErrorTitle(true);
-                    setMailLegend('El campo e-mail no puede ser mas largo de 50 caracteres!');
+                    setMailLegend(
+                      'El campo e-mail no puede ser mas largo de 50 caracteres!'
+                    );
                   } else {
                     setMailErrorTitle(false);
                     setMailLegend('');
@@ -147,7 +172,9 @@ export default function Signup({ username }) {
                   setPassword(event.target.value);
                   if (password.length > 30) {
                     setPasswordErrorTitle(true);
-                    setPasswordLegend('La contraseña no puede ser mas larga de 30 caracteres!');
+                    setPasswordLegend(
+                      'La contraseña no puede ser mas larga de 30 caracteres!'
+                    );
                   } else {
                     setPasswordErrorTitle(false);
                     setPasswordLegend('');
