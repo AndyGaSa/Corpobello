@@ -77,7 +77,9 @@ export default function Header({ username }) {
   return (
     <header>
       <nav className={homeOrNot}>
-        <Image src={bigLogoCb} className="logo" alt="Logo" />
+        <Link href="/">
+          <Image src={bigLogoCb} className="logo" alt="Logo" />
+        </Link>
         <Link href="/">
           <a href="replace" className={`anchor ${allValues.home}`}>
             INICIO

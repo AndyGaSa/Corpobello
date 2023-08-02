@@ -59,7 +59,7 @@ header > .bigHeaderPink {
   align-items: center;
 }
 .logo {
-  width: 100px !important;
+  cursor: pointer;
 }
 .actualPage {
   text-decoration: none;
