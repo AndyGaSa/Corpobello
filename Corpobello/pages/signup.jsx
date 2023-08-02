@@ -9,7 +9,6 @@ import styles from '../styles/Signup.module.css';
 
 export default function Signup({ username }) {
   const router = useRouter();
-  console.log('🚀 ~ file: signup.jsx:15 ~ Signup ~ router:', router);
   const [errorStatus, setErrorStatus] = useState('');
   const [sendClick, setClicked] = useState(1);
   const [password, setPassword] = useState('');
@@ -66,12 +65,12 @@ export default function Signup({ username }) {
           mailErrorTitle === false &&
           validateEmail(mailTitle) === true
         ) {
-          await axios.post('http://localhost:3000/api/signup', {
+          await axios.post('/api/signup', {
             name,
             email: mailTitle.toLowerCase(),
             password,
           });
-          await axios.post('http://localhost:3000/api/userHandler', {
+          await axios.post('/api/userHandler', {
             email: mailTitle.toLowerCase(),
             password,
           });
@@ -119,10 +118,6 @@ export default function Signup({ username }) {
               <br />
               Registrate y unete!
             </h1>
-            <p>route:{router.route}</p>
-            <p>basepath {router.basePath}</p>
-            <p>pathname {router.pathname}</p>
-            <p>aspath {router.asPath}</p>
             <form className={styles.form}>
               <TextField
                 autoComplete="current-password"
