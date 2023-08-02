@@ -101,7 +101,7 @@ export default function UserForm({ user, reserves }) {
   }
   async function deleteReserve(reserveId) {
     try {
-      await axios.delete('http://localhost:3000/api/reserveHandler', {
+      await axios.delete('/api/reserveHandler', {
         data: { reserveId },
       });
       Notiflix.Report.success(
@@ -116,7 +116,7 @@ export default function UserForm({ user, reserves }) {
   }
   async function logout() {
     try {
-      await axios.get('http://localhost:3000/api/logout');
+      await axios.get('/api/logout');
       router.push('/');
     } catch (error) {
       Notiflix.Report.failure('Error!', { error }, 'Ok');
@@ -131,7 +131,7 @@ export default function UserForm({ user, reserves }) {
           validateEmail(mailTitle) === true &&
           sendClick > 1
         ) {
-          await axios.put('http://localhost:3000/api/userHandler', {
+          await axios.put('/api/userHandler', {
             name: userTitle,
             email: mailTitle.toLowerCase(),
             gender: RadioValue,

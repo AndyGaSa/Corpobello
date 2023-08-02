@@ -3,10 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Notiflix from 'notiflix';
 import axios from 'axios';
-import {
-  TextField,
-  Button,
-} from '@material-ui/core';
+import { TextField, Button } from '@material-ui/core';
 import Head from 'next/head';
 import Header from '../components/Header';
 import styles from '../styles/Login.module.css';
@@ -24,7 +21,11 @@ export default function Login({ username }) {
   const [mailErrorTitle, setMailErrorTitle] = useState(false);
   useEffect(() => {
     if (router.query.redirect) {
-      Notiflix.Report.info('Hola!', 'Parece que has intentado acceder a la pagina perfil sin estar logeado.\n\rLogeate primero para poder acceder a tu perfil!', 'Entendido');
+      Notiflix.Report.info(
+        'Hola!',
+        'Parece que has intentado acceder a la pagina perfil sin estar logeado.\n\rLogeate primero para poder acceder a tu perfil!',
+        'Entendido'
+      );
     }
   }, []);
   function validateEmail(email) {
@@ -34,7 +35,7 @@ export default function Login({ username }) {
   function checkValidation() {
     if (mailTitle.trim().length < 1) {
       setMailErrorTitle(true);
-      setMailLegend('Email can\'t be empty');
+      setMailLegend("Email can't be empty");
     } else if (!validateEmail(mailTitle)) {
       setMailErrorTitle(true);
       setMailLegend('Email not valid');
@@ -45,7 +46,7 @@ export default function Login({ username }) {
 
     if (password.trim().length < 1) {
       setPasswordErrorTitle(true);
-      setPasswordLegend('Password can\'t be empty');
+      setPasswordLegend("Password can't be empty");
     } else {
       setPasswordErrorTitle(false);
       setPasswordLegend('');
@@ -55,27 +56,45 @@ export default function Login({ username }) {
   useEffect(() => {
     (async function LoginWithApi() {
       try {
-        if (errorTitle === false && mailErrorTitle === false
-         && validateEmail(mailTitle) === true) {
-          await axios.post('http://localhost:3000/api/userHandler', { email: mailTitle?.toLowerCase(), password });
+        if (
+          errorTitle === false &&
+          mailErrorTitle === false &&
+          validateEmail(mailTitle) === true
+        ) {
+          await axios.post('/api/userHandler', {
+            email: mailTitle?.toLowerCase(),
+            password,
+          });
           router.push('/');
           setErrorStatus('');
         }
       } catch (error) {
         setErrorStatus(error?.response?.data?.message);
       }
-    }());
+    })();
   }, [sendClick]);
   return (
     <>
       <Head>
         <title>Corpobello - Login</title>
-        <meta name="description" content="Tu centro de estetica y peluqueria de confianza en Badalona" />
-        <link rel="icon" href="https://i.ibb.co/3Ryht66/Corpobello-Logo-Corto.png" />
+        <meta
+          name="description"
+          content="Tu centro de estetica y peluqueria de confianza en Badalona"
+        />
+        <link
+          rel="icon"
+          href="https://i.ibb.co/3Ryht66/Corpobello-Logo-Corto.png"
+        />
         <meta charset="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-        <meta name="keywords" content="Estetica Belleza Peluqueria Salon Masajes Masaje Spa Badalona" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <meta
+          name="keywords"
+          content="Estetica Belleza Peluqueria Salon Masajes Masaje Spa Badalona"
+        />
 
         <link rel="manifest" href="/manifest.webmanifest" />
 
@@ -98,7 +117,7 @@ export default function Login({ username }) {
                   setMailTitle(event.target.value);
                   if (mailTitle.length > 24) {
                     setMailErrorTitle(true);
-                    setMailLegend('Can\'t be longer than 24 characters');
+                    setMailLegend("Can't be longer than 24 characters");
                   } else {
                     setMailErrorTitle(false);
                     setMailLegend('');
@@ -117,7 +136,7 @@ export default function Login({ username }) {
                   setPassword(event.target.value);
                   if (password.length > 20) {
                     setPasswordErrorTitle(true);
-                    setPasswordLegend('Can\'t be longer than 20 characters');
+                    setPasswordLegend("Can't be longer than 20 characters");
                   } else {
                     setPasswordErrorTitle(false);
                     setPasswordLegend('');
@@ -129,14 +148,18 @@ export default function Login({ username }) {
                 helperText={legend}
                 variant="outlined"
               />
-              <Button variant="contained" onClick={() => checkValidation()} color="secondary">
+              <Button
+                variant="contained"
+                onClick={() => checkValidation()}
+                color="secondary"
+              >
                 Login
               </Button>
               <p className={styles.errorMessage}>{errorStatus}</p>
             </form>
             <span>
               No tienes una cuenta?
-              <a href="/signup">  Registrate</a>
+              <a href="/signup"> Registrate</a>
             </span>
           </section>
         </div>

@@ -44,7 +44,7 @@ export default function Reserves() {
       if (stripe) {
         stripe.redirectToCheckout({ sessionId: session.id });
       }
-      await axios.post('http://localhost:3000/api/reserveHandler', {
+      await axios.post('/api/reserveHandler', {
         name,
         date: {
           day: currentDay,

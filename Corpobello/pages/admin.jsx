@@ -14,8 +14,12 @@ export default function Admin({ username, reserves, events }) {
   const router = useRouter();
   async function deleteReserve(reserveId) {
     try {
-      await axios.delete('http://localhost:3000/api/reserveHandler', { data: { reserveId } });
-      Notiflix.Report.success('Guardado!', 'Se ha borrado la reserva con exito!', 'Genial!');
+      await axios.delete('/api/reserveHandler', { data: { reserveId } });
+      Notiflix.Report.success(
+        'Guardado!',
+        'Se ha borrado la reserva con exito!',
+        'Genial!'
+      );
       router.reload(window.location.pathname);
     } catch (error) {
       Notiflix.Report.failure('Error!', { error }, 'Ok');
@@ -23,8 +27,12 @@ export default function Admin({ username, reserves, events }) {
   }
   async function deleteEvent(eventId) {
     try {
-      await axios.delete('http://localhost:3000/api/eventsHandler', { data: { eventId } });
-      Notiflix.Report.success('Guardado!', 'Se ha borrado el evento con exito!', 'Genial!');
+      await axios.delete('/api/eventsHandler', { data: { eventId } });
+      Notiflix.Report.success(
+        'Guardado!',
+        'Se ha borrado el evento con exito!',
+        'Genial!'
+      );
       router.reload(window.location.pathname);
     } catch (error) {
       Notiflix.Report.failure('Error!', { error }, 'Ok');
@@ -34,12 +42,24 @@ export default function Admin({ username, reserves, events }) {
     <>
       <Head>
         <title>Corpobello - Eventos</title>
-        <meta name="description" content="Tu centro de estetica y peluqueria de confianza en Badalona" />
-        <link rel="icon" href="https://i.ibb.co/3Ryht66/Corpobello-Logo-Corto.png" />
+        <meta
+          name="description"
+          content="Tu centro de estetica y peluqueria de confianza en Badalona"
+        />
+        <link
+          rel="icon"
+          href="https://i.ibb.co/3Ryht66/Corpobello-Logo-Corto.png"
+        />
         <meta charset="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-        <meta name="keywords" content="Estetica Belleza Peluqueria Salon Masajes Masaje Spa Badalona" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <meta
+          name="keywords"
+          content="Estetica Belleza Peluqueria Salon Masajes Masaje Spa Badalona"
+        />
 
         <link rel="manifest" href="/manifest.webmanifest" />
 
@@ -57,33 +77,19 @@ export default function Admin({ username, reserves, events }) {
             {reserves?.map((reserve) => (
               <li key={reserve._id} className={styles.serviceCardOne}>
                 <div>
-                  <h3>
-                    Usuario:
-                    {' '}
-                    {reserve.name}
-                  </h3>
-                  <h2>
-                    Tel:
-                    {' '}
-                    {reserve.tel}
-                  </h2>
-                  <h4>
-                    Dia:
-                    {' '}
-                    {reserve.date.day}
-                  </h4>
-                  <h4>
-                    Hora:
-                    {' '}
-                    {reserve.date.hour}
-                  </h4>
-                  <p>
-                    Personal :
-                    {' '}
-                    {reserve.personal}
-                  </p>
+                  <h3>Usuario: {reserve.name}</h3>
+                  <h2>Tel: {reserve.tel}</h2>
+                  <h4>Dia: {reserve.date.day}</h4>
+                  <h4>Hora: {reserve.date.hour}</h4>
+                  <p>Personal : {reserve.personal}</p>
                   <Link href="/admin">
-                    <a href="replace" onClick={() => deleteReserve(reserve._id)}> ELIMINAR RESERVA</a>
+                    <a
+                      href="replace"
+                      onClick={() => deleteReserve(reserve._id)}
+                    >
+                      {' '}
+                      ELIMINAR RESERVA
+                    </a>
                   </Link>
                 </div>
               </li>
@@ -97,26 +103,29 @@ export default function Admin({ username, reserves, events }) {
                 <div>
                   <h3>{event.title.toUpperCase()}</h3>
                   <h4>{event.date}</h4>
-                  <p>
-                    {event.description}
-                  </p>
+                  <p>{event.description}</p>
                   <Link href="/admin">
-                    <a href="replace" onClick={() => deleteEvent(event._id)}> ELIMINAR EVENTO</a>
+                    <a href="replace" onClick={() => deleteEvent(event._id)}>
+                      {' '}
+                      ELIMINAR EVENTO
+                    </a>
                   </Link>
                 </div>
               </li>
             ))}
           </ul>
         </section>
-
       </main>
     </>
   );
 }
 
 export async function getServerSideProps({ req }) {
-  const { data } = await axios.get('http://localhost:3000/api/reserveHandler');
-  const events = await axios.get('http://localhost:3000/api/eventsHandler');
+  const baseUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : 'http://localhost:3000';
+  const { data } = await axios.get(`${baseUrl}/api/reserveHandler`);
+  const events = await axios.get(`${baseUrl}/api/eventsHandler`);
   return {
     props: {
       username: req.cookies.username || 'undefined',

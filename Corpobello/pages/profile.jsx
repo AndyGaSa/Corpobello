@@ -21,12 +21,24 @@ export default function Profile({ username, data, reserves }) {
     <>
       <Head>
         <title>Corpobello - Perfil</title>
-        <meta name="description" content="Tu centro de estetica y peluqueria de confianza en Badalona" />
-        <link rel="icon" href="https://i.ibb.co/3Ryht66/Corpobello-Logo-Corto.png" />
+        <meta
+          name="description"
+          content="Tu centro de estetica y peluqueria de confianza en Badalona"
+        />
+        <link
+          rel="icon"
+          href="https://i.ibb.co/3Ryht66/Corpobello-Logo-Corto.png"
+        />
         <meta charset="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-        <meta name="keywords" content="Estetica Belleza Peluqueria Salon Masajes Masaje Spa Badalona" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <meta
+          name="keywords"
+          content="Estetica Belleza Peluqueria Salon Masajes Masaje Spa Badalona"
+        />
 
         <link rel="manifest" href="/manifest.webmanifest" />
 
@@ -37,7 +49,11 @@ export default function Profile({ username, data, reserves }) {
         <section className={styles.UserContainer}>
           <div className={styles.UserInfoContainer}>
             <div />
-            <UserForm reserves={reserves} user={data} className={styles.UserForm} />
+            <UserForm
+              reserves={reserves}
+              user={data}
+              className={styles.UserForm}
+            />
           </div>
         </section>
       </main>
@@ -46,10 +62,15 @@ export default function Profile({ username, data, reserves }) {
 }
 
 export async function getServerSideProps({ req }) {
+  const baseUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : 'http://localhost:3000';
   const email = req.cookies.email || 'undefined';
   const username = req.cookies.username || 'undefined';
-  const reserves = await axios.post('http://localhost:3000/api/reserveHandlerUser', { email });
-  const { data } = await axios.post('http://localhost:3000/api/userHandler', { email });
+  const reserves = await axios.post(`${baseUrl}/api/reserveHandlerUser`, {
+    email,
+  });
+  const { data } = await axios.post(`${baseUrl}/api/userHandler`, { email });
   return {
     props: {
       data,
