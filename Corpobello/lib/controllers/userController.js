@@ -1,8 +1,8 @@
-const bcrypt = require('bcrypt');
-const cookie = require('cookie');
-const { sign } = require('jsonwebtoken');
-const User = require('../../models/userModel');
-const handleError = require('../../utils/handleError');
+import bcrypt from 'bcrypt';
+import cookie from 'cookie';
+import { sign } from 'jsonwebtoken';
+import User from '../../models/userModel';
+import handleError from '../../utils/handleError';
 
 async function createNewUser(req, res) {
   const { email } = req.body;
