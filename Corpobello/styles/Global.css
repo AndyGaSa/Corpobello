@@ -1,80 +1,88 @@
 html {
   scroll-behavior: smooth;
 }
-.MuiOutlinedInput-notchedOutline{
+.MuiOutlinedInput-notchedOutline {
   border-color: white !important;
 }
-.MuiOutlinedInput-input{
+.MuiOutlinedInput-input {
   color: white !important;
 }
-.MuiIconButton-label{
+.MuiIconButton-label {
   color: white;
 }
-.Mui-focused > fieldset{
+.Mui-focused > fieldset {
   border-color: green !important;
 }
 .Mui-focused {
-  color:  green !important;
+  color: green !important;
 }
-*, *::after, *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  .anchor{
-    font-family: 'Montserrat','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.25vw;
-    text-decoration: none;
-    font-weight: 500;
-    color: white;
-    padding: 0.521vw 1.302vw;
-  }
-  .anchor:hover{
-    color: tomato;
-  }
-  *{
-    font-family: 'Montserrat','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
-  header > .bigHeader{
-    position: absolute;
-    background: rgba(123, 122, 121, 0.8);
-    height: 13vh;
-    width: 100%;
-    display: flex;
-    padding: 0px 2.5vw ;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-  header > .bigHeaderPink{
-    background: #F5B3B7;
-    height: 13vh;
-    width: 100%;
-    display: flex;
-    padding: 0px 2.5vw ;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-.logo{
-    width: 100px !important;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.actualPage{
+.anchor {
+  font-family: 'Montserrat', 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+    sans-serif;
+  font-size: 1.25vw;
   text-decoration: none;
-  color: #BF4B4B;
-  background: #FFFFFF;
+  font-weight: 500;
+  color: white;
+  padding: 0.521vw 1.302vw;
+}
+.anchor:hover {
+  color: tomato;
+}
+* {
+  font-family: 'Montserrat', 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+    sans-serif;
+}
+header > .bigHeader {
+  position: absolute;
+  background: rgba(123, 122, 121, 0.8);
+  height: 13vh;
+  width: 100%;
+  display: flex;
+  padding: 0px 2.5vw;
+  justify-content: space-evenly;
+  align-items: center;
+}
+header > .bigHeaderPink {
+  background: #f5b3b7;
+  height: 13vh;
+  width: 100%;
+  display: flex;
+  padding: 0px 2.5vw;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.logo {
+  width: 100px !important;
+}
+.actualPage {
+  text-decoration: none;
+  color: #bf4b4b;
+  background: #ffffff;
   border-radius: 100px;
   padding: 10px 25px;
 }
 body::-webkit-scrollbar {
   width: 0.5vw;
 }
- 
+
 body::-webkit-scrollbar-track {
-  background-color: rgba(32, 41, 30 , 1);
+  background-color: rgba(32, 41, 30, 1);
 }
- 
+
 body::-webkit-scrollbar-thumb {
   border-radius: 5.208vw;
-  background-image: linear-gradient(180deg, rgba(123, 122, 121, 0.8) 0%, #445840 99%);
+  background-image: linear-gradient(
+    180deg,
+    rgba(123, 122, 121, 0.8) 0%,
+    #445840 99%
+  );
 }
 
 .mobile-menu {
@@ -90,7 +98,7 @@ body::-webkit-scrollbar-thumb {
   right: 0;
   z-index: 9999999;
 }
-.mobile-menu::after{
+.mobile-menu::after {
   background: rgba(123, 122, 121, 1);
 }
 .mobile-menuPink {
@@ -106,7 +114,7 @@ body::-webkit-scrollbar-thumb {
   right: 0;
   z-index: 9999999;
 }
-.mobile-menuPink::after{
+.mobile-menuPink::after {
   background: rgba(123, 122, 121, 1);
 }
 .mobile-menu__btn {
@@ -127,8 +135,9 @@ body::-webkit-scrollbar-thumb {
   height: 4px;
   transition: 0.4s;
 }
-.mobile-menu__icon::after, .mobile-menu__icon::before {
-  content: "";
+.mobile-menu__icon::after,
+.mobile-menu__icon::before {
+  content: '';
   display: block;
   position: absolute;
   background: rgba(255, 255, 255, 1);
@@ -146,8 +155,7 @@ body::-webkit-scrollbar-thumb {
   position: fixed;
   text-align: center;
   display: flex;
-  align-items: flex-start;
-  margin-top: 0.1vh;
+  align-items: stretch;
   justify-content: center;
   top: 13vh;
   left: 0;
@@ -158,24 +166,25 @@ body::-webkit-scrollbar-thumb {
   transition: 0.5s;
   transition-delay: 0.2s;
   overflow: hidden;
-  background-image: url("https://cdn.pixabay.com/photo/2018/11/11/09/30/dark-green-plant-3808354_1280.jpg");
+  background-image: url('https://cdn.pixabay.com/photo/2018/11/11/09/30/dark-green-plant-3808354_1280.jpg');
   background-size: cover;
   filter: grayscale(0.5);
 }
 .mobile-menu__list {
-  top:0px;
+  top: 0px;
   display: flex;
   flex-direction: column;
   transition: 0.5s;
   transition-delay: 0.5s;
   padding: 0px;
   margin: 0px;
-  
+  background-color: rgba(123, 122, 121, 0.4);
+  justify-content: space-evenly;
+  padding: 2vh 0px;
 }
 .mobile-menu__item {
   font-size: 26px;
-  background-color: rgba(123, 122, 121, 0.4);
-  height: 15vh;
+  height: auto;
   width: 100vw;
 }
 .mobile-menu__link {
@@ -195,13 +204,14 @@ body::-webkit-scrollbar-thumb {
   transition-delay: 0s;
 }
 .mobile-menu__checkbox:checked ~ .mobile-menu__container {
-  height: 100%;
+  height: calc(100% - 13vh);
   transition-delay: 0s;
 }
 .mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon {
   background: transparent;
 }
-.mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon::before, .mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon::after {
+.mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon::before,
+.mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon::after {
   top: 0;
 }
 .mobile-menu__checkbox:checked ~ .mobile-menu__btn .mobile-menu__icon::after {
@@ -212,69 +222,74 @@ body::-webkit-scrollbar-thumb {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
-.ant-form-item-control-input-content > .ant-select > .ant-select-selector{
+.ant-form-item-control-input-content > .ant-select > .ant-select-selector {
   padding: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
-  align-content:center;
+  align-content: center;
   border-radius: 10px;
-  
 }
-.ant-select-selection-placeholder{
-  color: #7B7A79;
+.ant-select-selection-placeholder {
+  color: #7b7a79;
   font-size: 1.5vw;
   overflow: visible;
 }
-.ant-form-item-control-input-content{
+.ant-form-item-control-input-content {
   display: flex;
   justify-content: center;
 }
-.ant-picker{
+.ant-picker {
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 20px;
 }
-.ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item{
-  color: black ;
+.ant-form-item-control-input-content
+  > .ant-select
+  > .ant-select-selector
+  > .ant-select-selection-item {
+  color: black;
   overflow: visible;
   font-size: 1.5vw;
 }
-.ant-picker-footer{
+.ant-picker-footer {
   display: none;
 }
 @media (max-width: 1950px) {
-  a{
+  a {
     font-size: 1.5vw;
   }
 }
 @media (max-width: 1350px) {
-  .ant-form-item-control-input-content > .ant-select > .ant-select-selector{
+  .ant-form-item-control-input-content > .ant-select > .ant-select-selector {
     padding: 40px;
   }
-  .ant-select-selection-placeholder{
+  .ant-select-selection-placeholder {
     font-size: 3.5vw;
   }
-  .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item{
+  .ant-form-item-control-input-content
+    > .ant-select
+    > .ant-select-selector
+    > .ant-select-selection-item {
     font-size: 3.5vw;
   }
-header > .bigHeader{
+  header > .bigHeader {
     display: none;
   }
-  .actualPage{
+  .actualPage {
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
     align-content: center;
-    font-size: 4vh; 
-    color: #BF4B4B;
+    font-size: 4vh;
+    color: #bf4b4b;
     margin-top: 2vh;
     width: 70%;
     background-color: white;
     padding: 10px 0px;
   }
-  .notActual{
+  .notActual {
     margin-top: 2vh;
     padding: 10px 0px;
     display: flex;
@@ -282,7 +297,7 @@ header > .bigHeader{
     justify-content: center;
     align-items: center;
     align-content: center;
-    font-size: 4vh; 
+    font-size: 4vh;
   }
   .mobile-menu {
     display: flex;
@@ -307,6 +322,6 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type=number] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
