@@ -52,11 +52,11 @@ export default function Home({ events, username, prices }) {
               LA ESTRELLA
             </h2>
             <p>
-              Alimentando dentro de sí mismas el deseo de preservar la belleza
-              eterna de la piel de las mujeres vietnamitas, no solo se ganan la
-              confianza de los clientes gracias a un equipo profesional, sino
-              que también brindan soluciones y tecnologías líderes transferidas
-              desde países extranjeros hasta los estándares internacionales
+              ¡Bienvenido/a a Corpobello, el lugar donde tu belleza brilla con
+              luz propia! Como centro de estética y peluquería situado en la
+              encantadora ciudad de Badalona, Barcelona, nos enorgullecemos en
+              ofrecerte una experiencia única y personalizada para que te
+              sientas como la estrella que eres.
             </p>
             <Link href="/reserves">
               <a href="replace">RESERVA YA</a>
@@ -84,8 +84,8 @@ export default function Home({ events, username, prices }) {
                 <h3>MASAJES</h3>
                 <h4>CUIDAMOS TU PELO</h4>
                 <p>
-                  Blanquea, desvanece la oscuridad, previene hongos / pecas y
-                  rejuvenece la piel con propiedades de vitamina C pura
+                  Nuestros masajistas te brindan una experiencia relajante y
+                  rejuvenecedora. ¡Descubre el bienestar en Corpobello!
                 </p>
                 <Link href="/services">
                   <a href="replace"> CUENTAME MAS</a>
@@ -97,8 +97,9 @@ export default function Home({ events, username, prices }) {
                 <h3>PELUQUERIA</h3>
                 <h4>CUIDAMOS TU PELO</h4>
                 <p>
-                  Blanquea, desvanece la oscuridad, previene hongos / pecas y
-                  rejuvenece la piel con propiedades de vitamina C pura
+                  Descubre un oasis de belleza. Nuestro equipo de talentosos
+                  estilistas realza tu estilo único con cortes y peinados
+                  personalizados.
                 </p>
                 <Link href="/services">
                   <a href="replace"> CUENTAME MAS</a>
@@ -110,8 +111,9 @@ export default function Home({ events, username, prices }) {
                 <h3>SPA</h3>
                 <h4>CUIDAMOS TU PELO</h4>
                 <p>
-                  Blanquea, desvanece la oscuridad, previene hongos / pecas y
-                  rejuvenece la piel con propiedades de vitamina C pura
+                  Relájate y renueva tus sentidos en nuestro spa. Disfruta de
+                  tratamientos de bienestar indulgentes y cuidadosamente
+                  diseñados.
                 </p>
                 <Link href="/services">
                   <a href="replace"> CUENTAME MAS</a>
@@ -172,12 +174,13 @@ export default function Home({ events, username, prices }) {
                   />
                 </div>
                 <div>
-                  <h3>ALICIA LÓPEZ</h3>
+                  <h3>TERESA</h3>
                   <h4>Peluqueria</h4>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Ipsam, sunt iure vitae alias quia hic voluptates, maxime
-                    nesciunt consequuntur.
+                    Con más de una década de experiencia, Teresa crea cortes y
+                    peinados que realzan tu belleza única. Su enfoque
+                    personalizado y calidez te harán sentir cómodo/a en cada
+                    visita.
                   </p>
                 </div>
               </li>
@@ -194,9 +197,10 @@ export default function Home({ events, username, prices }) {
                   <h3>MARISOL SANCHEZ </h3>
                   <h4>Masajes y Estetica</h4>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Ipsam, sunt iure vitae alias quia hic voluptates, maxime
-                    nesciunt consequuntur.
+                    Marisol ofrece masajes terapéuticos personalizados para
+                    liberar tensiones y revitalizar tu cuerpo. Su ambiente
+                    tranquilo te hará disfrutar de una experiencia relajante y
+                    renovadora.
                   </p>
                 </div>
               </li>

@@ -11,12 +11,24 @@ export default function Services({ username }) {
     <>
       <Head>
         <title>Corpobello - Servicios</title>
-        <meta name="description" content="Tu centro de estetica y peluqueria de confianza en Badalona" />
-        <link rel="icon" href="https://i.ibb.co/3Ryht66/Corpobello-Logo-Corto.png" />
+        <meta
+          name="description"
+          content="Tu centro de estetica y peluqueria de confianza en Badalona"
+        />
+        <link
+          rel="icon"
+          href="https://i.ibb.co/3Ryht66/Corpobello-Logo-Corto.png"
+        />
         <meta charset="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-        <meta name="keywords" content="Estetica Belleza Peluqueria Salon Masajes Masaje Spa Badalona" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <meta
+          name="keywords"
+          content="Estetica Belleza Peluqueria Salon Masajes Masaje Spa Badalona"
+        />
 
         <link rel="manifest" href="/manifest.webmanifest" />
 
@@ -35,8 +47,8 @@ export default function Services({ username }) {
                 <h3>MASAJES</h3>
                 <h4>CUIDAMOS TU PELO</h4>
                 <p>
-                  Blanquea, desvanece la oscuridad, previene hongos / pecas y rejuvenece
-                  la piel con propiedades de vitamina C pura
+                  Nuestros masajistas te brindan una experiencia relajante y
+                  rejuvenecedora. ¡Descubre el bienestar en Corpobello!
                 </p>
                 <Link href="/services">
                   <a href="replace"> CUENTAME MAS</a>
@@ -48,8 +60,9 @@ export default function Services({ username }) {
                 <h3>PELUQUERIA</h3>
                 <h4>CUIDAMOS TU PELO</h4>
                 <p>
-                  Blanquea, desvanece la oscuridad, previene hongos / pecas y rejuvenece
-                  la piel con propiedades de vitamina C pura
+                  Descubre un oasis de belleza. Nuestro equipo de talentosos
+                  estilistas realza tu estilo único con cortes y peinados
+                  personalizados.
                 </p>
                 <Link href="/services">
                   <a href="replace"> CUENTAME MAS</a>
@@ -61,8 +74,9 @@ export default function Services({ username }) {
                 <h3>SPA</h3>
                 <h4>CUIDAMOS TU PELO</h4>
                 <p>
-                  Blanquea, desvanece la oscuridad, previene hongos / pecas y rejuvenece
-                  la piel con propiedades de vitamina C pura
+                  Relájate y renueva tus sentidos en nuestro spa. Disfruta de
+                  tratamientos de bienestar indulgentes y cuidadosamente
+                  diseñados.
                 </p>
                 <Link href="/services">
                   <a href="replace"> CUENTAME MAS</a>
